@@ -59,3 +59,44 @@ And its response
 #### Match making
 
 The match making rule of this app is not the same as the in-game match making system. Instead of solely matching player based on their competitive rank. Users of this website can customize their team, picking other users that can play specific heros or role(Offense, Defense, Support, or Tank). Other users who care less about team composition can select a list of Heros they like to play and be match into a team.
+
+## Will Accomplish over the Weekend
++ Learn MERN stack (everyone)
++ Research Websocket (TBD)
++ Research Blizzard OAuth API (TBD)
++ Complete MongoDB tutorial and create schema (TBD)
+
+## Group Members &  Work Breakdown
+**Hsuanchen Wan**, **Danny Peng**, **Yu-Jen Chang**
+
+#### Day 1
++ Parse documentation and tutorials for MERN stack
+  + MongoDB (TBD)
+  + Express (TBD)
+  + Node (TBD)
++ Begin setting up respective parts of the stack
++ Design overall layout
+
+#### Day 2
++ Begin implementation of Blizzard Auth
++ Start building container/forms/component of the home page
++ Make sure backend routing and api requesting works
+
+#### Day 3
++ Rendering font end pages including team matching form
++ Start working on websocket for live messaging system
++ Implementing matchmaking algorithm
+
+#### Day 4
++ Seed data
++ Implement Overwatch account data api
++ Fully testing out the functionality of team matching
+
+#### Day 5
++ Continue testing
++ Finish CSS styling layout
+
+#### Day 6
++ Push to Heroku
++ Create README
++ Improve styling if needed (last minute todos...)
