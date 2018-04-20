@@ -15,10 +15,11 @@ Frontend: React, Redux, JavaScript
 #### Battle.net OAuth 2.0 API
 https://dev.battle.net/docs/read/oauth
 
-By using OAuth, we can let Blizzard handle the authentication process and receive a unique ID representing that user, then use an access token to gain access to allowed resources like their Overwatch Battle tags, most frequently used Heros, and competitive rank.
+By using OAuth, we can let Blizzard handle the authentication process and receive a unique ID representing that user, then use an access token to gain access to allowed resources like their Overwatch Battle tags.
 
+#### Overwatch account data API
 
-Currently Overwatch team at Blizzard don't provide any official api to pull user data. But there are unofficial overwatch api like [OW API](https://github.com/Fuyukai/OWAPI)
+Currently Overwatch team at Blizzard does provide API to pull overwatch hero data(like most frequently used Heros, and competitive rank), but they are undocumented. But there are unofficial overwatch api like [OW API](https://github.com/Fuyukai/OWAPI) we can use.
 
 Here is an example of such API request
 ```
@@ -53,3 +54,7 @@ And its response
   "star": "https://d1u1mce87gyfbn.cloudfront.net/game/playerlevelrewards/0x0250000000000971_Rank.png"
 }
 ```
+
+#### Match making
+
+The match making rule of this app is not the same as the in-game match making system. Instead of solely matching player based on their competitive rank. Users of this website can customize their team, picking other users that can play specific heros or role(Offense, Defense, Support, or Tank). Other users who care less about team composition can select a list of Heros they like to play and be match into a team.
