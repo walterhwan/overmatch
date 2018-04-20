@@ -11,8 +11,13 @@ In Overwatch, there are many characters with different roles in following catego
 
 Backend: MongoDB, Express.js, Node.js
 Frontend: React, Redux, JavaScript
+Messaging share system: Websocket
 
 #### Battle.net OAuth 2.0 API
 https://dev.battle.net/docs/read/oauth
 
 By using OAuth, we can let Blizzard handle the authentication process and receive a unique ID representing that user, then use an access token to gain access to allowed resources like their Overwatch Battle tags, most frequently used Heros, and competitive rank.
+
+## Accomplished over the Weekend
+
+## Group Members & Work Breakdown
