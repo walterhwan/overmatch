@@ -60,6 +60,22 @@ And its response
 
 The match making rule of this app is not the same as the in-game match making system. Instead of solely matching player based on their competitive rank. Users of this website can customize their team, picking other users that can play specific heros or role(Offense, Defense, Support, or Tank). Other users who care less about team composition can select a list of Heros they like to play and be match into a team.
 
+## MVP
+1. Blizzard OAuth, getting the user data
+2. Team matchmaking
+3. Displaying overwatch account data
+4. Websocket teach chat system
+5. Create thorough documentation with gif for demo purpose
+6. Host on Heroku
+
+## WIREFRAMES
+#### Splash
+![Login Page ](https://github.com/walterhwan/overmatch/blob/master/wireframes/splash.png)
+
+#### Home page
+![Home page](https://github.com/walterhwan/overmatch/blob/master/wireframes/OM-Homepage.png)
+
+
 ## Will Accomplish over the Weekend
 + Learn MERN stack (everyone)
 + Research Websocket (TBD)
