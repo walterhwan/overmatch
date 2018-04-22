@@ -75,6 +75,10 @@ The match making rule of this app is not the same as the in-game match making sy
 #### Home page
 ![Home page](https://github.com/walterhwan/overmatch/blob/master/wireframes/OM-Homepage.png)
 
+#### Team page
+![Home page](https://github.com/walterhwan/overmatch/blob/master/wireframes/overmatch_team_form.png)
+
+<!-- TODO: Add a Privacy Policy Page as described in https://dev.battle.net/policy -->
 
 ## Will Accomplish over the Weekend
 + Learn MERN stack (everyone)

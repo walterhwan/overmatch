@@ -9,12 +9,11 @@ var bodyParser = require('body-parser');
 var app = express();
 var router = express.Router();
 
-var bodyParser = require('body-parser');
 let User = require('./model/users');
 
 
 //set our port to either a predetermined port number if you have set it up, or 3001
-var port = process.env.API_PORT || 3001;
+var port = process.env.API_PORT || 8080;
 
 // db config, we setup test db
 var mongoDB = 'mongodb+srv://appacademy:hacker12@cluster0-gahbk.mongodb.net/overmatchDataBase';
