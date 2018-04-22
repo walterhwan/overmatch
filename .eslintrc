@@ -20,6 +20,7 @@
     "mocha": true
   },
   "rules": {
+    "no-unused-vars": 'off',
     "no-console": 'off',
     "comma-dangle": [1, "always-multiline"],
     "no-underscore-dangle" : 0,
