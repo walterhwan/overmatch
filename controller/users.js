@@ -23,9 +23,10 @@ exports.apiPOST = function(req, res) {
   assert.equal(erorr.errors['username'].message,
   'Missing username');
 
+  // TODO: add necessary validation later
+  user.level = req.body.level;
 
   user.team_id = req.body.team_id;
-  user.level = req.body.level;
   // console.log(req.body);
   user.save(function(err) {
 

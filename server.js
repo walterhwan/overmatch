@@ -11,6 +11,7 @@ var router = express.Router();
 
 // let User = require('./model/users');
 var userRouter = require("./route/users");
+var teamRouter = require("./route/teams");
 
 //set our port to either a predetermined port number if you have set it up, or 3001, in this case we use localhost:8080/api
 var port = process.env.API_PORT || 8080;
@@ -42,42 +43,10 @@ router.get('/', function(req, res) {
   res.json({ message: 'OM API Initialized!!!'});
 });
 
-// Comment this  out for now, we separate route and controller to different folder
-// //adding the /users route to our /api router
-// router.route('/users')
-//   //retrieve all users from the database
-//   .get(function(req, res) {
-//     //looks at our User Schema
-//     User.find(function(err, users) {
-//       if (err) {
-//         res.send(err);
-//       }
-//       //responds with a json object of our database users.
-//       res.json(users);
-//     });
-//   })
-//
-//   //post new user to the database
-//   .post(function(req, res) {
-//     var user = new User();
-//     //body parser lets us use the req.body
-//     // For now, only save username and level, might need to add more later
-//     user.username = req.body.username;
-//     user.team_id = req.body.team_id;
-//     user.level = req.body.level;
-//     // console.log(req.body);
-//     user.save(function(err) {
-//       if (err) {
-//         res.send(err);
-//       }
-//       res.json({ message: 'User successfully added!'});
-//     });
-//   });
-
-
 //Use our router configuration when we call /api
 app.use('/api', router);  // /api
 app.use('/api', userRouter);  // /api/users
+app.use('/api', teamRouter);  // /api/teams
 
 //starts the server and listens for requests
 app.listen(port, function() {
