@@ -8,7 +8,10 @@ var Schema = mongoose.Schema;
 //create new instance of the mongoose.schema. the schema takes an object that shows
 //the shape of your database entries.
 var UsersSchema = new Schema({
-  username: String,
+  username: {
+    type: String,
+    required: [true, "Missing username"]
+  },
   level: Number,
   team_id: Number
   // below are state shapes for users based on our README, commented out for now
