@@ -93,32 +93,32 @@ The match making rule of this app is not the same as the in-game match making sy
 
 #### Day 1
 + Parse documentation and tutorials for MERN stack
-  + MongoDB (TBD)
-  + Express (TBD)
-  + Node (TBD)
-+ Begin setting up respective parts of the stack
-+ Design overall layout
+  + MongoDB (Danny)
+  + Express (Danny)
+  + Node (Yu-Jen)
++ Begin setting up respective parts of the stack (Hsuanchen)
++ Design overall layout (Yu-Jen)
 
 #### Day 2
-+ Begin implementation of Blizzard Auth
-+ Start building container/forms/component of the home page
-+ Make sure backend routing and api requesting works
++ Begin implementation of Blizzard Auth (Danny)
++ Start building container/forms/component of the home page (Hsuanchen)
++ Make sure backend routing and api requesting works (Yu-Jen)
 
 #### Day 3
-+ Rendering font end pages including team matching form
-+ Start working on websocket for live messaging system
-+ Implementing matchmaking algorithm
++ Rendering font end pages including team matching form (Yu-Jen)
++ Start working on websocket for live messaging system (Danny)
++ Implementing matchmaking algorithm (Hsuanchen)
 
 #### Day 4
-+ Seed data
-+ Implement Overwatch account data api
-+ Fully testing out the functionality of team matching
++ Seed data (Yu-Jen)
++ Implement Overwatch account data api (Danny)
++ Fully testing out the functionality of team matching (Hsuanchen)
 
 #### Day 5
-+ Continue testing
-+ Finish CSS styling layout
++ Continue testing (Yu-Jen)
++ Finish CSS styling layout (Danny, Hsuanchen)
 
 #### Day 6
-+ Push to Heroku
-+ Create README
-+ Improve styling if needed (last minute todos...)
++ Push to Heroku (Hsuanchen)
++ Create README (Yu-Jen)
++ Improve styling if needed (last minute todos...) (Yu-Jen)
