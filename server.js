@@ -12,7 +12,7 @@ var router = express.Router();
 let User = require('./model/users');
 
 
-//set our port to either a predetermined port number if you have set it up, or 3001
+//set our port to either a predetermined port number if you have set it up, or 3001, in this case we use localhost:8080/api
 var port = process.env.API_PORT || 8080;
 
 // db config, we setup test db
@@ -62,6 +62,7 @@ router.route('/users')
     //body parser lets us use the req.body
     // For now, only save username and level, might need to add more later
     user.username = req.body.username;
+    user.team_id = req.body.team_id;
     user.level = req.body.level;
     // console.log(req.body);
     user.save(function(err) {
