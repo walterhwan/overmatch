@@ -9,28 +9,32 @@ var Schema = mongoose.Schema;
 var UsersSchema = new Schema({
   username: String,
   level: Number,
-  portrait: String,
-  games: {
-    quickplay: {
-      won: Number
-    },
-    competitive: {
-      won: Number,
-      lost: Number,
-      draw: Number,
-      played: Number
-    }
-  }, // obj
-  playtime: {
-    quickplay: String,
-    competitive: String
-  }, // obj
-  competitive: {
-    rank: Number,
-    rank_img: String
-  }, // obj
-  levelFrame: String,
-  star: String
+  team_id: Number
+  // below are state shapes for users based on our README, commented out for now
+  // username: String,
+  // level: Number,
+  // portrait: String,
+  // games: {
+  //   quickplay: {
+  //     won: Number
+  //   },
+  //   competitive: {
+  //     won: Number,
+  //     lost: Number,
+  //     draw: Number,
+  //     played: Number
+  //   }
+  // }, // obj
+  // playtime: {
+  //   quickplay: String,
+  //   competitive: String
+  // }, // obj
+  // competitive: {
+  //   rank: Number,
+  //   rank_img: String
+  // }, // obj
+  // levelFrame: String,
+  // star: String
 });
 
 //export our module to use in server.js
