@@ -9,8 +9,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var router = express.Router();
 
-let User = require('./model/users');
-
+// let User = require('./model/users');
+var userRouter = require("./route/users");
 
 //set our port to either a predetermined port number if you have set it up, or 3001, in this case we use localhost:8080/api
 var port = process.env.API_PORT || 8080;
@@ -39,43 +39,45 @@ app.use(function(req, res, next) {
 
 //now  we can set the route path & initialize the API
 router.get('/', function(req, res) {
-  res.json({ message: 'OM API Initialized!'});
+  res.json({ message: 'OM API Initialized!!!'});
 });
 
-//adding the /users route to our /api router
-router.route('/users')
-  //retrieve all users from the database
-  .get(function(req, res) {
-    //looks at our User Schema
-    User.find(function(err, users) {
-      if (err) {
-        res.send(err);
-      }
-      //responds with a json object of our database users.
-      res.json(users);
-    });
-  })
-
-  //post new user to the database
-  .post(function(req, res) {
-    var user = new User();
-    //body parser lets us use the req.body
-    // For now, only save username and level, might need to add more later
-    user.username = req.body.username;
-    user.team_id = req.body.team_id;
-    user.level = req.body.level;
-    // console.log(req.body);
-    user.save(function(err) {
-      if (err) {
-        res.send(err);
-      }
-      res.json({ message: 'User successfully added!'});
-    });
-  });
+// Comment this  out for now, we separate route and controller to different folder
+// //adding the /users route to our /api router
+// router.route('/users')
+//   //retrieve all users from the database
+//   .get(function(req, res) {
+//     //looks at our User Schema
+//     User.find(function(err, users) {
+//       if (err) {
+//         res.send(err);
+//       }
+//       //responds with a json object of our database users.
+//       res.json(users);
+//     });
+//   })
+//
+//   //post new user to the database
+//   .post(function(req, res) {
+//     var user = new User();
+//     //body parser lets us use the req.body
+//     // For now, only save username and level, might need to add more later
+//     user.username = req.body.username;
+//     user.team_id = req.body.team_id;
+//     user.level = req.body.level;
+//     // console.log(req.body);
+//     user.save(function(err) {
+//       if (err) {
+//         res.send(err);
+//       }
+//       res.json({ message: 'User successfully added!'});
+//     });
+//   });
 
 
 //Use our router configuration when we call /api
-app.use('/api', router);
+app.use('/api', router);  // /api
+app.use('/api', userRouter);  // /api/users
 
 //starts the server and listens for requests
 app.listen(port, function() {
