@@ -2,6 +2,7 @@
 'use strict';
 //import dependency
 var mongoose = require('mongoose');
+var timeStamps = require('mongoose-timestamp');
 var Schema = mongoose.Schema;
 
 //create new instance of the mongoose.schema. the schema takes an object that shows
@@ -36,6 +37,8 @@ var UsersSchema = new Schema({
   // levelFrame: String,
   // star: String
 });
+
+UsersSchema.plugin(timeStamps);
 
 //export our module to use in server.js
 module.exports = mongoose.model('User', UsersSchema);
