@@ -22,7 +22,7 @@ exports.apiPOST = function(req, res) {
 
   // Every time a team is created, we got the role and hero from the creator to fill in the first item in positions in post request, rest of 5 items in positions are dummy collections in Pos
   var dummyPos = [];
-  for(let i = 0; i < 4; i++) {
+  for(let i = 0; i < 5; i++) {
     dummyPos = dummyPos.concat(new Pos());
   }
 
@@ -45,20 +45,19 @@ exports.apiPOST = function(req, res) {
 };
 
 
-// for updating a team, required body to have role: string, and heros: string, this is pretty much adding a new player to the team
+// for updating a team, required body to have role: string, heros: string, and pos_index: integer, this is pretty much adding a new player to the team
 exports.apiPUT = function(req, res) {
   Team.findById(req.params.team_id, function(err, team) {
     if (err) {
       res.send(err);
     }
-    //look for the first empty item and update
-    for(let i = 0; i < 5; i++) {
-      if (team.positions[i].role === "") {
-        team.positions[i].role = req.body.role;
-        team.positions[i].heros = team.positions[i].heros.concat(req.body.heros);
-        break;
-      }
+    //look for the pos_index and update
+    let pos_index = parseInt(req.body.pos_index);
+    if (team.positions[pos_index].role === "") {
+      team.positions[pos_index].role = req.body.role;
+      team.positions[pos_index].heros = team.positions[pos_index].heros.concat(req.body.heros);
     }
+
     //save team
     team.save(function(err) {
       if (err) {
