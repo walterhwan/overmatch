@@ -53,3 +53,24 @@ exports.apiPOST = function(req, res) {
     }
   });
 };
+
+
+//The put method gives us the chance to update our team based on the ID passed to the route
+exports.apiPUT = function(req, res) {
+ Team.findById(req.params.team_id, function(err, team) {
+   if (err) {
+     res.send(err);
+   }
+   //Updating Pos item in positions
+
+   (req.body.author) ? team.author = req.body.author : null;
+   //save team
+   team.save(function(err) {
+     if (err) {
+       res.send(err);
+     } else {
+       res.json({ message: 'Team has been updated' });
+     }
+   });
+ });
+};

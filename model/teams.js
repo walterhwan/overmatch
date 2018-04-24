@@ -8,7 +8,7 @@ var Schema = mongoose.Schema;
 //create new instance of the mongoose.schema. the schema takes an object that shows
 //the shape of your database entries.
 var PosSchema = new Schema({
-  role: String,
+  role: {type: String, "default": ""},
   heros: [String]
 });
 
