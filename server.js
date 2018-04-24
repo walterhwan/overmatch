@@ -15,6 +15,8 @@ var teamRouter = require("./route/teams");
 
 //set our port to either a predetermined port number if you have set it up, or 3001, in this case we use localhost:8080/api
 var port = process.env.API_PORT || 8080;
+var BNET_ID = process.env.BNET_ID;
+var BNET_SECRET = process.env.BNET_SECRET;
 
 // db config, we setup test db
 var mongoDB = 'mongodb+srv://appacademy:hacker12@cluster0-gahbk.mongodb.net/overmatchDataBase';

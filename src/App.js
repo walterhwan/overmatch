@@ -1,13 +1,20 @@
 import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>OverMatch</h1>
-        <p>This is an app that help players in overwatch to create their perfect team.</p>
+        <nav className="nav">
+          <a>OverMatch Logo</a>
+          <a>About us</a>
+        </nav>
+        <main className="main">
+          <h1>Main</h1>
+          <p>This is an app that help players in overwatch to create their perfect team.</p>
+        </main>
+        <footer className="footer">
+          footer
+        </footer>
       </div>
     );
   }
