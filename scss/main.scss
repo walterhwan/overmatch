@@ -1,2 +1,24 @@
 @import 'reset';
 @import 'app';
+@import 'home';
+
+html, body {
+  height: 100%
+}
+
+#root {
+  height: 100%;
+}
+
+
+.App {
+  height: 100%;
+
+  .home-area {
+    height: 100%;
+  }
+
+  .footer {
+    height: 50px;
+  }
+}
