@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
+import Home from './home.jsx';
 
 
 class App extends React.Component {
@@ -18,7 +19,7 @@ class App extends React.Component {
           <Switch>
             <Route path='/teams' render={() => <h1>Path teams</h1>} />
             <Route path='/login' render={() => <h1>Path login</h1>} />
-            <Route path='/' render={() => <h1>Path /</h1>} />
+            <Route path='/' component={Home} />
           </Switch>
         </HashRouter>
         <footer className="footer">
