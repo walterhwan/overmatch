@@ -15,11 +15,10 @@ exports.apiGET = function(req, res) {
   });
 };
 
+// for creating a team, required body to have role: string, and heros: string, and number_of_players: string
 exports.apiPOST = function(req, res) {
   var team = new Team();
   var pos = new Pos();
-  //body parser lets us use the req.body
-  // For now, only save teamname and level, might need to add more later
 
   // Every time a team is created, we got the role and hero from the creator to fill in the first item in positions in post request, rest of 5 items in positions are dummy collections in Pos
   var dummyPos = [];
@@ -32,15 +31,6 @@ exports.apiPOST = function(req, res) {
   dummyPos.unshift(pos)
   team.positions = team.positions.concat(dummyPos);
 
-  // legacy notes...don't bother to look at this
-  // req.body.positions: {"role": "support", "heros": "mercy"}
-  // team.positions: '{"role": "support", "heros": "mercy"}'
-  // user JSON.parse to get { role: 'support', heros: 'mercy' }
-  // team.positions = team.positions.concat(pos);
-  // console.log(req.body);
-  // console.log(JSON.parse(team.positions));
-
-  // TODO: add necessary validation later
   team.number_of_players = req.body.number_of_players;
 
   team.save(function(err) {
@@ -55,15 +45,20 @@ exports.apiPOST = function(req, res) {
 };
 
 
-//The put method gives us the chance to update our team based on the ID passed to the route
+// for updating a team, required body to have role: string, and heros: string, this is pretty much adding a new player to the team
 exports.apiPUT = function(req, res) {
  Team.findById(req.params.team_id, function(err, team) {
    if (err) {
      res.send(err);
    }
-   //Updating Pos item in positions
-
-   (req.body.author) ? team.author = req.body.author : null;
+   //look for the first empty item and update
+   for(let i = 0; i < 5; i++) {
+     if (team.positions[i].role === "") {
+       team.positions[i].role = req.body.role;
+       team.positions[i].heros = team.positions[i].heros.concat(req.body.heros);
+       break;
+     }
+   }
    //save team
    team.save(function(err) {
      if (err) {
