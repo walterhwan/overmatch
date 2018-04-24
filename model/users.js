@@ -14,31 +14,6 @@ var UsersSchema = new Schema({
   },
   level: Number,
   team_id: Number
-  // below are state shapes for users based on our README, commented out for now
-  // username: String,
-  // level: Number,
-  // portrait: String,
-  // games: {
-  //   quickplay: {
-  //     won: Number
-  //   },
-  //   competitive: {
-  //     won: Number,
-  //     lost: Number,
-  //     draw: Number,
-  //     played: Number
-  //   }
-  // }, // obj
-  // playtime: {
-  //   quickplay: String,
-  //   competitive: String
-  // }, // obj
-  // competitive: {
-  //   rank: Number,
-  //   rank_img: String
-  // }, // obj
-  // levelFrame: String,
-  // star: String
 });
 
 UsersSchema.plugin(timeStamps);

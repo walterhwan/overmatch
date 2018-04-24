@@ -6,9 +6,10 @@ exports.apiGET = function(req, res) {
   Team.find(function(err, teams) {
     if (err) {
       res.send(err);
+    } else {
+      //responds with a json object of our database teams.
+      res.json(teams);
     }
-    //responds with a json object of our database teams.
-    res.json(teams);
   });
 };
 
@@ -17,21 +18,22 @@ exports.apiPOST = function(req, res) {
   //body parser lets us use the req.body
   // For now, only save teamname and level, might need to add more later
 
-  // teamname validation, presence true
-  team.position = req.body.position;
-  let erorr = team.validateSync();
-  assert.equal(erorr.errors['position'].message,
-  'Missing position');
+  // req.body.positions: {"role": "support", "heros": "mercy"}
+  // team.positions: '{"role": "support", "heros": "mercy"}'
+  // user JSON.parse to get { role: 'support', heros: 'mercy' }
+  team.positions.push(req.body.positions);
+  // console.log(req.body);
+  // console.log(JSON.parse(team.positions));
 
   // TODO: add necessary validation later
   team.number_of_players = req.body.number_of_players;
-  // console.log(req.body);
-  team.save(function(err) {
 
+  team.save(function(err) {
 
     if (err) {
       res.send(err);
     } else {
+      console.log(err);
       res.json({ message: 'Team successfully added!'});
     }
   });

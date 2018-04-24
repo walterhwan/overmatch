@@ -18,18 +18,19 @@ exports.apiPOST = function(req, res) {
   // For now, only save username and level, might need to add more later
 
   // username validation, presence true
-  user.username = req.body.username;
-  let erorr = user.validateSync();
-  assert.equal(erorr.errors['username'].message,
-  'Missing username');
-
+  if (req.body.username === null || req.body.username === undefined) {
+    let erorr = user.validateSync();
+    assert.equal(erorr.errors['username'].message,
+    'Missing username');
+  } else {
+    user.username = req.body.username;
+  }
   // TODO: add necessary validation later
   user.level = req.body.level;
 
   user.team_id = req.body.team_id;
   // console.log(req.body);
   user.save(function(err) {
-
 
     if (err) {
       res.send(err);

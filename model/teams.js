@@ -7,16 +7,14 @@ var Schema = mongoose.Schema;
 
 //create new instance of the mongoose.schema. the schema takes an object that shows
 //the shape of your database entries.
+
 var TeamsSchema = new Schema({
-  positions: [
-    {
-      role: String,
-      heros: String
-    }
-  ],
+  positions: [{}],
+  // positions: [Schema.Types.Mixed],
   number_of_players: Number,
 
 });
+
 
 TeamsSchema.plugin(timeStamps);
 
