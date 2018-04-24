@@ -1,4 +1,6 @@
 import React from 'react';
+import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
+
 
 class App extends React.Component {
   render() {
@@ -12,6 +14,13 @@ class App extends React.Component {
           <h1>Main</h1>
           <p>This is an app that help players in overwatch to create their perfect team.</p>
         </main>
+        <HashRouter>
+          <Switch>
+            <Route path='/teams' render={() => <h1>Path teams</h1>} />
+            <Route path='/login' render={() => <h1>Path login</h1>} />
+            <Route path='/' render={() => <h1>Path /</h1>} />
+          </Switch>
+        </HashRouter>
         <footer className="footer">
           footer
         </footer>
@@ -21,6 +30,8 @@ class App extends React.Component {
 }
 
 export default App;
+
+
 
   // <header className="App-header">
   //   <img src={logo} className="App-logo" alt="logo" />
