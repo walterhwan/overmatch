@@ -38,3 +38,34 @@ exports.apiPOST = function(req, res) {
     }
   });
 };
+
+// updating a user
+exports.apiPUT = function(req, res) {
+  User.findById(req.params.user_id, function(err, user) {
+    if (err) {
+      res.send(err);
+    }
+
+    // TODO: user field that we would update, need to update this
+
+    //save user
+    user.save(function(err) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json({ message: 'User has been updated' });
+      }
+    });
+  });
+};
+
+//select the user by its ID, then removes it.
+exports.apiDELETE = function(req, res) {
+  User.remove({ _id: req.params.user_id }, function(err, user) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json({ message: 'User has been deleted' });
+    }
+  });
+};

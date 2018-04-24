@@ -47,25 +47,36 @@ exports.apiPOST = function(req, res) {
 
 // for updating a team, required body to have role: string, and heros: string, this is pretty much adding a new player to the team
 exports.apiPUT = function(req, res) {
- Team.findById(req.params.team_id, function(err, team) {
-   if (err) {
-     res.send(err);
-   }
-   //look for the first empty item and update
-   for(let i = 0; i < 5; i++) {
-     if (team.positions[i].role === "") {
-       team.positions[i].role = req.body.role;
-       team.positions[i].heros = team.positions[i].heros.concat(req.body.heros);
-       break;
-     }
-   }
-   //save team
-   team.save(function(err) {
-     if (err) {
-       res.send(err);
-     } else {
-       res.json({ message: 'Team has been updated' });
-     }
-   });
- });
+  Team.findById(req.params.team_id, function(err, team) {
+    if (err) {
+      res.send(err);
+    }
+    //look for the first empty item and update
+    for(let i = 0; i < 5; i++) {
+      if (team.positions[i].role === "") {
+        team.positions[i].role = req.body.role;
+        team.positions[i].heros = team.positions[i].heros.concat(req.body.heros);
+        break;
+      }
+    }
+    //save team
+    team.save(function(err) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json({ message: 'Team has been updated' });
+      }
+    });
+  });
+};
+
+//select the team by its ID, then removes it.
+exports.apiDELETE = function(req, res) {
+  Team.remove({ _id: req.params.team_id }, function(err, team) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json({ message: 'Team has been deleted' });
+    }
+  });
 };

@@ -9,6 +9,7 @@ router.route('/teams')
 
 //Adding a route to a specific team based on the database ID
 router.route('/teams/:team_id')
-  .put(teams.apiPUT);
+  .put(teams.apiPUT)
+  .delete(teams.apiDELETE);
 
 module.exports = router;
