@@ -1,3 +1,24 @@
 @import 'reset';
 @import 'app';
+<<<<<<< HEAD
 @import 'home';
+||||||| merged common ancestors
+=======
+@import 'team';
+
+html, body {
+  height: 100%;
+}
+
+.root {
+  height: 100%;
+
+  // app.scss
+  .App {
+  }
+
+  .footer {
+    height: 50px;
+  }
+}
+>>>>>>> 4f8c89575cef807ef5d8ac0aaa1fa90f4aa79c9c
