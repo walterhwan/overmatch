@@ -1,4 +1,6 @@
-let Team = require('../model/teams');
+let teamModel = require('../model/teams');
+let Team = teamModel.team;
+let Pos = teamModel.pos;
 let assert = require('assert')
 var bodyParser = require('body-parser');
 
@@ -15,13 +17,26 @@ exports.apiGET = function(req, res) {
 
 exports.apiPOST = function(req, res) {
   var team = new Team();
+  var pos = new Pos();
   //body parser lets us use the req.body
   // For now, only save teamname and level, might need to add more later
 
+  // Every time a team is created, we got the role and hero from the creator to fill in the first item in positions in post request, rest of 5 items in positions are dummy collections in Pos
+  var dummyPos = [];
+  for(let i = 0; i < 4; i++) {
+    dummyPos = dummyPos.concat(new Pos());
+  }
+
+  pos.role = req.body.role;
+  pos.heros = pos.heros.concat(req.body.heros);
+  dummyPos.unshift(pos)
+  team.positions = team.positions.concat(dummyPos);
+
+  // legacy notes...don't bother to look at this
   // req.body.positions: {"role": "support", "heros": "mercy"}
   // team.positions: '{"role": "support", "heros": "mercy"}'
   // user JSON.parse to get { role: 'support', heros: 'mercy' }
-  team.positions.push(req.body.positions);
+  // team.positions = team.positions.concat(pos);
   // console.log(req.body);
   // console.log(JSON.parse(team.positions));
 

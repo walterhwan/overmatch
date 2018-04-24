@@ -7,10 +7,14 @@ var Schema = mongoose.Schema;
 
 //create new instance of the mongoose.schema. the schema takes an object that shows
 //the shape of your database entries.
+var PosSchema = new Schema({
+  role: String,
+  heros: [String]
+});
 
 var TeamsSchema = new Schema({
-  positions: [{}],
-  // positions: [Schema.Types.Mixed],
+  // positions: [{}],
+  positions: [PosSchema],
   number_of_players: Number,
 
 });
@@ -19,4 +23,7 @@ var TeamsSchema = new Schema({
 TeamsSchema.plugin(timeStamps);
 
 //export our module to use in server.js
-module.exports = mongoose.model('Team', TeamsSchema);
+module.exports = {
+  team: mongoose.model('Team', TeamsSchema),
+  pos: mongoose.model('Pos', PosSchema)
+}

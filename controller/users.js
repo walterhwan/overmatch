@@ -29,7 +29,6 @@ exports.apiPOST = function(req, res) {
   user.level = req.body.level;
 
   user.team_id = req.body.team_id;
-  // console.log(req.body);
   user.save(function(err) {
 
     if (err) {
