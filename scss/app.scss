@@ -4,6 +4,14 @@ $orange: #F9A03F;
 $black: #060808;
 $white: #FDFFFC;
 
-.nav {
-  background: grey;
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  main {
+    display: flex;
+    background: $blue;
+    height: 100%;
+  }
 }

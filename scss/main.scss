@@ -1,2 +1,18 @@
 @import 'reset';
 @import 'app';
+@import 'team';
+
+html, body {
+  height: 100%;
+}
+
+.root {
+  height: 100%;
+
+  .App {
+  }
+
+  .footer {
+    height: 50px;
+  }
+}
