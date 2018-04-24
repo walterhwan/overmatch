@@ -31,7 +31,8 @@ exports.apiPOST = function(req, res) {
 
     if (err) {
       res.send(err);
+    } else {
+      res.json({ message: 'Team successfully added!'});
     }
-    res.json({ message: 'Team successfully added!'});
   });
 };

@@ -33,7 +33,8 @@ exports.apiPOST = function(req, res) {
 
     if (err) {
       res.send(err);
+    } else {
+      res.json({ message: 'User successfully added!'});
     }
-    res.json({ message: 'User successfully added!'});
   });
 };
