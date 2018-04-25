@@ -105,5 +105,21 @@ html, body {
 
 .root {
   height: 100%; }
+  .root .nav {
+    border-bottom: 2px solid #D1D5D5;
+    height: 50px;
+    text-align: center; }
+    .root .nav a {
+      font-family: sans-serif;
+      line-height: 42px; }
   .root .footer {
-    height: 50px; }
+    border-top: 2px solid #D1D5D5;
+    height: 50px;
+    font-family: sans-serif;
+    text-align: center; }
+    .root .footer .about-us {
+      text-decoration: none;
+      color: #6F7272;
+      line-height: 42px; }
+    .root .footer .about-us:hover {
+      color: #A6ABAB; }

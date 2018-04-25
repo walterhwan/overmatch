@@ -8,8 +8,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <nav className="nav">
-          <a>OverMatch Logo</a>
-          <a>About us</a>
+          <a>OVERMATCH</a>
         </nav>
         <HashRouter>
           <Switch>
@@ -19,7 +18,7 @@ class App extends React.Component {
           </Switch>
         </HashRouter>
         <footer className="footer">
-          footer
+          <a className= "about-us" href="#">ABOUT US</a>
         </footer>
       </div>
     );

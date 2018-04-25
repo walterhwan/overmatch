@@ -14,7 +14,32 @@ html, body {
   .App {
   }
 
-  .footer {
+  .nav {
+    border-bottom: 2px solid #D1D5D5;
     height: 50px;
+    text-align: center;
+
+    a {
+      font-family: sans-serif;
+      line-height: 42px;
+    }
+  }
+
+  .footer {
+    border-top: 2px solid #D1D5D5;
+    height: 50px;
+    font-family: sans-serif;
+    text-align: center;
+
+    .about-us {
+      text-decoration: none;
+      color: #6F7272;
+      line-height: 42px;
+      // vertical-align: center;
+    }
+
+    .about-us:hover {
+      color: #A6ABAB;
+    }
   }
 }
