@@ -8,7 +8,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <nav className="nav">
-          <a>OVERMATCH</a>
+          <a>OVER<span>M</span>ATCH</a>
         </nav>
         <HashRouter>
           <Switch>

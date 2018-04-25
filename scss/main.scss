@@ -20,8 +20,27 @@ html, body {
     text-align: center;
 
     a {
-      font-family: sans-serif;
+      font-family: courier;
       line-height: 42px;
+      font-weight: 400;
+      font-size: 48px;
+      -webkit-text-stroke: 1px #000;
+      -webkit-text-fill-color: white;
+      -moz-text-stroke: 1px #000;
+      -moz-text-fill-color: white;
+
+      text-shadow:
+      3px 3px 0 #000,
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+
+      span {
+        color: #FE9A37;
+        -webkit-text-fill-color: #FE9A37;
+        -moz-text-fill-color: #FE9A37;
+      }
     }
   }
 
