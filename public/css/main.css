@@ -44,20 +44,6 @@ q:before, q:after {
 blockquote, q {
   quotes: "" ""; }
 
-<<<<<<< HEAD
-.nav {
-  background: grey; }
-
-.home-area {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  height: 100%; }
-||||||| merged common ancestors
-.nav {
-  background: grey; }
-=======
 .App {
   display: flex;
   flex-direction: column;
@@ -66,6 +52,28 @@ blockquote, q {
     display: flex;
     background: #3E85C5;
     height: 100%; }
+
+.home-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/Blizzard1.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; }
+  .home-area .create-button, .home-area .join-button {
+    border: 3px solid blue;
+    border-radius: 5px;
+    width: 20%;
+    padding: 1%;
+    background: #0e86ca;
+    font-size: 20px;
+    color: #ffffff;
+    opacity: 0.8; }
+  .home-area .create-button:hover, .home-area .join-button:hover {
+    background: #00aeff; }
 
 .team-div {
   display: flex;
@@ -99,4 +107,3 @@ html, body {
   height: 100%; }
   .root .footer {
     height: 50px; }
->>>>>>> 4f8c89575cef807ef5d8ac0aaa1fa90f4aa79c9c
