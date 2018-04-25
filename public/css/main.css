@@ -73,7 +73,8 @@ blockquote, q {
     color: #ffffff;
     opacity: 0.8; }
   .home-area .create-button:hover, .home-area .join-button:hover {
-    background: #00aeff; }
+    background: #00aeff;
+    cursor: pointer; }
 
 .team-div {
   display: flex;
