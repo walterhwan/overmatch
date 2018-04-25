@@ -1,0 +1,125 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline; }
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0; }
+
+body {
+  line-height: 1;
+  color: black;
+  background: white; }
+
+ol, ul {
+  list-style: none; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: ""; }
+
+blockquote, q {
+  quotes: "" ""; }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+  .App main {
+    display: flex;
+    background: #3E85C5;
+    height: 100%; }
+
+.home-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/Blizzard1.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; }
+  .home-area .create-button, .home-area .join-button {
+    border: 3px solid blue;
+    border-radius: 5px;
+    width: 20%;
+    padding: 1%;
+    background: #0e86ca;
+    font-size: 20px;
+    color: #ffffff;
+    opacity: 0.8; }
+  .home-area .create-button:hover, .home-area .join-button:hover {
+    background: #00aeff; }
+
+.team-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  overflow: scroll; }
+  .team-div .team-name {
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    align-self: center; }
+  .team-div .team-members {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    flex-flow: row wrap; }
+    .team-div .team-members .player {
+      background: #314CB6;
+      border-radius: 5px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      height: 400px;
+      width: 220px; }
+
+html, body {
+  height: 100%; }
+
+.root {
+  height: 100%; }
+  .root .nav {
+    border-bottom: 2px solid #D1D5D5;
+    height: 50px;
+    text-align: center; }
+    .root .nav a {
+      font-family: sans-serif;
+      line-height: 42px; }
+  .root .footer {
+    border-top: 2px solid #D1D5D5;
+    height: 50px;
+    font-family: sans-serif;
+    text-align: center; }
+    .root .footer .about-us {
+      text-decoration: none;
+      color: #6F7272;
+      line-height: 42px; }
+    .root .footer .about-us:hover {
+      color: #A6ABAB; }

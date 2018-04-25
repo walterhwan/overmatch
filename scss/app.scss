@@ -1,0 +1,19 @@
+$blue: #3E85C5;
+$dark-blue: #314CB6;
+$orange: #F9A03F;
+$black: #060808;
+$white: #FDFFFC;
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  main {
+    display: flex;
+    background: $blue;
+    height: 100%;
+  }
+
+  // team.scss
+}
