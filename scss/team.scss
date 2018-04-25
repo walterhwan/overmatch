@@ -1,0 +1,38 @@
+$blue: #3E85C5;
+$dark-blue: #314CB6;
+$orange: #F9A03F;
+$black: #060808;
+$white: #FDFFFC;
+
+.team-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  overflow: scroll;
+
+  .team-name {
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    align-self: center;
+  }
+
+  .team-members {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    flex-flow: row wrap;
+
+    .player {
+      background: $dark-blue;
+      // border: 1px solid $white;
+      border-radius: 5px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      height: 400px;
+      width: 220px;
+    }
+  }
+}
