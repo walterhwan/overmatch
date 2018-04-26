@@ -53,6 +53,12 @@ blockquote, q {
     background: #3E85C5;
     height: 100%; }
 
+.home-page {
+  height: 100%;
+  display: flex; }
+  .home-page .tag-location {
+    display: absolute; }
+
 .home-area {
   display: flex;
   align-items: center;
@@ -71,9 +77,10 @@ blockquote, q {
     background: #0e86ca;
     font-size: 20px;
     color: #ffffff;
-    opacity: 0.8; }
+    opacity: 0.9; }
   .home-area .create-button:hover, .home-area .join-button:hover {
-    background: #00aeff; }
+    background: #00aeff;
+    cursor: pointer; }
 
 .team-div {
   display: flex;
@@ -110,8 +117,19 @@ html, body {
     height: 50px;
     text-align: center; }
     .root .nav a {
-      font-family: sans-serif;
-      line-height: 42px; }
+      font-family: courier;
+      line-height: 42px;
+      font-weight: 400;
+      font-size: 48px;
+      -webkit-text-stroke: 1px #000;
+      -webkit-text-fill-color: white;
+      -moz-text-stroke: 1px #000;
+      -moz-text-fill-color: white;
+      text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+      .root .nav a span {
+        color: #FE9A37;
+        -webkit-text-fill-color: #FE9A37;
+        -moz-text-fill-color: #FE9A37; }
   .root .footer {
     border-top: 2px solid #D1D5D5;
     height: 50px;

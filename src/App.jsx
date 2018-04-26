@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
 import Home from './home.jsx';
 import TeamMain from './team_main';
 
@@ -8,15 +8,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <nav className="nav">
-          <a>OVERMATCH</a>
+          <a>OVER<span>M</span>ATCH</a>
         </nav>
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
             <Route path='/team' component={TeamMain} />
             <Route path='/login' render={() => <h1>Path login</h1>} />
             <Route path='/' component={Home} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
         <footer className="footer">
           <a className= "about-us" href="#">ABOUT US</a>
         </footer>

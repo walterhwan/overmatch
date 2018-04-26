@@ -1,3 +1,12 @@
+.home-page {
+  height: 100%;
+  display: flex;
+
+  .tag-location {
+    display: absolute;
+  }
+}
+
 .home-area {
   display: flex;
   align-items: center;
@@ -22,10 +31,11 @@
     background: #0e86ca;
     font-size: 20px;
     color: #ffffff;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   .create-button:hover, .join-button:hover {
     background: #00aeff;
+    cursor: pointer;
   }
 }
