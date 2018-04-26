@@ -3,6 +3,11 @@
 @import 'home';
 @import 'team';
 
+@font-face {
+  font-family: Big Noodle Too;
+  src: url('../big_noodle_titling_oblique.ttf')
+}
+
 html, body {
   height: 100%;
 }
