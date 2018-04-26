@@ -49,8 +49,10 @@ router.get('/', function(req, res) {
 app.use('/api', router);  // /api
 app.use('/api', userRouter);  // /api/users
 app.use('/api', teamRouter);  // /api/teams
-app.post('/api/test', function(req, res) {
+app.post('/api/test', function(req, res) { // api/test
   // req = JSON.parse(req)
+  // debugger
+  let authCode = req.body.authCode;
   var request = require("request");
   var options = { method: 'POST',
     url: 'https://us.battle.net/oauth/token',
@@ -61,7 +63,7 @@ app.post('/api/test', function(req, res) {
        'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' },
     formData:
      { grant_type: 'authorization_code',
-       code: req.body.authCode,
+       code: authCode,
        redirect_uri: 'https://1a6dad92.ngrok.io' } };
 
   let accessToken;
@@ -82,7 +84,9 @@ app.post('/api/test', function(req, res) {
       if (error) throw new Error(error);
 
       battleTag = JSON.parse(body).battletag
-      res.json({message: battleTag})
+      res.json({battleTag: battleTag})
+      // console.log("BACKEND:");
+      // console.log(battleTag);
     });
   });
 
