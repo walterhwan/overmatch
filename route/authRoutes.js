@@ -3,20 +3,28 @@ const util = require('util');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+let passport_res;
+
 module.exports = (app) => {
   app.get(
     '/auth/bnet',
-    passport.authenticate('bnet')
+    passport.authenticate('bnet'),
+    function(req, res) {
+      console.log(res);
+    }
   );
 
-  app.get(
-    '/auth/bnet/callback',
-    passport.authenticate('bnet')
-    // passport.authenticate('bnet', { failureRedirect: '/' }),
-    // function(req, res){
-    //     res.redirect('/');
-    // }
-  );
+  // app.get(
+  //   '/auth/bnet/callback',
+  //   // passport.authenticate('bnet')
+  //   passport.authenticate('bnet', { failureRedirect: '/' }),
+  //   function(req, res){
+  //
+  //   }
+  // );
+
+
+  // console.log(passport_res);
   // app.get('/', function(req, res) {
   //   if(req.isAuthenticated()) {
   //     var output = '<p>Login Using Your Battle.net Tag<p>' + req.user.id + '<br>';

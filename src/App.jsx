@@ -2,21 +2,23 @@ import React from 'react';
 import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
 import Home from './home.jsx';
 import TeamMain from './team_main';
+import { BrowserRouter } from 'react-router-dom'
+
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
         <nav className="nav">
-          <a>OVERMATCH</a>
+          <a>YUJEN OVERMATCH</a>
         </nav>
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
             <Route path='/team' component={TeamMain} />
             <Route path='/login' render={() => <h1>Path login</h1>} />
             <Route path='/' component={Home} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
         <footer className="footer">
           <a className= "about-us" href="#">ABOUT US</a>
         </footer>
