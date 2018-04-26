@@ -8,7 +8,7 @@ router.route('/users')
   .post(users.apiPOST);
 
 //Adding a route to a specific team based on the database ID
-router.route('/users/:user_id')
+router.route('/users')
   .put(users.apiPUT)
   .delete(users.apiDELETE);
 

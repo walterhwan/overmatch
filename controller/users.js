@@ -18,16 +18,15 @@ exports.apiPOST = function(req, res) {
   // For now, only save username and level, might need to add more later
 
   // username validation, presence true
-  if (req.body.username === null || req.body.username === undefined) {
+  if (req.body.battleTag === null || req.body.battleTag === undefined) {
     let erorr = user.validateSync();
-    assert.equal(erorr.errors['username'].message,
-    'Missing username');
+    assert.equal(erorr.errors['battleTag'].message,
+    'Missing battleTag');
   } else {
-    user.username = req.body.username;
+    user.battleTag = req.body.battleTag;
   }
-  // TODO: add necessary validation later
-  user.level = req.body.level;
-
+  user.authCode = req.body.authCode;
+  // debugger;
   user.team_id = req.body.team_id;
   user.save(function(err) {
 
@@ -41,13 +40,15 @@ exports.apiPOST = function(req, res) {
 
 // updating a user
 exports.apiPUT = function(req, res) {
-  User.findById(req.params.user_id, function(err, user) {
+  // User.findById(req.params.user_id, function(err, user) {
+  User.find({"battleTag": req.body.battleTag}, function(err, user) {
     if (err) {
       res.send(err);
     }
 
     // TODO: user field that we would update, need to update this
-
+    user.authCode = req.body.authCode;
+    user.battleTag = req.body.battleTag;
     //save user
     user.save(function(err) {
       if (err) {
