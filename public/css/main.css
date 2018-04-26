@@ -53,6 +53,12 @@ blockquote, q {
     background: #3E85C5;
     height: 100%; }
 
+.home-page {
+  height: 100%;
+  display: flex; }
+  .home-page .tag-location {
+    display: absolute; }
+
 .home-area {
   display: flex;
   align-items: center;
