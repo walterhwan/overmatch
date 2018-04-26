@@ -1,9 +1,8 @@
 const passport = require('passport');
 const BnetStrategy = require('passport-bnet').Strategy;
 // const keys = require('../config/keys');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
-const User = mongoose.model('User');
 var BNET_ID = process.env.BNET_ID;
 var BNET_SECRET = process.env.BNET_SECRET;
 

@@ -1,9 +1,5 @@
 'use strict';
 
-// oauth stuff
-require('./services/passport');
-require('./route/authRoutes')(app);
-
 //first we import our dependencies...
 var express = require('express');
 var mongoose = require('mongoose');
@@ -102,3 +98,7 @@ app.post('/api/test', function(req, res) { // api/test
 app.listen(port, function() {
   console.log(`api running on port ${port}`);
 });
+
+// oauth stuff
+require('./services/passport');
+require('./route/authRoutes')(app);

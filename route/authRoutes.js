@@ -3,8 +3,6 @@ const util = require('util');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
-let passport_res;
-
 module.exports = (app) => {
   app.get(
     '/auth/bnet',
