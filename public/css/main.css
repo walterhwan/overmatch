@@ -123,7 +123,7 @@ blockquote, q {
         .team-div .team-members .player .player-info-slot .name {
           font-size: 28px;
           margin: 0px 5px;
-          overflow: auto; }
+          overflow: hidden; }
         .team-div .team-members .player .player-info-slot .rank_div {
           display: flex;
           flex-direction: column;

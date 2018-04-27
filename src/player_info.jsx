@@ -1,6 +1,13 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 class PlayerInfo extends React.Component {
+  constructor(props) {
+    super(props);
+
+    console.log(cookies.get('battleTag'));
+  }
   render() {
     return (
       <div className='player-info'>

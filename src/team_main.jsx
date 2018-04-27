@@ -2,7 +2,6 @@ import React from 'react';
 import PlayerInfo from './player_info';
 // import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
 
-
 // const TeamMain = () => (
 class TeamMain extends React.Component {
   render() {

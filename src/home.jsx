@@ -2,6 +2,9 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 class Home extends React.Component {
   constructor(props) {
@@ -37,7 +40,7 @@ class Home extends React.Component {
       this.setState({
         battleTag: res.data.battleTag
       })
-      window.battleTag = res.data.battleTag;
+      cookies.set("battleTag", res.data.battleTag);
     } else {
       this.getBattleTagFromBnet();
     }
@@ -54,7 +57,7 @@ class Home extends React.Component {
         this.setState({
           battleTag: battleTag
         })
-        window.battleTag = battleTag;
+        cookies.set("battleTag", battleTag);
       });
   }
 
@@ -70,7 +73,7 @@ class Home extends React.Component {
     axios.defaults.port = 8080;
     axios.get(`http://localhost:8080/api/users/battleTag/${battleTag}`)
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
       })
   }
 
@@ -86,11 +89,11 @@ class Home extends React.Component {
   render() {
     let battleTag = this.state.battleTag;
     if (battleTag) {
-      console.log(battleTag);
+      // console.log(battleTag);
       axios.post('http://localhost:8080/api/testing', {
         battleTag: battleTag
       }).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.info = res.data;
       })
     }
