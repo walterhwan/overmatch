@@ -148,6 +148,91 @@ blockquote, q {
           color: #FDFFFC;
           font-size: 28px; }
 
+.background {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/Blizzard2.png");
+  background-size: cover; }
+
+.center-content {
+  position: relative;
+  top: 35%;
+  display: flex;
+  flex-direction: column; }
+
+.welcome-msg {
+  font-size: 65px;
+  text-align: center;
+  margin: auto;
+  color: #FDFFFC;
+  text-shadow: 4px 4px 10px black;
+  width: 60%; }
+
+.bnet-link {
+  text-decoration: none;
+  color: #ffffff; }
+
+.bnet-button {
+  border: 3px solid blue;
+  border-radius: 5px;
+  width: 20%;
+  padding: 1%;
+  background: #0e86ca;
+  font-size: 20px;
+  opacity: 0.8;
+  margin: auto;
+  cursor: pointer;
+  margin-top: 3%; }
+
+.bnet-button:hover {
+  background: #00aeff; }
+
+.profiles-container {
+  padding: 1% 5%;
+  background-color: #FDFFFC; }
+
+.profile {
+  font-family: Big Noodle Too;
+  display: flex;
+  justify-content: space-between;
+  background-color: #FDFFFC;
+  border: 3px solid #D1D5D5;
+  border-radius: 5px;
+  margin-bottom: 1%;
+  padding: 2%; }
+
+.profile-visuals {
+  margin-right: 10px; }
+
+.profile-visuals > p {
+  text-align: center;
+  color: #314CB6;
+  font-size: 35px; }
+
+.profile-pic {
+  max-width: 300px;
+  max-height: 300px; }
+
+.nav-logos {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10%; }
+
+.git-logo {
+  max-width: 100px;
+  max-height: 100px; }
+
+.linkedin-logo {
+  max-width: 100px;
+  max-height: 100px; }
+
+.profile-description {
+  font-family: 'Roboto', sans-serif;
+  padding: 3%;
+  color: #314CB6;
+  font-size: 24px;
+  letter-spacing: 1px; }
+
 @font-face {
   font-family: Big Noodle Too;
   src: url("../big_noodle_titling_oblique.ttf"); }
@@ -158,10 +243,12 @@ html, body {
 .root {
   height: 100%; }
   .root .nav {
+    position: relative;
     border-bottom: 2px solid #D1D5D5;
     height: 50px;
     text-align: center; }
-    .root .nav a {
+    .root .nav .logo {
+      text-decoration: none;
       font-family: courier;
       line-height: 42px;
       font-weight: 400;
@@ -171,7 +258,7 @@ html, body {
       -moz-text-stroke: 1px #000;
       -moz-text-fill-color: white;
       text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
-      .root .nav a span {
+      .root .nav .logo span {
         color: #FE9A37;
         -webkit-text-fill-color: #FE9A37;
         -moz-text-fill-color: #FE9A37; }
@@ -186,3 +273,24 @@ html, body {
       line-height: 42px; }
     .root .footer .about-us:hover {
       color: #A6ABAB; }
+
+.logout {
+  position: absolute;
+  top: 5%;
+  right: 1%;
+  border: 3px solid blue;
+  border-radius: 5px;
+  width: 5%;
+  padding: 0.5% 1%;
+  background: #0e86ca;
+  font-size: 16px;
+  opacity: 0.8;
+  margin: auto;
+  cursor: pointer; }
+
+.logout:hover {
+  background: #00aeff; }
+
+.logout > a {
+  color: #FDFFFC;
+  text-decoration: none; }
