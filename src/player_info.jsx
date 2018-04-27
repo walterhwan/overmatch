@@ -1,21 +1,39 @@
 import React from 'react';
+import PlayerStats from './player_stats';
+
 
 class PlayerInfo extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      battleTag: this.props.battleTag
+    }
+  }
   render() {
     return (
-      <div className='player-info'>
-        <div className='player-info-slot smooth-border'>
-          <img className='portrait smooth-border' alt='portrait' src="https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x0250000000001401.png"></img>
-          <p className='name' scrolling="no">{"A_freakin_lo".toUpperCase()}</p>
-          <div className='rank_div'>
-            <img  className='rank_img'  alt='rank_img' src="https://d1u1mce87gyfbn.cloudfront.net/game/rank-icons/season-2/rank-5.png"></img>
-            <p className='rank'>2856</p>
-          </div>
+      <li className='player' id='player-1'>
+        <div className='role-div'>
+          <h1>Role</h1>
+          <select>
+            <option value='Tank'>Tank</option>
+            <option value='Support'>Support</option>
+            <option value='Offense'>Offense</option>
+            <option value='Defense'>Defense</option>
+          </select>
         </div>
-        <ul className='favorite-heros'>
-          <li></li>
-        </ul>
-      </div>
+        <div className='hero-div'>
+          <h1>Hero</h1>
+          <select>
+            <option value='Doomfist'>Doomfist</option>
+            <option value='Genji'>Genji</option>
+            <option value='McCree'>McCree</option>
+            <option value='Pharah'>Pharah</option>
+            <option value='Reaper'>Reaper</option>
+          </select>
+        </div>
+        <PlayerStats battleTag={this.state.battleTag || ""}/>
+      </li>
     );
   }
 }

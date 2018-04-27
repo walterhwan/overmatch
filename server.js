@@ -65,13 +65,14 @@ app.post('/api/test', function(req, res) { // api/test
     formData:
      { grant_type: 'authorization_code',
        code: authCode,
-       redirect_uri: 'https://1a6dad92.ngrok.io' } };
+       redirect_uri: 'https://1a6dad92.ngrok.io/home' } };
 
   let accessToken;
   let battleTag;
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
     accessToken = JSON.parse(body).access_token;
+    console.log("accessToken: " + accessToken);
 
     var request2 = require("request");
     var options = { method: 'GET',
@@ -87,7 +88,7 @@ app.post('/api/test', function(req, res) { // api/test
       battleTag = JSON.parse(body).battletag
       res.json({battleTag: battleTag})
       // console.log("BACKEND:");
-      // console.log(battleTag);
+      console.log(body);
     });
   });
 });
