@@ -4,6 +4,8 @@ import Home from './home.jsx';
 import TeamMain from './team_main';
 // import { AuthRoute, ProtectedRoute } from './util/route_util';
 import { ProtectedRoute } from './util/route_util';
+import SplashPage from './splash';
+import AboutUs from './about_us';
 
 class App extends React.Component {
   render() {
@@ -11,15 +13,17 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <nav className="nav">
-            <a>OVER<span>M</span>ATCH</a>
+            <a className="logo" href="/">OVER<span>M</span>ATCH</a>
+            <button className="logout"><a href="/api/logout">Logout</a></button>
           </nav>
             <Switch>
               <ProtectedRoute path='/team' component={TeamMain} />
               <ProtectedRoute path='/home' component={Home} />
-              <Route path='/' render={() => <h1>Path login</h1>} />
+              <Route exact path='/aboutus' component={AboutUs} />
+              <Route path='/' component={SplashPage} />
             </Switch>
           <footer className="footer">
-            <a className= "about-us" href="/">ABOUT US</a>
+            <a className= "about-us" href="/aboutus">ABOUT US</a>
           </footer>
         </div>
       </BrowserRouter>

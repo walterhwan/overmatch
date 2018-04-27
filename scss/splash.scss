@@ -1,0 +1,45 @@
+.background {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/Blizzard2.png");
+  background-size: cover;
+  font-family: Big Noodle Too;
+}
+
+.center-content {
+  position: relative;
+  top: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-msg {
+  font-size: 80px;
+  text-align: center;
+  margin: auto;
+  color: $white;
+  text-shadow: 4px 4px 10px black;
+  width: 60%;
+}
+
+.bnet-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.bnet-button {
+  border: 3px solid blue;
+  border-radius: 5px;
+  width: 20%;
+  padding: 1%;
+  background: #0e86ca;
+  font-size: 20px;
+  opacity: 0.9;
+  margin: auto;
+  cursor: pointer;
+  margin-top: 3%;
+}
+
+.bnet-button:hover {
+  background: #00aeff;
+}
