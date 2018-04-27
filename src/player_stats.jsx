@@ -13,7 +13,9 @@ class PlayerStats extends React.Component {
 
     this.getUserInfoByBattleTag = this.getUserInfoByBattleTag.bind(this);
     // this.getUserInfoByBattleTag(cookies.get('battleTag'));
-    this.getUserInfoByBattleTag(this.props.battleTag);
+    if (this.props.battleTag) {
+      this.getUserInfoByBattleTag(this.props.battleTag);
+    }
   }
 
   getUserInfoByBattleTag(battleTag) {
@@ -47,18 +49,26 @@ class PlayerStats extends React.Component {
 
   render() {
     let { userInfo } = this.state;
-    return (
-      <div className='player-info'>
-        <div className='player-info-slot smooth-border'>
-          <img className='portrait smooth-border' alt='portrait' src={userInfo.portrait}></img>
-          <p className='name' scrolling="no">{userInfo.username}</p>
-            {this.render_rank(this.state.userInfo)}
+    if (this.props.battleTag) {
+      return (
+        <div className='player-stats'>
+          <div className='player-stats-slot smooth-border'>
+            <img className='portrait smooth-border' alt='portrait' src={userInfo.portrait}></img>
+            <p className='name' scrolling="no">{userInfo.username}</p>
+              {this.render_rank(this.state.userInfo)}
+          </div>
+          <ul className='favorite-heros'>
+            <li></li>
+          </ul>
         </div>
-        <ul className='favorite-heros'>
-          <li></li>
-        </ul>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className='player-stats empty'>
+          <p className='name' scrolling="no">OPEN</p>
+        </div>
+      );
+    }
   }
 }
 

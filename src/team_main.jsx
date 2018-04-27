@@ -11,21 +11,19 @@ class TeamMain extends React.Component {
 
     let currentUserBattleTag = cookies.get('battleTag');
     this.state = {
-      currentUserBattleTag: currentUserBattleTag,
-      battleTagIndex: []
+      battleTagIndex: [currentUserBattleTag, "", "", "", "", ""]
     }
   }
   render() {
+    console.log(this.state.battleTagIndex[0]);
     return (
       <main className='team-main'>
         <div className='team-div'>
           <h1 className='team-name'>Awesome Team</h1>
           <ul className='team-members'>
-            <PlayerInfo battleTag={this.state.currentUserBattleTag}/>
-            <li className='player' id='player-3'>Player 3</li>
-            <li className='player' id='player-4'>Player 4</li>
-            <li className='player' id='player-5'>Player 5</li>
-            <li className='player' id='player-6'>Player 6</li>
+            {
+              this.state.battleTagIndex.map((tag, idx) => <PlayerInfo battleTag={tag} key={`battleTag-${idx}`}/>)
+            }
           </ul>
         </div>
       </main>

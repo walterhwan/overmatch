@@ -111,28 +111,6 @@ blockquote, q {
       justify-content: space-between;
       height: 400px;
       width: 220px; }
-      .team-div .team-members .player .player-info-slot {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 3px;
-        max-width: 220px;
-        border: 1px solid #FDFFFC; }
-        .team-div .team-members .player .player-info-slot .portrait {
-          width: 50px; }
-        .team-div .team-members .player .player-info-slot .name {
-          font-size: 28px;
-          margin: 0px 5px;
-          overflow: hidden; }
-        .team-div .team-members .player .player-info-slot .rank_div {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 40px; }
-          .team-div .team-members .player .player-info-slot .rank_div .rank_img {
-            width: 40px; }
-          .team-div .team-members .player .player-info-slot .rank_div .rank {
-            font-size: 20px; }
       .team-div .team-members .player .role-div {
         display: flex;
         flex-direction: column;
@@ -147,6 +125,45 @@ blockquote, q {
         .team-div .team-members .player .hero-div h1 {
           color: #FDFFFC;
           font-size: 28px; }
+
+.player-stats.empty {
+  min-height: 50px;
+  max-width: 220px;
+  padding: 3px;
+  border: 1px dashed #FDFFFC;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+  .player-stats.empty .name {
+    color: white;
+    font-size: 28px;
+    margin: 0px 5px;
+    overflow: hidden; }
+
+.player-stats .player-stats-slot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+  max-width: 220px;
+  border: 1px solid #FDFFFC; }
+  .player-stats .player-stats-slot .portrait {
+    width: 50px; }
+  .player-stats .player-stats-slot .name {
+    font-size: 28px;
+    margin: 0px 5px;
+    overflow: hidden; }
+  .player-stats .player-stats-slot .rank_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px; }
+    .player-stats .player-stats-slot .rank_div .rank_img {
+      width: 40px; }
+    .player-stats .player-stats-slot .rank_div .rank {
+      font-size: 20px; }
 
 @font-face {
   font-family: Big Noodle Too;
