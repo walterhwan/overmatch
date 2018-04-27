@@ -11,6 +11,8 @@ class Home extends React.Component {
       battleTag: ''
     }
 
+    this.info = {};
+
     this.getBattleTagFromBnet = this.getBattleTagFromBnet.bind(this);
     this.saveUserInfo = this.saveUserInfo.bind(this);
     this.updateUserInfo = this.updateUserInfo.bind(this);
@@ -75,6 +77,16 @@ class Home extends React.Component {
   }
 
   render() {
+    let battleTag = this.state.battleTag;
+    if (battleTag) {
+      console.log(battleTag);
+      axios.post('http://localhost:8080/api/testing', {
+        battleTag: battleTag
+      }).then((res) => {
+        console.log(res.data);
+        this.info = res.data;
+      })
+    }
     return (
         <div className="home-page">
         <p className="tag-location">{this.state.battleTag}</p>
