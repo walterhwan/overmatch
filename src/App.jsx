@@ -9,7 +9,8 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <nav className="nav">
-            <a>OVER<span>M</span>ATCH</a>
+            <a className="logo" href="/">OVER<span>M</span>ATCH</a>
+            <button className="logout"><a href="/api/logout">Logout</a></button>
           </nav>
             <Switch>
               <Route path='/team' component={TeamMain} />

@@ -2,6 +2,7 @@
 @import 'app';
 @import 'home';
 @import 'team';
+@import 'splash';
 
 @font-face {
   font-family: Big Noodle Too;
@@ -20,11 +21,13 @@ html, body {
   }
 
   .nav {
+    position: relative;
     border-bottom: 2px solid #D1D5D5;
     height: 50px;
     text-align: center;
 
-    a {
+    .logo {
+      text-decoration: none;
       font-family: courier;
       line-height: 42px;
       font-weight: 400;
@@ -66,4 +69,28 @@ html, body {
       color: #A6ABAB;
     }
   }
+}
+
+.logout {
+  position: absolute;
+  top: 5%;
+  right: 1%;
+  border: 3px solid blue;
+  border-radius: 5px;
+  width: 5%;
+  padding: 0.5% 1%;
+  background: #0e86ca;
+  font-size: 16px;
+  opacity: 0.8;
+  margin: auto;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background: #00aeff;
+}
+
+.logout > a {
+  color: $white;
+  text-decoration: none;
 }
