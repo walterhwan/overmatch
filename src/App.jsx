@@ -1,26 +1,26 @@
 import React from 'react';
-import { BrowserRouter, HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './home.jsx';
 import TeamMain from './team_main';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <nav className="nav">
-          <a>OVER<span>M</span>ATCH</a>
-        </nav>
-        <BrowserRouter>
-          <Switch>
-            <Route path='/team' component={TeamMain} />
-            <Route path='/login' render={() => <h1>Path login</h1>} />
-            <Route path='/' component={Home} />
-          </Switch>
-        </BrowserRouter>
-        <footer className="footer">
-          <a className= "about-us" href="#">ABOUT US</a>
-        </footer>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <nav className="nav">
+            <a>OVER<span>M</span>ATCH</a>
+          </nav>
+            <Switch>
+              <Route path='/team' component={TeamMain} />
+              <Route path='/login' render={() => <h1>Path login</h1>} />
+              <Route path='/' component={Home} />
+            </Switch>
+          <footer className="footer">
+            <a className= "about-us" href="/">ABOUT US</a>
+          </footer>
+        </div>
+      </BrowserRouter>
     );
   }
 }

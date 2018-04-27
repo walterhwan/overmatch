@@ -4,12 +4,15 @@ var router = express.Router();
 var users = require('../controller/users');
 
 router.route('/users')
-  .get(users.apiGET)
   .post(users.apiPOST);
 
 //Adding a route to a specific team based on the database ID
-router.route('/users/:user_id')
+router.route('/users/:authCode')
+  .get(users.apiGET)
   .put(users.apiPUT)
   .delete(users.apiDELETE);
+
+router.route('/users/battleTag/:battleTag')
+  .get(users.apiBattleTagGET)
 
 module.exports = router;

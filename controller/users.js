@@ -2,35 +2,56 @@ let User = require('../model/users');
 let assert = require('assert')
 var bodyParser = require('body-parser');
 
-exports.apiGET = function(req, res) {
-  User.find(function(err, users) {
+exports.apiBattleTagGET = function(req, res) {
+  User.find({battleTag: req.params.battleTag}, function(err, user) {
     if (err) {
       res.send(err);
     }
-    //responds with a json object of our database users.
-    res.json(users);
+    res.json(user[0]);
+  });
+}
+
+exports.apiGET = function(req, res) {
+  User.find({authCode: req.params.authCode}, function(err, user) {
+    if (err) {
+      res.send(err);
+    }
+    // //responds with a json object of our database users.
+    //   res.json(user[0]);
+    // }
+    res.json(user[0]);
+    // if (user[0]) {
+    //   res.json(user[0]);
+    // } else {
+    //   res.send({message: 'Cannot find user'})
+    // }
   });
 };
 
 exports.apiPOST = function(req, res) {
   var user = new User();
   //body parser lets us use the req.body
-  // For now, only save username and level, might need to add more later
 
+  let battleTag = req.body.battleTag;
+  let authCode = req.body.authCode;
   // username validation, presence true
-  if (req.body.username === null || req.body.username === undefined) {
+  if (battleTag === null || battleTag === undefined) {
     let erorr = user.validateSync();
-    assert.equal(erorr.errors['username'].message,
-    'Missing username');
+    assert.equal(erorr.errors['battleTag'].message,
+    'Missing battleTag');
   } else {
-    user.username = req.body.username;
+    user.battleTag = battleTag;
   }
-  // TODO: add necessary validation later
-  user.level = req.body.level;
-
+  user.authCode = authCode;
   user.team_id = req.body.team_id;
-  user.save(function(err) {
+  // User.find({battleTag: battleTag}, function(err, user2) {
+  //   if (user2) {
+  //     user2.authCode = authCode;
+  //     user2.save();
+  //   }
+  // });
 
+  user.save(function(err) {
     if (err) {
       res.send(err);
     } else {
@@ -41,13 +62,16 @@ exports.apiPOST = function(req, res) {
 
 // updating a user
 exports.apiPUT = function(req, res) {
-  User.findById(req.params.user_id, function(err, user) {
+  // User.findById(req.params.user_id, function(err, user) {
+  User.find({"authCode": req.body.authCode}, function(err, user) {
     if (err) {
+      console.log(err);
       res.send(err);
     }
 
     // TODO: user field that we would update, need to update this
-
+    user.authCode = req.body.authCode;
+    user.battleTag = req.body.battleTag;
     //save user
     user.save(function(err) {
       if (err) {

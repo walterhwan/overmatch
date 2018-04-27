@@ -5,10 +5,6 @@ import PlayerInfo from './player_info';
 
 // const TeamMain = () => (
 class TeamMain extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <main className='team-main'>
