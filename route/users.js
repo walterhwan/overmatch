@@ -12,4 +12,7 @@ router.route('/users/:authCode')
   .put(users.apiPUT)
   .delete(users.apiDELETE);
 
+router.route('/users/battleTag/:battleTag')
+  .get(users.apiBattleTagGET)
+
 module.exports = router;

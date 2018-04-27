@@ -2,6 +2,15 @@ let User = require('../model/users');
 let assert = require('assert')
 var bodyParser = require('body-parser');
 
+exports.apiBattleTagGET = function(req, res) {
+  User.find({battleTag: req.params.battleTag}, function(err, user) {
+    if (err) {
+      res.send(err);
+    }
+    res.json(user[0]);
+  });
+}
+
 exports.apiGET = function(req, res) {
   User.find({authCode: req.params.authCode}, function(err, user) {
     if (err) {
@@ -22,20 +31,27 @@ exports.apiGET = function(req, res) {
 exports.apiPOST = function(req, res) {
   var user = new User();
   //body parser lets us use the req.body
-  // For now, only save username and level, might need to add more later
 
+  let battleTag = req.body.battleTag;
+  let authCode = req.body.authCode;
   // username validation, presence true
-  if (req.body.battleTag === null || req.body.battleTag === undefined) {
+  if (battleTag === null || battleTag === undefined) {
     let erorr = user.validateSync();
     assert.equal(erorr.errors['battleTag'].message,
     'Missing battleTag');
   } else {
-    user.battleTag = req.body.battleTag;
+    user.battleTag = battleTag;
   }
-  user.authCode = req.body.authCode;
+  user.authCode = authCode;
   user.team_id = req.body.team_id;
-  user.save(function(err) {
+  // User.find({battleTag: battleTag}, function(err, user2) {
+  //   if (user2) {
+  //     user2.authCode = authCode;
+  //     user2.save();
+  //   }
+  // });
 
+  user.save(function(err) {
     if (err) {
       res.send(err);
     } else {
@@ -57,7 +73,6 @@ exports.apiPUT = function(req, res) {
     user.authCode = req.body.authCode;
     user.battleTag = req.body.battleTag;
     //save user
-    // debugger
     user.save(function(err) {
       if (err) {
         res.send(err);

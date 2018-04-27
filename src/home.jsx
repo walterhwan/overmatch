@@ -14,28 +14,18 @@ class Home extends React.Component {
     this.getBattleTagFromBnet = this.getBattleTagFromBnet.bind(this);
     this.saveUserInfo = this.saveUserInfo.bind(this);
     this.updateUserInfo = this.updateUserInfo.bind(this);
-    this.getUserInfo = this.getUserInfo.bind(this);
+    this.getUserInfoByBattleTag = this.getUserInfoByBattleTag.bind(this);
     this.searchBattleTagInDB = this.searchBattleTagInDB.bind(this);
 
     this.authoCode ="";
     if (this.props.location.search.match(/code=(.*)/)) {
       this.authCode = this.props.location.search.match(/code=(.*)/)[1];
-
-    this.searchBattleTagInDB(this.authCode);
-      // this.getBattleTagFromBnet();
-      // this.getUserInfo();
+      this.searchBattleTagInDB(this.authCode);
     } else {
       this.authCode = ""
     }
-    // this.saveUserInfo();
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   debugger
-  //   if(newProps.location.search.match(/code=(.*)/)[1]) {
-  //     this.getUserInfo(newProps.location.search.match(/code=(.*)/)[1])
-  //   }
-  // }
   async searchBattleTagInDB(authCode) {
     axios.defaults.port = 8080;
     const res = await axios.get(`http://localhost:8080/api/users/${authCode}`)
@@ -55,30 +45,28 @@ class Home extends React.Component {
     // make sure axios url is the backend route with backend port 8080
     axios.post("http://localhost:8080/api/test", {authCode: this.authCode})
       .then((res) => {
+        let battleTag = res.data.battleTag;
         this.saveUserInfo(res);
         this.setState({
-          battleTag: res.data.battleTag
+          battleTag: battleTag
         })
       });
   }
 
   saveUserInfo(res) {
-    // debugger
     axios.defaults.port = 8080;
-    let currentUser;
     axios.post('http://localhost:8080/api/users', {
       authCode: this.authCode,
       battleTag: res.data.battleTag
     });
   }
 
-  getUserInfo() {
+  getUserInfoByBattleTag(battleTag) {
     axios.defaults.port = 8080;
-    axios.get(`http://localhost:8080/api/users/${this.authCode}`)
-        .then(res => {
-          console.log(res.data);
-          // this.bt = res.data;
-        })
+    axios.get(`http://localhost:8080/api/users/battleTag/${battleTag}`)
+      .then(res => {
+        console.log(res.data);
+      })
   }
 
   updateUserInfo(res) {
@@ -87,8 +75,6 @@ class Home extends React.Component {
   }
 
   render() {
-
-    // debugger
     return (
         <div className="home-page">
         <p className="tag-location">{this.state.battleTag}</p>
