@@ -1,51 +1,39 @@
 import React from 'react';
-import axios from 'axios';
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
+import PlayerStats from './player_stats';
+
 
 class PlayerInfo extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userInfo: {}
+      battleTag: this.props.battleTag
     }
-
-    this.getUserInfoByBattleTag = this.getUserInfoByBattleTag.bind(this);
-    this.getUserInfoByBattleTag(cookies.get('battleTag'));
   }
-
-  getUserInfoByBattleTag(battleTag) {
-    axios.defaults.port = 8080;
-    axios.post('http://localhost:8080/api/testing/', {
-      battleTag: battleTag
-    })
-      .then(res => {
-        this.setState({
-          userInfo: res.data
-        })
-      })
-  }
-
   render() {
-    let { userInfo } = this.state;
-    let { rank_img, rank } = userInfo.competitive || {};
-    console.log(userInfo);
-    // let username = userInfo.username;
     return (
-      <div className='player-info'>
-        <div className='player-info-slot smooth-border'>
-          <img className='portrait smooth-border' alt='portrait' src={userInfo.portrait}></img>
-          <p className='name' scrolling="no">{userInfo.username}</p>
-          <div className='rank_div'>
-            <img  className='rank_img'  alt='rank_img' src={rank_img}></img>
-            <p className='rank'>{rank}</p>
-          </div>
+      <li className='player' id='player-1'>
+        <div className='role-div'>
+          <h1>Role</h1>
+          <select>
+            <option value='Tank'>Tank</option>
+            <option value='Support'>Support</option>
+            <option value='Offense'>Offense</option>
+            <option value='Defense'>Defense</option>
+          </select>
         </div>
-        <ul className='favorite-heros'>
-          <li></li>
-        </ul>
-      </div>
+        <div className='hero-div'>
+          <h1>Hero</h1>
+          <select>
+            <option value='Doomfist'>Doomfist</option>
+            <option value='Genji'>Genji</option>
+            <option value='McCree'>McCree</option>
+            <option value='Pharah'>Pharah</option>
+            <option value='Reaper'>Reaper</option>
+          </select>
+        </div>
+        <PlayerStats battleTag={this.state.battleTag || ""}/>
+      </li>
     );
   }
 }
