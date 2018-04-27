@@ -4,10 +4,6 @@ import React from 'react';
 
 // const TeamMain = () => (
 class TeamMain extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <main className='team-main'>

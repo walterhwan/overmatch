@@ -11,45 +11,84 @@ class Home extends React.Component {
       battleTag: ''
     }
 
-    this.passAuthCodeToServer = this.passAuthCodeToServer.bind(this);
+    this.getBattleTagFromBnet = this.getBattleTagFromBnet.bind(this);
     this.saveUserInfo = this.saveUserInfo.bind(this);
     this.updateUserInfo = this.updateUserInfo.bind(this);
+    this.getUserInfo = this.getUserInfo.bind(this);
+    this.searchBattleTagInDB = this.searchBattleTagInDB.bind(this);
 
     this.authoCode ="";
     if (this.props.location.search.match(/code=(.*)/)) {
       this.authCode = this.props.location.search.match(/code=(.*)/)[1];
-      this.passAuthCodeToServer();
+
+    this.searchBattleTagInDB(this.authCode);
+      // this.getBattleTagFromBnet();
+      // this.getUserInfo();
     } else {
       this.authCode = ""
     }
     // this.saveUserInfo();
   }
 
-  passAuthCodeToServer() {
+  // componentWillReceiveProps(newProps) {
+  //   debugger
+  //   if(newProps.location.search.match(/code=(.*)/)[1]) {
+  //     this.getUserInfo(newProps.location.search.match(/code=(.*)/)[1])
+  //   }
+  // }
+  async searchBattleTagInDB(authCode) {
     axios.defaults.port = 8080;
-    // debugger
+    const res = await axios.get(`http://localhost:8080/api/users/${authCode}`)
+
+    if (res.data) {
+      this.setState({
+        battleTag: res.data.battleTag
+      })
+    } else {
+      this.getBattleTagFromBnet();
+    }
+  }
+
+
+  getBattleTagFromBnet() {
+    axios.defaults.port = 8080;
     // make sure axios url is the backend route with backend port 8080
     axios.post("http://localhost:8080/api/test", {authCode: this.authCode})
       .then((res) => {
-        this.updateUserInfo(res);
+        this.saveUserInfo(res);
         this.setState({
           battleTag: res.data.battleTag
         })
-      })
+      });
   }
 
   saveUserInfo(res) {
     // debugger
     axios.defaults.port = 8080;
-    axios.post("http://localhost:8080/api/users", {authCode: this.authCode, battleTag: res.data.battleTag})
+    let currentUser;
+    axios.post('http://localhost:8080/api/users', {
+      authCode: this.authCode,
+      battleTag: res.data.battleTag
+    });
+  }
+
+  getUserInfo() {
+    axios.defaults.port = 8080;
+    axios.get(`http://localhost:8080/api/users/${this.authCode}`)
+        .then(res => {
+          console.log(res.data);
+          // this.bt = res.data;
+        })
   }
 
   updateUserInfo(res) {
     axios.defaults.port = 8080;
-    axios.put("http://localhost:8080/api/users/", {authCode: this.authCode, battleTag: res.data.battleTag})
+    axios.put(`http://localhost:8080/api/users/${this.authCode}`, {authCode: this.authCode, battleTag: res.data.battleTag})
   }
 
   render() {
+
+    // debugger
     return (
         <div className="home-page">
         <p className="tag-location">{this.state.battleTag}</p>

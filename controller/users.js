@@ -3,12 +3,19 @@ let assert = require('assert')
 var bodyParser = require('body-parser');
 
 exports.apiGET = function(req, res) {
-  User.find(function(err, users) {
+  User.find({authCode: req.params.authCode}, function(err, user) {
     if (err) {
       res.send(err);
     }
-    //responds with a json object of our database users.
-    res.json(users);
+    // //responds with a json object of our database users.
+    //   res.json(user[0]);
+    // }
+    res.json(user[0]);
+    // if (user[0]) {
+    //   res.json(user[0]);
+    // } else {
+    //   res.send({message: 'Cannot find user'})
+    // }
   });
 };
 
@@ -26,7 +33,6 @@ exports.apiPOST = function(req, res) {
     user.battleTag = req.body.battleTag;
   }
   user.authCode = req.body.authCode;
-  // debugger;
   user.team_id = req.body.team_id;
   user.save(function(err) {
 
@@ -41,8 +47,9 @@ exports.apiPOST = function(req, res) {
 // updating a user
 exports.apiPUT = function(req, res) {
   // User.findById(req.params.user_id, function(err, user) {
-  User.find({"battleTag": req.body.battleTag}, function(err, user) {
+  User.find({"authCode": req.body.authCode}, function(err, user) {
     if (err) {
+      console.log(err);
       res.send(err);
     }
 
@@ -50,6 +57,7 @@ exports.apiPUT = function(req, res) {
     user.authCode = req.body.authCode;
     user.battleTag = req.body.battleTag;
     //save user
+    // debugger
     user.save(function(err) {
       if (err) {
         res.send(err);

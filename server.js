@@ -52,7 +52,7 @@ app.use('/api', teamRouter);  // /api/teams
 
 // The following is for oauth, backend route /api/test for now
 app.post('/api/test', function(req, res) { // api/test
-  // req = JSON.parse(req)
+  console.log(req.body);
   // debugger
   let authCode = req.body.authCode;
   var request = require("request");
