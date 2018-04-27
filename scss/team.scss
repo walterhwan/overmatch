@@ -4,12 +4,21 @@ $orange: #F9A03F;
 $black: #060808;
 $white: #FDFFFC;
 
+// main, div, ul, li {
+  // display: flex;
+// }
+
+.smooth-border {
+  border-radius: 5px;
+}
+
 .team-div {
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100%;
   overflow: scroll;
+  font-family: Big Noodle Too, impact, sans-serif;
 
   .team-name {
     font-size: 30px;
@@ -20,19 +29,76 @@ $white: #FDFFFC;
 
   .team-members {
     display: flex;
-    flex-direction: row;
     width: 100%;
     justify-content: center;
     flex-flow: row wrap;
 
     .player {
+      display: flex;
       background: $dark-blue;
       // border: 1px solid $white;
-      border-radius: 5px;
       margin-right: 10px;
       margin-bottom: 10px;
+      flex-direction: column;
+      justify-content: space-between;
       height: 400px;
       width: 220px;
+
+      // player-info
+      .player-info-slot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3px;
+        max-width: 220px;
+        border: 1px solid $white;
+
+        .portrait {
+          width: 50px;
+        }
+
+        .name {
+          font-size: 28px;
+          margin: 0px 5px;
+          overflow: scroll;
+        }
+
+        .rank_div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 40px;
+
+          .rank_img {
+            width: 40px;
+          }
+          .rank {
+            font-size: 20px;
+          }
+        }
+      }
+
+      .role-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+          color: $white;
+          font-size: 28px
+        }
+      }
+
+      .hero-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+          color: $white;
+          font-size: 28px
+        }
+      }
     }
   }
 }

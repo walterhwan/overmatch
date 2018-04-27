@@ -82,12 +82,16 @@ blockquote, q {
     background: #00aeff;
     cursor: pointer; }
 
+.smooth-border {
+  border-radius: 5px; }
+
 .team-div {
   display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  overflow: scroll; }
+  overflow: scroll;
+  font-family: Big Noodle Too, impact, sans-serif; }
   .team-div .team-name {
     font-size: 30px;
     margin-bottom: 30px;
@@ -95,17 +99,58 @@ blockquote, q {
     align-self: center; }
   .team-div .team-members {
     display: flex;
-    flex-direction: row;
     width: 100%;
     justify-content: center;
     flex-flow: row wrap; }
     .team-div .team-members .player {
+      display: flex;
       background: #314CB6;
-      border-radius: 5px;
       margin-right: 10px;
       margin-bottom: 10px;
+      flex-direction: column;
+      justify-content: space-between;
       height: 400px;
       width: 220px; }
+      .team-div .team-members .player .player-info-slot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3px;
+        max-width: 220px;
+        border: 1px solid #FDFFFC; }
+        .team-div .team-members .player .player-info-slot .portrait {
+          width: 50px; }
+        .team-div .team-members .player .player-info-slot .name {
+          font-size: 28px;
+          margin: 0px 5px;
+          overflow: scroll; }
+        .team-div .team-members .player .player-info-slot .rank_div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 40px; }
+          .team-div .team-members .player .player-info-slot .rank_div .rank_img {
+            width: 40px; }
+          .team-div .team-members .player .player-info-slot .rank_div .rank {
+            font-size: 20px; }
+      .team-div .team-members .player .role-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        .team-div .team-members .player .role-div h1 {
+          color: #FDFFFC;
+          font-size: 28px; }
+      .team-div .team-members .player .hero-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        .team-div .team-members .player .hero-div h1 {
+          color: #FDFFFC;
+          font-size: 28px; }
+
+@font-face {
+  font-family: Big Noodle Too;
+  src: url("../big_noodle_titling_oblique.ttf"); }
 
 html, body {
   height: 100%; }
