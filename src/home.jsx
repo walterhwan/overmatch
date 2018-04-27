@@ -18,6 +18,7 @@ class Home extends React.Component {
     this.updateUserInfo = this.updateUserInfo.bind(this);
     this.getUserInfoByBattleTag = this.getUserInfoByBattleTag.bind(this);
     this.searchBattleTagInDB = this.searchBattleTagInDB.bind(this);
+    this.toTeamPage = this.toTeamPage.bind(this);
 
     this.authoCode ="";
     if (this.props.location.search.match(/code=(.*)/)) {
@@ -36,6 +37,7 @@ class Home extends React.Component {
       this.setState({
         battleTag: res.data.battleTag
       })
+      window.battleTag = res.data.battleTag;
     } else {
       this.getBattleTagFromBnet();
     }
@@ -52,6 +54,7 @@ class Home extends React.Component {
         this.setState({
           battleTag: battleTag
         })
+        window.battleTag = battleTag;
       });
   }
 
@@ -76,6 +79,10 @@ class Home extends React.Component {
     axios.put(`http://localhost:8080/api/users/${this.authCode}`, {authCode: this.authCode, battleTag: res.data.battleTag})
   }
 
+  toTeamPage() {
+    this.props.history.push('/team')
+  }
+
   render() {
     let battleTag = this.state.battleTag;
     if (battleTag) {
@@ -91,7 +98,7 @@ class Home extends React.Component {
         <div className="home-page">
         <p className="tag-location">{this.state.battleTag}</p>
           <div className="home-area">
-            <button className="create-button">Create Your Team</button>
+            <button className="create-button" onClick={this.toTeamPage}>Create Your Team</button>
             <button className="join-button">Join A Team</button>
           </div>
         </div>

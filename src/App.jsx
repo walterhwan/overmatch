@@ -14,7 +14,7 @@ class App extends React.Component {
             <Switch>
               <Route path='/team' component={TeamMain} />
               <Route path='/login' render={() => <h1>Path login</h1>} />
-              <Route path='/' component={Home} />
+              <Route path='/home' component={Home} />
             </Switch>
           <footer className="footer">
             <a className= "about-us" href="/">ABOUT US</a>

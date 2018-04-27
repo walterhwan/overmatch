@@ -19,7 +19,7 @@ passport.use(
       clientID: BNET_ID,
       clientSecret: BNET_SECRET,
       // callbackURL: "https://aa-overmatch.herokuapp.com/",
-      callbackURL: "https://1a6dad92.ngrok.io",
+      callbackURL: "https://1a6dad92.ngrok.io/home",
       region: "us",
     },
     (accessToken, refreshToken, profile, done) => {
