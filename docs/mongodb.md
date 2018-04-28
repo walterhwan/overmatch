@@ -45,3 +45,8 @@ ISODate("2018-04-23T17:46:12Z")
 ```js
 db.teams.remove({"_id" : ObjectId("5adec27f785ff205a3e34b65")})
 ```
+
+#### Print prettier collection (ex: teams collection)
+```js
+db.teams.find().pretty()
+```
