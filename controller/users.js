@@ -2,12 +2,38 @@ let User = require('../model/users');
 let assert = require('assert')
 var bodyParser = require('body-parser');
 
-exports.apiBattleTagGET = function(req, res) {
-  User.find({battleTag: req.params.battleTag}, function(err, user) {
+exports.apiBattleTagPUT = function(req, res) {
+  const battleTag = req.params.battleTag.replace('-', '#');
+  User.findOne({battleTag: battleTag}, function(err, user) {
     if (err) {
       res.send(err);
     }
-    res.json(user[0]);
+    // res.json(user);
+
+
+    user.authCode = req.body.authCode || user.authCode;
+    user.battleTag = user.battleTag;
+    user.team_id = req.body.team_id;
+    console.log(req.body.team_id);
+    console.log(user);
+    //save user
+    user.save(function(err) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.json({ message: 'User has been updated' });
+      }
+    });
+  });
+}
+
+exports.apiBattleTagGET = function(req, res) {
+  const battleTag = req.params.battleTag.replace('-', '#');
+  User.findOne({battleTag: battleTag}, function(err, user) {
+    if (err) {
+      res.send(err);
+    }
+    res.json(user);
   });
 }
 
@@ -61,27 +87,27 @@ exports.apiPOST = function(req, res) {
 };
 
 // updating a user
-exports.apiPUT = function(req, res) {
-  // User.findById(req.params.user_id, function(err, user) {
-  User.find({"authCode": req.body.authCode}, function(err, user) {
-    if (err) {
-      console.log(err);
-      res.send(err);
-    }
-
-    // TODO: user field that we would update, need to update this
-    user.authCode = req.body.authCode;
-    user.battleTag = req.body.battleTag;
-    //save user
-    user.save(function(err) {
-      if (err) {
-        res.send(err);
-      } else {
-        res.json({ message: 'User has been updated' });
-      }
-    });
-  });
-};
+// exports.apiPUT = function(req, res) {
+//   // User.findById(req.params.user_id, function(err, user) {
+//   User.find({"battleTag": req.body.battleTag}, function(err, user) {
+//     if (err) {
+//       res.send(err);
+//     }
+//
+//     // TODO: user field that we would update, need to update this
+//     user.authCode = req.body.authCode || user.authCode;
+//     user.battleTag = req.body.battleTag || user.battleTag;
+//     user.team_id = req.body.team_id;
+//     //save user
+//     user.save(function(err) {
+//       if (err) {
+//         res.send(err);
+//       } else {
+//         res.json({ message: 'User has been updated' });
+//       }
+//     });
+//   });
+// };
 
 //select the user by its ID, then removes it.
 exports.apiDELETE = function(req, res) {

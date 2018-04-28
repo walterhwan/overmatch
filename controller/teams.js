@@ -38,8 +38,7 @@ exports.apiPOST = function(req, res) {
     if (err) {
       res.send(err);
     } else {
-      console.log(err);
-      res.json({ message: 'Team successfully added!'});
+      res.json(team);
     }
   });
 };
@@ -57,6 +56,7 @@ exports.apiPUT = function(req, res) {
       team.positions[pos_index].role = req.body.role;
       team.positions[pos_index].heros = team.positions[pos_index].heros.concat(req.body.heros);
     }
+    team.number_of_players = req.body.number_of_players;
 
     //save team
     team.save(function(err) {

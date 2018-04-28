@@ -44,6 +44,11 @@ q:before, q:after {
 blockquote, q {
   quotes: "" ""; }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
 .App {
   display: flex;
   flex-direction: column;
@@ -70,12 +75,13 @@ blockquote, q {
   background-size: contain;
   background-position: center; }
   .home-area .create-button, .home-area .join-button {
+    font-family: Big Noodle Too;
     border: 3px solid blue;
     border-radius: 5px;
     width: 20%;
     padding: 1%;
     background: #0e86ca;
-    font-size: 20px;
+    font-size: 36px;
     color: #ffffff;
     opacity: 0.9; }
   .home-area .create-button:hover, .home-area .join-button:hover {
@@ -90,7 +96,8 @@ blockquote, q {
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   font-family: Big Noodle Too, impact, sans-serif; }
   .team-div .team-name {
     font-size: 30px;
@@ -118,13 +125,60 @@ blockquote, q {
         .team-div .team-members .player .role-div h1 {
           color: #FDFFFC;
           font-size: 28px; }
+        .team-div .team-members .player .role-div .role-select {
+          display: flex;
+          width: 100%;
+          position: relative; }
+          .team-div .team-members .player .role-div .role-select .role-dropdown {
+            height: 58px;
+            width: calc(100% - 68px);
+            font-size: 20px;
+            text-align-last: center; }
+          .team-div .team-members .player .role-div .role-select .role-icon {
+            background: red;
+            border-radius: 5px;
+            height: 58px;
+            width: 68px; }
+        .team-div .team-members .player .role-div .role-select:after {
+          content: '>';
+          color: black;
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+          position: absolute;
+          right: 18px;
+          top: 15px;
+          font: 25px "Big Noodle Too";
+          pointer-events: none; }
       .team-div .team-members .player .hero-div {
         display: flex;
         flex-direction: column;
-        align-items: center; }
+        align-items: center;
+        position: relative; }
         .team-div .team-members .player .hero-div h1 {
           color: #FDFFFC;
           font-size: 28px; }
+        .team-div .team-members .player .hero-div .hero-select {
+          width: 100%; }
+          .team-div .team-members .player .hero-div .hero-select .hero-dropdown {
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            text-align-last: center;
+            background: #F9A03F; }
+        .team-div .team-members .player .hero-div .hero-select:after {
+          content: '>';
+          color: black;
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+          position: absolute;
+          right: 18px;
+          top: 38px;
+          font: 25px "Big Noodle Too";
+          pointer-events: none; }
 
 .player-stats.empty {
   min-height: 50px;
@@ -259,21 +313,23 @@ html, body {
   height: 100%; }
 
 .root {
-  height: 100%; }
+  height: 100%;
+  font-family: Big Noodle Too; }
   .root .nav {
     display: flex;
-    position: relative;
     border-bottom: 2px solid #D1D5D5;
     min-height: 50px;
-    justify-content: center;
     text-align: center;
-    align-items: center; }
+    align-items: center;
+    justify-content: space-between; }
+    .root .nav .user-welcome {
+      font-family: Big Noodle Too;
+      font-size: 24px; }
     .root .nav .logo {
       text-decoration: none;
-      font-family: courier;
       line-height: 42px;
       font-weight: 400;
-      font-size: 48px;
+      font-size: 60px;
       -webkit-text-stroke: 1px #000;
       -webkit-text-fill-color: white;
       -moz-text-stroke: 1px #000;
@@ -286,8 +342,8 @@ html, body {
   .root .footer {
     border-top: 2px solid #D1D5D5;
     height: 50px;
-    font-family: sans-serif;
-    text-align: center; }
+    text-align: center;
+    font-size: 24px; }
     .root .footer .about-us {
       text-decoration: none;
       color: #6F7272;
@@ -296,14 +352,14 @@ html, body {
       color: #A6ABAB; }
 
 .logout {
-  position: absolute;
+  font-family: Big Noodle Too;
   top: 0px;
   right: 0px;
   border: 3px solid blue;
   border-radius: 5px;
   padding: 5px 15px;
   background: #0e86ca;
-  font-size: 16px;
+  font-size: 24px;
   opacity: 0.9;
   margin: 5px;
   cursor: pointer; }

@@ -15,14 +15,16 @@ class TeamMain extends React.Component {
     }
   }
   render() {
-    console.log(this.state.battleTagIndex[0]);
+    // console.log(this.state.battleTagIndex[0]);
     return (
       <main className='team-main'>
         <div className='team-div'>
           <h1 className='team-name'>Awesome Team</h1>
           <ul className='team-members'>
             {
-              this.state.battleTagIndex.map((tag, idx) => <PlayerInfo battleTag={tag} key={`battleTag-${idx}`}/>)
+              this.state.battleTagIndex.map((tag, idx) => <PlayerInfo
+                battleTag={tag}
+                key={`battleTag-${idx}`}/>)
             }
           </ul>
         </div>

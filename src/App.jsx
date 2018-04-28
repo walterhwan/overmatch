@@ -13,18 +13,19 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <nav className="nav">
+            <div className="user-welcome" id="user-welcome"></div>
             <a className="logo" href="/">OVER<span>M</span>ATCH</a>
             <button className="logout"><a href="/api/logout">Logout</a></button>
           </nav>
             <Switch>
-              <ProtectedRoute path='/team' component={TeamMain} />
+              <ProtectedRoute path='/team/:teamId' component={TeamMain} />
               <ProtectedRoute path='/home' component={Home} />
               <Route exact path='/aboutus' component={AboutUs} />
               <Route path='/' component={SplashPage} />
             </Switch>
-          <footer className="footer">
-            <a className= "about-us" href="/aboutus">ABOUT US</a>
-          </footer>
+            <footer className="footer">
+              <a className= "about-us" href="/aboutus">ABOUT US</a>
+            </footer>
         </div>
       </BrowserRouter>
     );

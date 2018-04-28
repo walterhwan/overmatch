@@ -55,16 +55,77 @@ $white: #FDFFFC;
           color: $white;
           font-size: 28px
         }
+
+        .role-select {
+          display: flex;
+          width: 100%;
+          .role-dropdown {
+            height: 58px;
+            width: calc(100% - 68px);
+            font-size: 20px;
+            text-align-last: center;
+          }
+          .role-icon {
+            background: red;
+            border-radius: 5px;
+            height: 58px;
+            width: 68px;
+          }
+
+          position: relative;
+        }
+
+        .role-select:after {
+          content: '>';
+          color: black;
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+          position: absolute;
+          right: 18px;
+          top: 15px;
+          font: 25px "Big Noodle Too";
+          pointer-events: none;
+        }
+
       }
 
       .hero-div {
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
 
         h1 {
           color: $white;
           font-size: 28px
+        }
+
+        .hero-select {
+          width: 100%;
+
+          .hero-dropdown {
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            text-align-last: center;
+            background: $orange;
+          }
+        }
+
+        .hero-select:after {
+          content: '>';
+          color: black;
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+          position: absolute;
+          right: 18px;
+          top: 38px;
+          font: 25px "Big Noodle Too";
+          pointer-events: none;
         }
       }
     }
