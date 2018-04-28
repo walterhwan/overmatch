@@ -15,4 +15,5 @@ router.route('/users/battleTag/:battleTag')
   .put(users.apiBattleTagPUT)
   .get(users.apiBattleTagGET)
 
+
 module.exports = router;

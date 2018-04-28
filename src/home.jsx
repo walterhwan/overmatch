@@ -111,12 +111,11 @@ class Home extends React.Component {
         console.log(res.data._id);
 
         // update user team_id
-        const battleTag = cookies.get("battleTag").replace('#', '-');
-        // console.log(battleTag);
+        let battleTag = cookies.get("battleTag").replace('#', '-');
+        console.log(battleTag);
         axios.defaults.port = 8080;
         axios.put(`${api_url}/api/users/battleTag/${battleTag}`, {
-          authCode: '',
-          battleTag: battleTag,
+          battleTag: cookies.get('battleTag'),
           team_id: res.data._id,
         });
 
