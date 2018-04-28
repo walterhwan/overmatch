@@ -1,6 +1,8 @@
 import React from 'react';
 import PlayerStats from './player_stats';
+import axios from 'axios';
 
+const api_url = "http://localhost:8080";
 
 class PlayerInfo extends React.Component {
   constructor(props) {
@@ -10,6 +12,12 @@ class PlayerInfo extends React.Component {
       battleTag: this.props.battleTag
     }
   }
+
+  saveInitialTeamInfoWithCreator(role, heros, number_of_players) {
+    axios.defaults.port = 8080;
+    axios.post(`${api_url}/api/teams` , {role: role, heros: heros, number_of_players: number_of_players})
+  }
+
   render() {
     return (
       <li className='player smooth-border' id='player-1'>
@@ -28,7 +36,7 @@ class PlayerInfo extends React.Component {
         <div className='role-div'>
           <h1>Role</h1>
           <div className='role-select'>
-            <img className="role-icon" src="../images/supportIcon.png"></img>
+            <img className="role-icon" alt='icon' src="../images/supportIcon.png"></img>
             <select className="role-dropdown">
               <option value='Tank'>Tank</option>
               <option value='Support'>Support</option>

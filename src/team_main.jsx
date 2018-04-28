@@ -15,7 +15,7 @@ class TeamMain extends React.Component {
     }
   }
   render() {
-    console.log(this.state.battleTagIndex[0]);
+    // console.log(this.state.battleTagIndex[0]);
     return (
       <main className='team-main'>
         <div className='team-div'>

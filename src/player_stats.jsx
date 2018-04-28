@@ -23,7 +23,7 @@ class PlayerStats extends React.Component {
     axios.post('http://localhost:8080/api/testing/', {
       battleTag: battleTag
     }).then(res => {
-      console.log(res);
+      // console.log(res);
         this.setState({
           userInfo: res.data
         })

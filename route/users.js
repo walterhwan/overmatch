@@ -9,10 +9,10 @@ router.route('/users')
 //Adding a route to a specific team based on the database ID
 router.route('/users/:authCode')
   .get(users.apiGET)
-  .put(users.apiPUT)
   .delete(users.apiDELETE);
 
 router.route('/users/battleTag/:battleTag')
+  .put(users.apiBattleTagPUT)
   .get(users.apiBattleTagGET)
 
 module.exports = router;
