@@ -152,7 +152,8 @@ blockquote, q {
   height: 100%;
   width: 100%;
   background-image: url("../images/Blizzard2.png");
-  background-size: cover; }
+  background-size: cover;
+  font-family: Big Noodle Too; }
 
 .center-content {
   position: relative;
@@ -166,19 +167,20 @@ blockquote, q {
   margin: auto;
   color: #FDFFFC;
   text-shadow: 4px 4px 10px black;
-  width: 60%; }
+  width: 50%; }
 
 .bnet-link {
   text-align: center; }
 
 .bnet-button {
+  font-family: Big Noodle Too;
   color: #ffffff;
   border: 3px solid blue;
   border-radius: 5px;
   width: 20%;
   padding: 1%;
   background: #0e86ca;
-  font-size: 20px;
+  font-size: 30px;
   opacity: 0.8;
   margin-top: 3%;
   cursor: pointer; }
@@ -267,6 +269,8 @@ html, body {
     font-family: sans-serif;
     text-align: center; }
     .root .footer .about-us {
+      font-family: Big Noodle Too;
+      font-size: 26px;
       text-decoration: none;
       color: #6F7272;
       line-height: 42px; }
@@ -274,6 +278,8 @@ html, body {
       color: #A6ABAB; }
 
 .logout {
+  font-family: Big Noodle Too;
+  font-size: 26px;
   color: #FDFFFC;
   position: absolute;
   top: 5%;
@@ -281,9 +287,8 @@ html, body {
   border: 3px solid blue;
   border-radius: 5px;
   width: 5%;
-  padding: 0.5% 1%;
+  padding: 5px 10px;
   background: #0e86ca;
-  font-size: 16px;
   opacity: 0.8;
   margin: auto;
   cursor: pointer; }

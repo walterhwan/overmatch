@@ -3,6 +3,7 @@
   width: 100%;
   background-image: url("../images/Blizzard2.png");
   background-size: cover;
+  font-family: Big Noodle Too;
 }
 
 .center-content {
@@ -18,7 +19,7 @@
   margin: auto;
   color: $white;
   text-shadow: 4px 4px 10px black;
-  width: 60%;
+  width: 50%;
 }
 
 .bnet-link {
@@ -26,13 +27,14 @@
 }
 
 .bnet-button {
+  font-family: Big Noodle Too;
   color: #ffffff;
   border: 3px solid blue;
   border-radius: 5px;
   width: 20%;
   padding: 1%;
   background: #0e86ca;
-  font-size: 20px;
+  font-size: 30px;
   opacity: 0.8;
   margin-top: 3%;
   cursor: pointer;
