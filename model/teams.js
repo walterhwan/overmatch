@@ -16,6 +16,7 @@ var TeamsSchema = new Schema({
   // positions: [{}],
   positions: [PosSchema],
   number_of_players: Number,
+  tema_name: String
 
 });
 

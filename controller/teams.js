@@ -30,8 +30,8 @@ exports.apiPOST = function(req, res) {
   pos.heros = pos.heros.concat(req.body.heros);
   dummyPos.unshift(pos)
   team.positions = team.positions.concat(dummyPos);
-
   team.number_of_players = req.body.number_of_players;
+  team.team_name = req.body.team_name || `${req.body.battleTag}'s Team`
 
   team.save(function(err) {
 

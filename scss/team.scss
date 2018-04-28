@@ -17,7 +17,8 @@ $white: #FDFFFC;
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   font-family: Big Noodle Too, impact, sans-serif;
 
   .team-name {

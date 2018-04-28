@@ -1,6 +1,7 @@
 import React from 'react';
 import PlayerStats from './player_stats';
 import axios from 'axios';
+import {withRouter} from 'react-router-dom';
 
 const api_url = "http://localhost:8080";
 
@@ -11,11 +12,23 @@ class PlayerInfo extends React.Component {
     this.state = {
       battleTag: this.props.battleTag
     }
+
+    // get team id from url:
+    this.team_id ="";
+    if (this.props.location.search.match(/team\/(.*)/)) {
+      this.authCode = this.props.location.search.match(/team\/(.*)/)[1];
+      this.searchBattleTagInDB(this.team_id);
+    } else {
+      this.team_id = ""
+    }
   }
 
-  saveInitialTeamInfoWithCreator(role, heros, number_of_players) {
+  updateTeamDB () {
     axios.defaults.port = 8080;
-    axios.post(`${api_url}/api/teams` , {role: role, heros: heros, number_of_players: number_of_players})
+
+    axios.put(`${api_url}/api/teams/${this.team_id}`, {
+
+    });
   }
 
   render() {
@@ -51,4 +64,4 @@ class PlayerInfo extends React.Component {
   }
 }
 
-export default PlayerInfo;
+export default withRouter(PlayerInfo);
