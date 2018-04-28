@@ -44,3 +44,8 @@ q:before, q:after {
 blockquote, q {
 	quotes: "" "";
 }
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}

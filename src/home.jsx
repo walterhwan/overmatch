@@ -32,6 +32,10 @@ class Home extends React.Component {
     }
   }
 
+  setWelcomeMessage(battleTag) {
+    document.getElementById('user-welcome').innerHTML = `Welcome ${battleTag}`;
+  }
+
   async searchBattleTagInDB(authCode) {
     axios.defaults.port = 8080;
     const res = await axios.get(`http://localhost:8080/api/users/${authCode}`)
@@ -41,6 +45,7 @@ class Home extends React.Component {
         battleTag: res.data.battleTag
       })
       cookies.set("battleTag", res.data.battleTag);
+      this.setWelcomeMessage(res.data.battleTag);
     } else {
       this.getBattleTagFromBnet();
     }
@@ -58,6 +63,7 @@ class Home extends React.Component {
           battleTag: battleTag
         })
         cookies.set("battleTag", battleTag);
+        this.setWelcomeMessage(res.data.battleTag);
       });
   }
 
@@ -99,7 +105,6 @@ class Home extends React.Component {
     }
     return (
         <div className="home-page">
-        <p className="tag-location">{this.state.battleTag}</p>
           <div className="home-area">
             <button className="create-button" onClick={this.toTeamPage}>Create Your Team</button>
             <button className="join-button">Join A Team</button>

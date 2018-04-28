@@ -13,6 +13,7 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <nav className="nav">
+            <div className="user-welcome" id="user-welcome"></div>
             <a className="logo" href="/">OVER<span>M</span>ATCH</a>
             <button className="logout"><a href="/api/logout">Logout</a></button>
           </nav>
