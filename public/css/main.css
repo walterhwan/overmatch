@@ -169,10 +169,10 @@ blockquote, q {
   width: 60%; }
 
 .bnet-link {
-  text-decoration: none;
-  color: #ffffff; }
+  text-align: center; }
 
 .bnet-button {
+  color: #ffffff;
   border: 3px solid blue;
   border-radius: 5px;
   width: 20%;
@@ -180,9 +180,8 @@ blockquote, q {
   background: #0e86ca;
   font-size: 20px;
   opacity: 0.8;
-  margin: auto;
-  cursor: pointer;
-  margin-top: 3%; }
+  margin-top: 3%;
+  cursor: pointer; }
 
 .bnet-button:hover {
   background: #00aeff; }
@@ -275,6 +274,7 @@ html, body {
       color: #A6ABAB; }
 
 .logout {
+  color: #FDFFFC;
   position: absolute;
   top: 5%;
   right: 1%;
@@ -290,7 +290,3 @@ html, body {
 
 .logout:hover {
   background: #00aeff; }
-
-.logout > a {
-  color: #FDFFFC;
-  text-decoration: none; }

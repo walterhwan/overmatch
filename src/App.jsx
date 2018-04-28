@@ -12,7 +12,7 @@ class App extends React.Component {
         <div className="App">
           <nav className="nav">
             <a className="logo" href="/">OVER<span>M</span>ATCH</a>
-            <button className="logout"><a href="/api/logout">Logout</a></button>
+            <a href="/api/logout"><button className="logout">Logout</button></a>
           </nav>
             <Switch>
               <Route path='/team' component={TeamMain} />

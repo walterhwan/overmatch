@@ -22,11 +22,11 @@
 }
 
 .bnet-link {
-  text-decoration: none;
-  color: #ffffff;
+  text-align: center;
 }
 
 .bnet-button {
+  color: #ffffff;
   border: 3px solid blue;
   border-radius: 5px;
   width: 20%;
@@ -34,9 +34,8 @@
   background: #0e86ca;
   font-size: 20px;
   opacity: 0.8;
-  margin: auto;
-  cursor: pointer;
   margin-top: 3%;
+  cursor: pointer;
 }
 
 .bnet-button:hover {
