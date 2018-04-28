@@ -52,7 +52,7 @@ app.use('/api', teamRouter);  // /api/teams
 
 // The following is for oauth, backend route /api/test for now
 app.post('/api/test', function(req, res) { // api/test
-  console.log(req.body);
+  // console.log(req.body);
   let authCode = req.body.authCode;
   var request = require("request");
   var options = { method: 'POST',
@@ -72,7 +72,7 @@ app.post('/api/test', function(req, res) { // api/test
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
     accessToken = JSON.parse(body).access_token;
-    console.log("accessToken: " + accessToken);
+    // console.log("accessToken: " + accessToken);
 
     var request2 = require("request");
     var options = { method: 'GET',
@@ -96,7 +96,7 @@ app.post('/api/test', function(req, res) { // api/test
 app.post('/api/testing/', function(req, res) {
   var request = require("request");
   let battleTag = req.body.battleTag.replace("#", "-");
-  console.log(battleTag);
+  // console.log(battleTag);
   var options = { method: 'GET',
     url: `https://ow-api.herokuapp.com/profile/pc/us/${battleTag}`,
     headers:

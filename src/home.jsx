@@ -105,9 +105,11 @@ class Home extends React.Component {
   }
 
   saveInitialTeamInfoWithCreator(role, heros, number_of_players) {
-    let default_team_name = cookies.get("battleTag").match(/(.*)\#.*/)[1];
+    let default_team_name = cookies.get("battleTag").match(/(.*)\#/)[1];
+    console.log(default_team_name);
+    console.log(`${default_team_name}'s Team`);
     axios.defaults.port = 8080;
-    axios.post(`${api_url}/api/teams` , {role: role, heros: heros, number_of_players: number_of_players, team_name: `${default_team_name}'s Team'`} )
+    axios.post(`${api_url}/api/teams` , {role: role, heros: heros, number_of_players: number_of_players, team_name: `${default_team_name}'s Team`} )
       .then((res) => {
         // console.log(res.data._id);
 
