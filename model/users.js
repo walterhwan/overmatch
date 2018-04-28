@@ -14,7 +14,7 @@ var UsersSchema = new Schema({
   },
   authCode: String,
   level: Number,
-  team_id: Number
+  team_id: {type: String}
 });
 
 UsersSchema.plugin(timeStamps);

@@ -17,26 +17,32 @@ html, body {
 
 .root {
   height: 100%;
-
+  font-family: Big Noodle Too;
   // app.scss
   .App {
   }
 
   .nav {
     display: flex;
-    position: relative;
+    // position: relative;
     border-bottom: 2px solid #D1D5D5;
     min-height: 50px;
-    justify-content: center;
     text-align: center;
     align-items: center;
+    justify-content: space-between;
+
+    .user-welcome {
+      font-family: Big Noodle Too;
+      font-size: 24px;
+
+    }
 
     .logo {
       text-decoration: none;
-      font-family: courier;
+      // font-family: courier;
       line-height: 42px;
       font-weight: 400;
-      font-size: 48px;
+      font-size: 60px;
       -webkit-text-stroke: 1px #000;
       -webkit-text-fill-color: white;
       -moz-text-stroke: 1px #000;
@@ -60,8 +66,9 @@ html, body {
   .footer {
     border-top: 2px solid #D1D5D5;
     height: 50px;
-    font-family: sans-serif;
+    // font-family: sans-serif;
     text-align: center;
+    font-size: 24px;
 
     .about-us {
       text-decoration: none;
@@ -77,14 +84,15 @@ html, body {
 }
 
 .logout {
-  position: absolute;
+  // position: absolute;
+  font-family: Big Noodle Too;
   top: 0px;
   right: 0px;
   border: 3px solid blue;
   border-radius: 5px;
   padding: 5px 15px;
   background: #0e86ca;
-  font-size: 16px;
+  font-size: 24px;
   opacity: 0.9;
   margin: 5px;
   cursor: pointer;
