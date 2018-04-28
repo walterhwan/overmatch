@@ -23,9 +23,9 @@ class App extends React.Component {
               <Route exact path='/aboutus' component={AboutUs} />
               <Route path='/' component={SplashPage} />
             </Switch>
-          <footer className="footer">
-            <a className= "about-us" href="/aboutus">ABOUT US</a>
-          </footer>
+            <footer className="footer">
+              <a className= "about-us" href="/aboutus">ABOUT US</a>
+            </footer>
         </div>
       </BrowserRouter>
     );
