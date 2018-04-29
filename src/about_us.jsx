@@ -25,7 +25,6 @@ class AboutUs extends React.Component {
         </div>
         <div className="profile">
           <div className="profile-visuals">
-<<<<<<< HEAD
             <img alt='' className="profile-pic" src="../images/walter.jpeg" />
             <p>Walter H. Wan</p>
             <div className="nav-logos">
@@ -34,16 +33,6 @@ class AboutUs extends React.Component {
               </a>
               <a href="https://www.linkedin.com/in/hsuan-chen-walter-wan-b9854970/">
                 <img alt='' className="linkedin-logo" src="../images/linkedin.png" />
-=======
-            <img alt= 'profile-pic'className="profile-pic" src="../images/walter.jpeg" />
-            <p>Walter H. Wan</p>
-            <div className="nav-logos">
-              <a href="https://github.com/walterhwan">
-                <img alt= 'git-logo'className="git-logo" src="../images/github.png" />
-              </a>
-              <a href="https://www.linkedin.com/in/hsuan-chen-walter-wan-b9854970/">
-                <img alt= 'linkedin-logo'className="linkedin-logo" src="../images/linkedin.png" />
->>>>>>> 43ecb6a1d40816c375d22156a4096674e7d565ba
               </a>
             </div>
           </div>

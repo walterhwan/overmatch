@@ -304,6 +304,38 @@ select {
   font-size: 24px;
   letter-spacing: 1px; }
 
+.team-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px; }
+  .team-index .join-a-team-text {
+    font-size: 50px;
+    margin: 20px; }
+  .team-index .team-ul {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 5px;
+    width: 80%; }
+    .team-index .team-ul .team-li:hover {
+      background: #F7EDC3;
+      cursor: pointer; }
+    .team-index .team-ul .team-li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 10px 10px 10px;
+      border-bottom: 1px solid grey; }
+      .team-index .team-ul .team-li .team-player-num {
+        padding-left: 10px; }
+    .team-index .team-ul .team-li:first-child {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px; }
+    .team-index .team-ul .team-li:last-child {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px; }
+
 @font-face {
   font-family: Big Noodle Too;
   src: url("../big_noodle_titling_oblique.ttf"); }
