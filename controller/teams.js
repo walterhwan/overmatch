@@ -5,7 +5,9 @@ let assert = require('assert')
 var bodyParser = require('body-parser');
 
 exports.apiGET = function(req, res) {
-  Team.find(function(err, teams) {
+  Team.find().sort('updatedAt')
+          .limit(10)
+          .exec(function(err, teams) {
     if (err) {
       res.send(err);
     } else {
