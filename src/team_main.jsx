@@ -4,7 +4,6 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 // import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
 
-// const TeamMain = () => (
 class TeamMain extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +14,6 @@ class TeamMain extends React.Component {
     }
   }
   render() {
-    // console.log(this.state.battleTagIndex[0]);
     return (
       <main className='team-main'>
         <div className='team-div'>
@@ -32,7 +30,5 @@ class TeamMain extends React.Component {
     )
   }
 }
-// <li className='player' id='player-2'>Player 2</li>
-// );
 
 export default TeamMain;

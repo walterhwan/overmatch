@@ -76,14 +76,13 @@ select {
   background-position: center; }
   .home-area .create-button, .home-area .join-button {
     font-family: Big Noodle Too;
-    border: 3px solid blue;
+    border: none;
     border-radius: 5px;
     width: 20%;
     padding: 1%;
     background: #0e86ca;
     font-size: 36px;
-    color: #ffffff;
-    opacity: 0.9; }
+    color: #ffffff; }
   .home-area .create-button:hover, .home-area .join-button:hover {
     background: #00aeff;
     cursor: pointer; }
@@ -96,8 +95,7 @@ select {
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: scroll;
   font-family: Big Noodle Too, impact, sans-serif; }
   .team-div .team-name {
     font-size: 30px;
@@ -305,6 +303,38 @@ select {
   font-size: 24px;
   letter-spacing: 1px; }
 
+.team-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px; }
+  .team-index .join-a-team-text {
+    font-size: 50px;
+    margin: 20px; }
+  .team-index .team-ul {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 5px;
+    width: 80%; }
+    .team-index .team-ul .team-li:hover {
+      background: #F7EDC3;
+      cursor: pointer; }
+    .team-index .team-ul .team-li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 10px 10px 10px;
+      border-bottom: 1px solid grey; }
+      .team-index .team-ul .team-li .team-player-num {
+        padding-left: 10px; }
+    .team-index .team-ul .team-li:first-child {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px; }
+    .team-index .team-ul .team-li:last-child {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px; }
+
 @font-face {
   font-family: Big Noodle Too;
   src: url("../big_noodle_titling_oblique.ttf"); }
@@ -317,16 +347,18 @@ html, body {
   font-family: Big Noodle Too; }
   .root .nav {
     display: flex;
-    border-bottom: 2px solid #D1D5D5;
+    border-bottom: 1px solid #D1D5D5;
     min-height: 50px;
-    text-align: center;
     align-items: center;
+    background: #DAE7F4;
     justify-content: space-between; }
     .root .nav .user-welcome {
+      display: none;
       font-family: Big Noodle Too;
       font-size: 24px; }
     .root .nav .logo {
       text-decoration: none;
+      margin: 20px;
       line-height: 42px;
       font-weight: 400;
       font-size: 60px;
@@ -340,7 +372,8 @@ html, body {
         -webkit-text-fill-color: #FE9A37;
         -moz-text-fill-color: #FE9A37; }
   .root .footer {
-    border-top: 2px solid #D1D5D5;
+    background: #DAE7F4;
+    border-top: 1px solid #D1D5D5;
     height: 50px;
     text-align: center;
     font-size: 24px; }
@@ -355,18 +388,17 @@ html, body {
   font-family: Big Noodle Too;
   top: 0px;
   right: 0px;
-  border: 3px solid blue;
+  border: 0px;
+  border: none;
   border-radius: 5px;
   padding: 5px 15px;
   background: #0e86ca;
   font-size: 24px;
-  opacity: 0.9;
   margin: 5px;
   cursor: pointer; }
+  .logout > a {
+    color: #FDFFFC;
+    text-decoration: none; }
 
 .logout:hover {
   background: #00aeff; }
-
-.logout > a {
-  color: #FDFFFC;
-  text-decoration: none; }

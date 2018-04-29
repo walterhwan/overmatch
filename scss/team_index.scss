@@ -1,0 +1,49 @@
+.team-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 25px;
+
+  .join-a-team-text {
+    font-size: 50px;
+    margin: 20px;
+  }
+
+  .team-ul {
+    display: flex;
+    flex-direction: column;
+    // margin-top: 50px;
+    background: white;
+    border-radius: 5px;
+    width: 80%;
+
+    .team-li:hover {
+      background: #F7EDC3;
+      cursor: pointer;
+    }
+    .team-li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      padding: 10px 10px 10px 10px;
+      border-bottom: 1px solid grey;
+
+      .team-id {
+
+      }
+      .team-player-num {
+        padding-left: 10px;
+      }
+    }
+    .team-li:first-child {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .team-li:last-child {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
