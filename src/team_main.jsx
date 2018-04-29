@@ -15,7 +15,7 @@ class TeamMain extends React.Component {
     let currentUserBattleTag = cookies.get('battleTag');
     this.state = {
       battleTagIndex: [currentUserBattleTag, "", "", "", "", ""],
-      team_name: ""
+      team: {},
     }
 
     this.team_id ="";
@@ -28,14 +28,10 @@ class TeamMain extends React.Component {
   }
 
   fetchTeamInfo(team_id) {
-    // console.log(team_id)
-    // debugger
     axios.defaults.port = 8080;
     axios.get(`${api_url}/api/teams/${team_id}`)
       .then(res => {
-        console.log(res);
-        // debugger
-        this.setState({ team_name: res.data.team_name });
+        this.setState({ team: res.data });
       })
   }
 
@@ -43,7 +39,7 @@ class TeamMain extends React.Component {
     return (
       <main className='team-main'>
         <div className='team-div'>
-          <h1 className='team-name'>{this.state.team_name}</h1>
+          <h1 className='team-name'>{this.state.team.team_name}</h1>
           <ul className='team-members'>
             {
               this.state.battleTagIndex.map((tag, idx) => <PlayerInfo
