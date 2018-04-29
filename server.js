@@ -46,7 +46,7 @@ router.get('/', function(req, res) {
 });
 
 // //Use our router configuration when we call /api
-// app.use('/api', router);  // /api
+app.use('/api', router);  // /api
 // app.use('/api', userRouter);  // /api/users
 // app.use('/api', teamRouter);  // /api/teams
 //
