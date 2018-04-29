@@ -55,10 +55,13 @@ exports.apiPUT = function(req, res) {
 
     let pos_index = parseInt(req.body.pos_index);
     team.positions[pos_index].role = req.body.role || team.positions[pos_index].role;
-    if (team.positions[pos_index].heros.length >= 3) {
-      team.positions[pos_index].heros.shift();
+
+    if (!team.positions[pos_index].heros.includes(req.body.heros)) {
+      if (team.positions[pos_index].heros.length >= 3) {
+        team.positions[pos_index].heros.shift();
+      }
+      team.positions[pos_index].heros = team.positions[pos_index].heros.concat(req.body.heros);
     }
-    team.positions[pos_index].heros = team.positions[pos_index].heros.concat(req.body.heros);
 
     team.number_of_players = req.body.number_of_players || team.number_of_players;
 
