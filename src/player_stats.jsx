@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 // import Cookies from 'universal-cookie';
 // const cookies = new Cookies();
+// const API_URL = "http://localhost:8080";
+const API_URL = "https://overmatch-api.herokuapp.com";
 
 class PlayerStats extends React.Component {
   constructor(props) {
@@ -20,8 +22,8 @@ class PlayerStats extends React.Component {
   }
 
   getUserInfoByBattleTag(battleTag) {
-    axios.defaults.port = 8080;
-    axios.post('http://localhost:8080/api/testing/', {
+    // axios.defaults.port = 8080;
+    axios.post(`${API_URL}/api/testing/`, {
       battleTag: battleTag
     }).then(res => {
       // console.log(res);
