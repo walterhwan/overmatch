@@ -28,6 +28,7 @@ exports.apiPOST = function(req, res) {
     dummyPos = dummyPos.concat(new Pos());
   }
 
+  pos.battleTag = req.body.battleTag;
   pos.role = req.body.role;
   pos.heros = pos.heros.concat(req.body.heros);
   dummyPos.unshift(pos)
@@ -55,6 +56,7 @@ exports.apiPUT = function(req, res) {
 
     let pos_index = parseInt(req.body.pos_index);
     team.positions[pos_index].role = req.body.role || team.positions[pos_index].role;
+    team.positions[pos_index].battleTag = req.body.battleTag || team.positions[pos_index].battleTag;
 
     if (!team.positions[pos_index].heros.includes(req.body.heros)) {
       if (team.positions[pos_index].heros.length >= 3) {

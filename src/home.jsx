@@ -101,18 +101,19 @@ class Home extends React.Component {
   }
 
   saveInitialTeamInfoWithCreator(role, heros, number_of_players) {
-    let default_team_name = cookies.get("battleTag").match(/(.*)\#/)[1]; // eslint-disable-line no-useless-escape
+    let battleTag = cookies.get("battleTag");
+    let default_team_name = battleTag.match(/(.*)\#/)[1]; // eslint-disable-line no-useless-escape
 
     axios.defaults.port = 8080;
-    axios.post(`${api_url}/api/teams` , {role: role, heros: heros, number_of_players: number_of_players, team_name: `${default_team_name}'s Team`} )
+    axios.post(`${api_url}/api/teams` , {role: role, heros: heros, battleTag: battleTag, number_of_players: number_of_players, team_name: `${default_team_name}'s Team`} )
       .then((res) => {
 
         // update user team_id
-        let battleTag = cookies.get("battleTag").replace('#', '-');
+        let battleTag2 = battleTag.replace('#', '-');
         // console.log(battleTag);
         axios.defaults.port = 8080;
-        axios.put(`${api_url}/api/users/battleTag/${battleTag}`, {
-          battleTag: cookies.get('battleTag'),
+        axios.put(`${api_url}/api/users/battleTag/${battleTag2}`, {
+          battleTag: battleTag,
           team_id: res.data._id,
         });
 

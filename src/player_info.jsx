@@ -32,6 +32,7 @@ class PlayerInfo extends React.Component {
     axios.put(`${api_url}/api/teams/${this.team_id}`, {
       heros: hero,
       role: role,
+      battleTag: this.props.battleTag,
       pos_index: this.props.pos
     });
   }
