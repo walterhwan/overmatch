@@ -1,23 +1,49 @@
 import React from 'react';
 import PlayerInfo from './player_info';
+import axios  from 'axios';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 // import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
+const api_url = "http://localhost:8080";
 
 class TeamMain extends React.Component {
   constructor(props) {
     super(props);
 
+    this.fetchTeamInfo = this.fetchTeamInfo.bind(this);
+
     let currentUserBattleTag = cookies.get('battleTag');
     this.state = {
-      battleTagIndex: [currentUserBattleTag, "", "", "", "", ""]
+      battleTagIndex: [currentUserBattleTag, "", "", "", "", ""],
+      team_name: ""
     }
+
+    this.team_id ="";
+    if (this.props.location.pathname.match(/team\/(.*)/)) {
+      this.team_id = this.props.location.pathname.match(/team\/(.*)/)[1];
+    } else {
+      this.team_id = "";
+    }
+    this.fetchTeamInfo(this.team_id);
   }
+
+  fetchTeamInfo(team_id) {
+    // console.log(team_id)
+    // debugger
+    axios.defaults.port = 8080;
+    axios.get(`${api_url}/api/teams/${team_id}`)
+      .then(res => {
+        console.log(res);
+        // debugger
+        this.setState({ team_name: res.data.team_name });
+      })
+  }
+
   render() {
     return (
       <main className='team-main'>
         <div className='team-div'>
-          <h1 className='team-name'>Awesome Team</h1>
+          <h1 className='team-name'>{this.state.team_name}</h1>
           <ul className='team-members'>
             {
               this.state.battleTagIndex.map((tag, idx) => <PlayerInfo

@@ -4,6 +4,20 @@ let Pos = teamModel.pos;
 let assert = require('assert')
 var bodyParser = require('body-parser');
 
+exports.apiSingleUserGET = function(req, res) {
+  // console.log(req.params.team_id);
+  const team_id = req.params.team_id;
+  Team.findOne({_id: team_id}).sort('updatedAt')
+          .exec(function(err, team) {
+    if (err) {
+      res.send(err);
+    } else {
+      //responds with a json object of our database teams.
+      res.json(team);
+    }
+  });
+}
+
 exports.apiGET = function(req, res) {
   Team.find().sort('updatedAt')
           .limit(10)

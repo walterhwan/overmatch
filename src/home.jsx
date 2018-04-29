@@ -117,7 +117,6 @@ class Home extends React.Component {
           team_id: res.data._id,
         });
 
-        // redirect to team page
         this.props.history.push(`/team/${res.data._id}`);
       });
   }
