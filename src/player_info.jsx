@@ -3,7 +3,9 @@ import PlayerStats from './player_stats';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 
-const api_url = "http://localhost:8080";
+// const API_URL = "http://localhost:8080";
+const API_URL = "https://overmatch-api.herokuapp.com";
+// const API_URL = process.env.API_URL;
 
 class PlayerInfo extends React.Component {
   constructor(props) {
@@ -28,8 +30,8 @@ class PlayerInfo extends React.Component {
 
   updateTeamDB (hero, role) {
     console.log(this.team_id);
-    axios.defaults.port = 8080;
-    axios.put(`${api_url}/api/teams/${this.team_id}`, {
+    // axios.defaults.port = 8080;
+    axios.put(`${API_URL}/api/teams/${this.team_id}`, {
       heros: hero,
       role: role,
       battleTag: this.props.battleTag,
