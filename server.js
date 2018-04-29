@@ -14,7 +14,7 @@ var userRouter = require("./route/users");
 var teamRouter = require("./route/teams");
 
 //set our port to either a predetermined port number if you have set it up, or 3001, in this case we use localhost:8080/api
-var port = process.env.API_PORT || 8080;
+var port = process.env.PORT || 8080;
 var BNET_ID = process.env.BNET_ID;
 var BNET_SECRET = process.env.BNET_SECRET;
 
