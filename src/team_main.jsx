@@ -22,7 +22,7 @@ class TeamMain extends React.Component {
             {
               this.state.battleTagIndex.map((tag, idx) => <PlayerInfo
                 battleTag={tag}
-                key={`battleTag-${idx}`}/>)
+                key={`battleTag-${idx}`} pos={idx}/>)
             }
           </ul>
         </div>
