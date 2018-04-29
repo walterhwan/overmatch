@@ -9,7 +9,8 @@ var Schema = mongoose.Schema;
 //the shape of your database entries.
 var PosSchema = new Schema({
   role: {type: String, "default": ""},
-  heros: [String]
+  heros: [String],
+  battleTag: {type: String, "default": ""}
 });
 
 var TeamsSchema = new Schema({

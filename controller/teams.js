@@ -4,6 +4,20 @@ let Pos = teamModel.pos;
 let assert = require('assert')
 var bodyParser = require('body-parser');
 
+exports.apiSingleUserGET = function(req, res) {
+  // console.log(req.params.team_id);
+  const team_id = req.params.team_id;
+  Team.findOne({_id: team_id}).sort('updatedAt')
+          .exec(function(err, team) {
+    if (err) {
+      res.send(err);
+    } else {
+      //responds with a json object of our database teams.
+      res.json(team);
+    }
+  });
+}
+
 exports.apiGET = function(req, res) {
   Team.find().sort('updatedAt')
           .limit(10)
@@ -28,6 +42,7 @@ exports.apiPOST = function(req, res) {
     dummyPos = dummyPos.concat(new Pos());
   }
 
+  pos.battleTag = req.body.battleTag;
   pos.role = req.body.role;
   pos.heros = pos.heros.concat(req.body.heros);
   dummyPos.unshift(pos)
@@ -55,10 +70,14 @@ exports.apiPUT = function(req, res) {
 
     let pos_index = parseInt(req.body.pos_index);
     team.positions[pos_index].role = req.body.role || team.positions[pos_index].role;
-    if (team.positions[pos_index].heros.length >= 3) {
-      team.positions[pos_index].heros.shift();
+    team.positions[pos_index].battleTag = req.body.battleTag || team.positions[pos_index].battleTag;
+
+    if (!team.positions[pos_index].heros.includes(req.body.heros)) {
+      if (team.positions[pos_index].heros.length >= 3) {
+        team.positions[pos_index].heros.shift();
+      }
+      team.positions[pos_index].heros = team.positions[pos_index].heros.concat(req.body.heros);
     }
-    team.positions[pos_index].heros = team.positions[pos_index].heros.concat(req.body.heros);
 
     team.number_of_players = req.body.number_of_players || team.number_of_players;
 
