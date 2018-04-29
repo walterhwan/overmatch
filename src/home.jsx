@@ -1,6 +1,6 @@
 // after login, this is the  main page with create team & join team buttons
 import React from 'react'
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 

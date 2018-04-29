@@ -244,13 +244,12 @@ select {
   color: #ffffff; }
 
 .bnet-button {
-  border: 3px solid blue;
+  border: none;
   border-radius: 5px;
   width: 20%;
   padding: 1%;
   background: #0e86ca;
   font-size: 20px;
-  opacity: 0.9;
   margin: auto;
   cursor: pointer;
   margin-top: 3%; }
@@ -317,7 +316,7 @@ select {
   .team-index .team-ul {
     display: flex;
     flex-direction: column;
-    background: white;
+    padding-bottom: 30px;
     border-radius: 5px;
     width: 80%; }
     .team-index .team-ul .team-li:hover {
@@ -327,11 +326,13 @@ select {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      background: white;
       min-height: 25px;
       padding: 10px 10px 10px 10px;
       border-bottom: 1px solid grey; }
       .team-index .team-ul .team-li .team-player-num {
-        padding-left: 10px; }
+        padding-left: 10px;
+        width: 50px; }
     .team-index .team-ul .team-li:first-child {
       border-top-left-radius: 5px;
       border-top-right-radius: 5px; }

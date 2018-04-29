@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     // margin-top: 50px;
-    background: white;
+    padding-bottom: 30px;
     border-radius: 5px;
     width: 80%;
 
@@ -28,6 +28,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      background: white;
       min-height: 25px;
 
       padding: 10px 10px 10px 10px;
@@ -38,6 +39,7 @@
       }
       .team-player-num {
         padding-left: 10px;
+        width: 50px;
       }
     }
     .team-li:first-child {
