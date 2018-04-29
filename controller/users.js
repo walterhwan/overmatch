@@ -14,7 +14,7 @@ exports.apiBattleTagPUT = function(req, res) {
     user.authCode = req.body.authCode || user.authCode;
     user.battleTag = user.battleTag;
     user.team_id = req.body.team_id;
-    user.heros = user.heros.concat(req.body.heros);
+    user.heros = user.heros;
     // console.log(req.body.team_id);
     // console.log(user);
     //save user
