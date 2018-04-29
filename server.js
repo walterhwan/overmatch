@@ -104,7 +104,9 @@ app.post('/api/testing/', function(req, res) {
        'Cache-Control': 'no-cache' } };
 
   request(options, function (error, response, body) {
-    if (error) throw new Error(error);
+    if (error) {
+      res.send(error);
+    }
     res.json(JSON.parse(body));
   });
 });
