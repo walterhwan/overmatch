@@ -7,6 +7,9 @@
 @import 'aboutus';
 @import 'team_index';
 
+$light-grey: #D1D5D5;
+$light-blue: #DAE7F4;
+
 @font-face {
   font-family: Big Noodle Too;
   src: url('../big_noodle_titling_oblique.ttf')
@@ -26,21 +29,22 @@ html, body {
   .nav {
     display: flex;
     // position: relative;
-    border-bottom: 2px solid #D1D5D5;
+    border-bottom: 1px solid $light-grey;
     min-height: 50px;
-    text-align: center;
     align-items: center;
+    background: $light-blue;
     justify-content: space-between;
 
     .user-welcome {
+      display: none;
       font-family: Big Noodle Too;
       font-size: 24px;
-
     }
 
     .logo {
       text-decoration: none;
       // font-family: courier;
+      margin: 20px;
       line-height: 42px;
       font-weight: 400;
       font-size: 60px;
@@ -65,7 +69,8 @@ html, body {
   }
 
   .footer {
-    border-top: 2px solid #D1D5D5;
+    background: $light-blue;
+    border-top: 1px solid $light-grey;
     height: 50px;
     // font-family: sans-serif;
     text-align: center;
@@ -89,21 +94,20 @@ html, body {
   font-family: Big Noodle Too;
   top: 0px;
   right: 0px;
-  border: 3px solid blue;
+  border: 0px;
+  border: none;
   border-radius: 5px;
   padding: 5px 15px;
   background: #0e86ca;
   font-size: 24px;
-  opacity: 0.9;
   margin: 5px;
   cursor: pointer;
-}
 
+  > a {
+    color: $white;
+    text-decoration: none;
+  }
+}
 .logout:hover {
   background: #00aeff;
-}
-
-.logout > a {
-  color: $white;
-  text-decoration: none;
 }
