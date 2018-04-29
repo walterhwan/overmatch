@@ -66,48 +66,39 @@ html, body {
         -moz-text-fill-color: #FE9A37;
       }
     }
-  }
-
-  .footer {
-    background: $light-blue;
-    border-top: 1px solid $light-grey;
-    height: 50px;
-    // font-family: sans-serif;
-    text-align: center;
-    font-size: 24px;
 
     .about-us {
       text-decoration: none;
       color: #6F7272;
       line-height: 42px;
-      // vertical-align: center;
+      font-size: 24px;
+      margin-right: 15px;
     }
-
     .about-us:hover {
       color: #A6ABAB;
     }
-  }
-}
 
-.logout {
-  // position: absolute;
-  font-family: Big Noodle Too;
-  top: 0px;
-  right: 0px;
-  border: 0px;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 15px;
-  background: #0e86ca;
-  font-size: 24px;
-  margin: 5px;
-  cursor: pointer;
+    .logout {
+      // position: absolute;
+      font-family: Big Noodle Too;
+      top: 0px;
+      right: 0px;
+      border: 0px;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 15px;
+      background: #0e86ca;
+      font-size: 24px;
+      margin-right: 15px;
+      cursor: pointer;
 
-  > a {
-    color: $white;
-    text-decoration: none;
+      > a {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+    .logout:hover {
+      background: #00aeff;
+    }
   }
-}
-.logout:hover {
-  background: #00aeff;
 }

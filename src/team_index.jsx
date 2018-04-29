@@ -24,7 +24,6 @@ class TeamIndex extends React.Component {
 
   handleOnClick(team) {
     return (e) => {
-      console.log(team._id);
       this.props.history.push(`/team/${team._id}`)
     };
   }

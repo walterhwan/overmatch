@@ -24,6 +24,7 @@ class Home extends React.Component {
     this.toTeamPage = this.toTeamPage.bind(this);
     this.saveInitialTeamInfoWithCreator = this.saveInitialTeamInfoWithCreator.bind(this);
     this.getUserInfo = this.getUserInfo.bind(this);
+    this.toTeamIndex = this.toTeamIndex.bind(this);
 
     this.authoCode ="";
     if (this.props.location.search.match(/code=(.*)/)) {
@@ -127,6 +128,10 @@ class Home extends React.Component {
       });
   }
 
+  toTeamIndex() {
+    this.props.history.push('/teams');
+  }
+
   render() {
     let battleTag = this.state.battleTag;
     if (battleTag) {
@@ -139,8 +144,12 @@ class Home extends React.Component {
     return (
         <div className="home-page">
           <div className="home-area">
-            <button className="create-button" onClick={this.toTeamPage}>Create Your Team</button>
-            <button className="join-button">Join A Team</button>
+            <button
+              className="create-button"
+              onClick={this.toTeamPage}>Create Your Team</button>
+            <button
+              className="join-button"
+              onClick={this.toTeamIndex}>Join A Team</button>
           </div>
         </div>
 
