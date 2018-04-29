@@ -18,7 +18,7 @@ class App extends React.Component {
             <button className="logout"><a href="/api/logout">Logout</a></button>
           </nav>
             <Switch>
-              <ProtectedRoute path='/team/:teamId' component={TeamMain} />
+              <ProtectedRoute path='/team/:team_id' component={TeamMain} />
               <ProtectedRoute path='/home' component={Home} />
               <Route exact path='/aboutus' component={AboutUs} />
               <Route path='/' component={SplashPage} />
