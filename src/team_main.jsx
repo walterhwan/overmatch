@@ -4,7 +4,9 @@ import axios  from 'axios';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 // import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
-const api_url = "http://localhost:8080";
+const API_URL = "https://overmatch-api.herokuapp.com";
+// const API_URL = "http://localhost:8080";
+// const API_URL = process.env.API_URL;
 
 class TeamMain extends React.Component {
   constructor(props) {
@@ -28,8 +30,8 @@ class TeamMain extends React.Component {
   }
 
   fetchTeamInfo(team_id) {
-    axios.defaults.port = 8080;
-    axios.get(`${api_url}/api/teams/${team_id}`)
+    // axios.defaults.port = 8080;
+    axios.get(`${API_URL}/api/teams/${team_id}`)
       .then(res => {
         this.setState({ team: res.data });
       })

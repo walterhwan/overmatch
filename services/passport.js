@@ -5,7 +5,7 @@ const BnetStrategy = require('passport-bnet').Strategy;
 
 var BNET_ID = process.env.BNET_ID;
 var BNET_SECRET = process.env.BNET_SECRET;
-
+// console.log(process.env);
 // passport.serializeUser(function(user, done) {
 //     done(null, user);
 // });
