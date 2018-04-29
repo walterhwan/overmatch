@@ -18,11 +18,11 @@ var port = process.env.PORT || 8080;
 var BNET_ID = process.env.BNET_ID;
 var BNET_SECRET = process.env.BNET_SECRET;
 
-// // db config, we setup test db
-// var mongoDB = 'mongodb+srv://appacademy:hacker12@cluster0-gahbk.mongodb.net/overmatchDataBase';
-// mongoose.connect(mongoDB);
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// db config, we setup test db
+var mongoDB = 'mongodb+srv://appacademy:hacker12@cluster0-gahbk.mongodb.net/overmatchDataBase';
+mongoose.connect(mongoDB);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error what is going on???:'));
 //
 // // configure the API to use bodyParser and look for JSON data in the request body
 // app.use(bodyParser.urlencoded({ extended: true }));
