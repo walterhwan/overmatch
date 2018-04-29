@@ -129,7 +129,6 @@ class Home extends React.Component {
   }
 
   toTeamIndex() {
-    console.log('click');
     this.props.history.push('/teams');
   }
 

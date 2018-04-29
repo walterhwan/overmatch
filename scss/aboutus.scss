@@ -1,54 +1,54 @@
 .profiles-container {
-  padding: 1% 5%;
-  background-color: $white;
-}
+  background-color: #DDE7F3;
 
-.profile {
-  font-family: Big Noodle Too;
-  display: flex;
-  justify-content: space-between;
-  background-color: $white;
-  border: 3px solid #D1D5D5;
-  border-radius: 5px;
-  margin-bottom: 1%;
-  padding: 2%;
-}
+  .profile {
+    font-family: Big Noodle Too;
+    display: flex;
+    justify-content: space-between;
+    background-color: $white;
+    // border: 3px solid #D1D5D5;
+    border-radius: 5px;
+    margin: 30px 50px;
+    padding: 20px;
+  }
 
-.profile-visuals {
-  margin-right: 10px;
-}
+  .profile-visuals {
+    margin-right: 10px;
+  }
 
-.profile-visuals > p {
-  text-align: center;
-  color: $dark-blue;
-  font-size: 35px;
-}
+  .profile-visuals > p {
+    text-align: center;
+    color: $dark-blue;
+    font-size: 35px;
+  }
 
-.profile-pic {
-  max-width: 300px;
-  max-height: 300px;
-}
+  .profile-pic {
+    border-radius: 5px;
+    max-width: 300px;
+    max-height: 300px;
+  }
 
-.nav-logos {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10%;
-}
+  .nav-logos {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+  }
 
-.git-logo {
-  max-width: 100px;
-  max-height: 100px;
-}
+  .git-logo {
+    max-width: 100px;
+    max-height: 100px;
+  }
 
-.linkedin-logo {
-  max-width: 100px;
-  max-height: 100px;
-}
+  .linkedin-logo {
+    max-width: 100px;
+    max-height: 100px;
+  }
 
-.profile-description {
-  font-family: 'Roboto', sans-serif;
-  padding: 3%;
-  color: $dark-blue;
-  font-size: 24px;
-  letter-spacing: 1px;
+  .profile-description {
+    font-family: 'Roboto', sans-serif;
+    padding: 3%;
+    color: $dark-blue;
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
 }

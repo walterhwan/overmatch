@@ -189,7 +189,7 @@ select {
   flex-direction: row;
   align-items: center;
   justify-content: center; }
-  .player-stats.empty .name {
+  .player-stats.empty .battleTag {
     color: white;
     font-size: 28px;
     margin: 0px 5px;
@@ -204,7 +204,7 @@ select {
   border: 1px solid #FDFFFC; }
   .player-stats .player-stats-slot .portrait {
     width: 50px; }
-  .player-stats .player-stats-slot .name {
+  .player-stats .player-stats-slot .battleTag {
     font-size: 28px;
     margin: 0px 5px;
     overflow: hidden; }
@@ -258,50 +258,41 @@ select {
   background: #00aeff; }
 
 .profiles-container {
-  padding: 1% 5%;
-  background-color: #FDFFFC; }
-
-.profile {
-  font-family: Big Noodle Too;
-  display: flex;
-  justify-content: space-between;
-  background-color: #FDFFFC;
-  border: 3px solid #D1D5D5;
-  border-radius: 5px;
-  margin-bottom: 1%;
-  padding: 2%; }
-
-.profile-visuals {
-  margin-right: 10px; }
-
-.profile-visuals > p {
-  text-align: center;
-  color: #314CB6;
-  font-size: 35px; }
-
-.profile-pic {
-  max-width: 300px;
-  max-height: 300px; }
-
-.nav-logos {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10%; }
-
-.git-logo {
-  max-width: 100px;
-  max-height: 100px; }
-
-.linkedin-logo {
-  max-width: 100px;
-  max-height: 100px; }
-
-.profile-description {
-  font-family: 'Roboto', sans-serif;
-  padding: 3%;
-  color: #314CB6;
-  font-size: 24px;
-  letter-spacing: 1px; }
+  background-color: #DDE7F3; }
+  .profiles-container .profile {
+    font-family: Big Noodle Too;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FDFFFC;
+    border-radius: 5px;
+    margin: 30px 50px;
+    padding: 20px; }
+  .profiles-container .profile-visuals {
+    margin-right: 10px; }
+  .profiles-container .profile-visuals > p {
+    text-align: center;
+    color: #314CB6;
+    font-size: 35px; }
+  .profiles-container .profile-pic {
+    border-radius: 5px;
+    max-width: 300px;
+    max-height: 300px; }
+  .profiles-container .nav-logos {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px; }
+  .profiles-container .git-logo {
+    max-width: 100px;
+    max-height: 100px; }
+  .profiles-container .linkedin-logo {
+    max-width: 100px;
+    max-height: 100px; }
+  .profiles-container .profile-description {
+    font-family: 'Roboto', sans-serif;
+    padding: 3%;
+    color: #314CB6;
+    font-size: 24px;
+    letter-spacing: 1px; }
 
 .team-index {
   display: flex;
