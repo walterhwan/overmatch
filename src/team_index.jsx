@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 // import { AuthRoute, ProtectedRoute } from './util/route_util';
 // import { ProtectedRoute } from './util/route_util';
 
@@ -17,15 +18,24 @@ class TeamIndex extends React.Component {
           teams: res.data,
         })
       })
+
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
-  renderATeam(team) {
+  handleOnClick(team) {
+    return (e) => {
+      console.log(team._id);
+      this.props.history.push(`/team/${team._id}`)
+    };
+  }
+
+  renderTeam(team) {
     let teanName = team.team_name;
     return (
-      <li className='team-li' key={team._id}>
+      <li className='team-li' onClick={this.handleOnClick(team)} key={team._id}>
         <p className='team-id'>{teanName}</p>
         <p className='team-comp'>2 Tanks 2 Offense 2 Support</p>
-        <p className='team-player-num'>{team.number_of_players} / 6</p>
+        <p className='team-player-num'>{team.number_of_players || 0} / 6</p>
       </li>
     );
   }
@@ -35,7 +45,7 @@ class TeamIndex extends React.Component {
       <main className='team-index'>
         <h1 className='join-a-team-text'>Join A Team</h1>
         <ul className='team-ul'>
-          {this.state.teams.map((team) => this.renderATeam(team))}
+          {this.state.teams.map((team) => this.renderTeam(team))}
         </ul>
       </main>
     );
@@ -43,4 +53,4 @@ class TeamIndex extends React.Component {
 }
 
 
-export default TeamIndex;
+export default withRouter(TeamIndex);
