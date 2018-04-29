@@ -48,7 +48,7 @@ router.get('/', function(req, res) {
 // //Use our router configuration when we call /api
 app.use('/api', router);  // /api
 app.use('/api', userRouter);  // /api/users
-// app.use('/api', teamRouter);  // /api/teams
+app.use('/api', teamRouter);  // /api/teams
 //
 // // The following is for oauth, backend route /api/test for now
 // app.post('/api/test', function(req, res) { // api/test
@@ -93,21 +93,21 @@ app.use('/api', userRouter);  // /api/users
 //   });
 // });
 //
-// app.post('/api/testing/', function(req, res) {
-//   var request = require("request");
-//   let battleTag = req.body.battleTag.replace("#", "-");
-//   // console.log(battleTag);
-//   var options = { method: 'GET',
-//     url: `https://ow-api.herokuapp.com/profile/pc/us/${battleTag}`,
-//     headers:
-//      { 'Postman-Token': '59b02040-8d2f-475e-a95f-a07b15a692c1',
-//        'Cache-Control': 'no-cache' } };
-//
-//   request(options, function (error, response, body) {
-//     if (error) throw new Error(error);
-//     res.json(JSON.parse(body));
-//   });
-// });
+app.post('/api/testing/', function(req, res) {
+  var request = require("request");
+  let battleTag = req.body.battleTag.replace("#", "-");
+  // console.log(battleTag);
+  var options = { method: 'GET',
+    url: `https://ow-api.herokuapp.com/profile/pc/us/${battleTag}`,
+    headers:
+     { 'Postman-Token': '59b02040-8d2f-475e-a95f-a07b15a692c1',
+       'Cache-Control': 'no-cache' } };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    res.json(JSON.parse(body));
+  });
+});
 
 //starts the server and listens for requests
 app.listen(port, function() {
