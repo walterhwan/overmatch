@@ -20,7 +20,7 @@ class App extends React.Component {
           </nav>
             <Switch>
               <Route exact path='/teams' component={TeamIndex} />
-              <Route path='/team' component={TeamMain} />
+              <Route path='/team/:teamId' component={TeamMain} />
               <Route path='/home' component={Home} />
               <Route exact path='/aboutus' component={AboutUs} />
               <Route path='/' component={SplashPage} />
