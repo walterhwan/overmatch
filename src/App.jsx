@@ -7,16 +7,37 @@ import TeamIndex from './team_index';
 // import { ProtectedRoute } from './util/route_util';
 import SplashPage from './splash';
 import AboutUs from './about_us';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 class App extends React.Component {
+  logout() {
+    cookies.remove('battleTag');
+  }
+
+  renderLogout() {
+    let battleTag = cookies.get('battleTag');
+    console.log('battleTag: ' + battleTag);
+    if (battleTag) {
+      return (
+        <button className="logout" onClick={this.logout}><a href="/">Logout</a></button>
+      );
+    } else {
+      return <div></div>;
+    }
+  }
+
   render() {
     return (
       <BrowserRouter>
         <div className="App">
           <nav className="nav">
             <div className="user-welcome" id="user-welcome"></div>
-            <a className="logo" href="/">OVER<span>M</span>ATCH</a>
-            <button className="logout"><a href="/api/logout">Logout</a></button>
+              <a className="logo" href="/">OVER<span>M</span>ATCH</a>
+              <div className='nav-right'>
+                <a className= "about-us" href="/aboutus">ABOUT US</a>
+                {this.renderLogout()}
+              </div>
           </nav>
             <Switch>
               <Route exact path='/teams' component={TeamIndex} />
@@ -25,9 +46,6 @@ class App extends React.Component {
               <Route exact path='/aboutus' component={AboutUs} />
               <Route path='/' component={SplashPage} />
             </Switch>
-            <footer className="footer">
-              <a className= "about-us" href="/aboutus">ABOUT US</a>
-            </footer>
         </div>
       </BrowserRouter>
     );

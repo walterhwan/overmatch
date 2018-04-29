@@ -99,7 +99,7 @@ select {
   overflow-x: hidden;
   font-family: Big Noodle Too, impact, sans-serif; }
   .team-div .team-name {
-    font-size: 30px;
+    font-size: 50px;
     margin-bottom: 30px;
     margin-top: 30px;
     align-self: center; }
@@ -376,34 +376,28 @@ html, body {
         color: #FE9A37;
         -webkit-text-fill-color: #FE9A37;
         -moz-text-fill-color: #FE9A37; }
-  .root .footer {
-    background: #DAE7F4;
-    border-top: 1px solid #D1D5D5;
-    height: 50px;
-    text-align: center;
-    font-size: 24px; }
-    .root .footer .about-us {
+    .root .nav .about-us {
       text-decoration: none;
       color: #6F7272;
-      line-height: 42px; }
-    .root .footer .about-us:hover {
+      line-height: 42px;
+      font-size: 24px;
+      margin-right: 15px; }
+    .root .nav .about-us:hover {
       color: #A6ABAB; }
-
-.logout {
-  font-family: Big Noodle Too;
-  top: 0px;
-  right: 0px;
-  border: 0px;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 15px;
-  background: #0e86ca;
-  font-size: 24px;
-  margin: 5px;
-  cursor: pointer; }
-  .logout > a {
-    color: #FDFFFC;
-    text-decoration: none; }
-
-.logout:hover {
-  background: #00aeff; }
+    .root .nav .logout {
+      font-family: Big Noodle Too;
+      top: 0px;
+      right: 0px;
+      border: 0px;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 15px;
+      background: #0e86ca;
+      font-size: 24px;
+      margin-right: 15px;
+      cursor: pointer; }
+      .root .nav .logout > a {
+        color: #FDFFFC;
+        text-decoration: none; }
+    .root .nav .logout:hover {
+      background: #00aeff; }
