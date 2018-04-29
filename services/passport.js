@@ -5,6 +5,7 @@ const BnetStrategy = require('passport-bnet').Strategy;
 
 var BNET_ID = process.env.BNET_ID;
 var BNET_SECRET = process.env.BNET_SECRET;
+var CALLBACK_URL = process.env.CALLBACK_URL;
 // console.log(process.env);
 // passport.serializeUser(function(user, done) {
 //     done(null, user);
@@ -19,7 +20,8 @@ passport.use(
       clientID: BNET_ID,
       clientSecret: BNET_SECRET,
       // callbackURL: "https://aa-overmatch.herokuapp.com/",
-      callbackURL: "https://1a6dad92.ngrok.io/home",
+      // callbackURL: "https://1a6dad92.ngrok.io/home",
+      callbackURL: CALLBACK_URL,
       region: "us",
     },
     (accessToken, refreshToken, profile, done) => {
