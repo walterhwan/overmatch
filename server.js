@@ -17,7 +17,9 @@ var teamRouter = require("./route/teams");
 var port = process.env.PORT || 8080;
 var BNET_ID = process.env.BNET_ID;
 var BNET_SECRET = process.env.BNET_SECRET;
-var API_URL = process.env.API_URL;
+var CALLBACK_URL = process.env.CALLBACK_URL;
+var AUTH_LOGIN = process.env.AUTH_LOGIN;
+
 
 // db config, we setup test db
 var mongoDB = 'mongodb+srv://appacademy:hacker12@cluster0-gahbk.mongodb.net/overmatchDataBase';
@@ -61,12 +63,12 @@ app.post('/api/test', function(req, res) { // api/test
     headers:
      { 'postman-token': '319cd41d-3df2-922d-f6d7-d5b22a9ceccf',
        'cache-control': 'no-cache',
-       authorization: 'Basic cXc3cmp6cHVzdWpmbnJmcjYyODJ6NXZqOHp4dHFncGI6Z1J4aGNGUVRITlpUODVLU2JSc3hWQTRnMktuandRVVc=',
+       authorization: AUTH_LOGIN,
        'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' },
     formData:
      { grant_type: 'authorization_code',
        code: authCode,
-       redirect_uri: 'https://1a6dad92.ngrok.io/home' } };
+       redirect_uri: CALLBACK_URL } };
 
   let accessToken;
   let battleTag;
