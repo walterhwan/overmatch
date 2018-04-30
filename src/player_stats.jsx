@@ -71,8 +71,17 @@ class PlayerStats extends React.Component {
         return false;
       }
     }
-
     return true;
+  }
+
+  countPlayer(res) {
+    let counter = 0;
+    for(let i = 0; i < res.data.positions.length; i++) {
+      if(res.data.positions[i].battleTag !== "") {
+        counter++;
+      }
+    }
+    return counter;
   }
 
   searchBattleTagInTeam(battleTag, pos) {
@@ -81,19 +90,21 @@ class PlayerStats extends React.Component {
         // debugger
         if(this.checkBattleTag(res, battleTag)) {
           if(res.data.positions[pos].battleTag === "") {
-            this.updateTeam(battleTag)
+            let cnt = this.countPlayer(res);
+            this.updateTeam(battleTag, cnt)
             this.setState({battleTag: battleTag})
           }
         }
       })
   }
 
-  updateTeam(battleTag) {
+  updateTeam(battleTag, num_player) {
     // need to get team id
     // debugger
     axios.put(`${API_URL}/api/teams/${this.state.team_id}`, {
       battleTag: battleTag,
-      pos_index: this.state.pos
+      pos_index: this.state.pos,
+      number_of_players: num_player
     });
   }
 
