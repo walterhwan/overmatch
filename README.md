@@ -2,27 +2,24 @@
 
 # OverMatch
 
-OverMatch is a single-page app that can help you form your dream Overwatch team.
+OverMatch is a single-page app built on an Express.js/Node.js/MongoDB backend and React.js frontend (MERN stack) that can help you form your dream Overwatch team.
 
+In Overwatch, there are many characters with different roles in following categories: tank, defense, offense, and support. The goal of the application is to help players form a team based on their stats, hero preferences, and desired team formation. Once a team is formed, players can decide if they would like to add each other's BattleTag (in-game unique identifier) and team up together in the actual game.
 
-## Background and Overview
+## Features
 
-In Overwatch, there are many characters with different roles in following categories: tank, defense, offense, and support. We are trying to build an application that helps players form a team with each other based on their stats, heroes preference, and desired team formation. Once the team is formed, players can decide if they would like to add contacts and team up together in Overwatch.
-
-## Technologies & Technical Challenges
-
-Backend: MongoDB, Express.js, Node.js
-Frontend: React, Redux, JavaScript
-Messaging share system: Websocket
++ Secure login authentication through Blizzard OAuth.
++ Team creation or joining based on matchmaking parameters.
++ Overwatch API to retrieve relevant data points.
 
 #### Battle.net OAuth 2.0 API
 https://dev.battle.net/docs/read/oauth
 
-By using OAuth, we can let Blizzard handle the authentication process and receive a unique ID representing that user, then use an access token to gain access to allowed resources like their Overwatch Battle tags.
+By using OAuth, Blizzard handles the authentication process and the app receives a unique authorization code representing the user's consent to share specific info with our app. This code is then used to exchange for an access token from Blizzard to gain access to allowed resources, like their in-game BattleTag used in Overwatch.
 
 #### Overwatch account data API
 
-Currently Overwatch team at Blizzard does provide API to pull overwatch hero data(like most frequently used Heros, and competitive rank), but they are undocumented. But there are unofficial overwatch api like [OW API](https://github.com/Fuyukai/OWAPI) we can use.
+Currently, Blizzard's Overwatch team does provide an API to pull hero-related data(like most frequently used and competitive rank), but they are undocumented. However, there are unofficial Overwatch API like [OW API](https://github.com/Fuyukai/OWAPI) that will provide the needed data.
 
 Here is an example of such API request
 ```
@@ -60,15 +57,14 @@ And its response
 
 #### Match making
 
-The match making rule of this app is not the same as the in-game match making system. Instead of solely matching player based on their competitive rank. Users of this website can customize their team, picking other users that can play specific heros or role(Offense, Defense, Support, or Tank). Other users who care less about team composition can select a list of Heros they like to play and be match into a team.
+The match making algorithm of this app will work differently from that as the in-game's system. Instead of solely matching players based on their competitive rank, users of this website can customize their team and pick other players that can play specific heros or roles.
 
 ## MVP
 1. Blizzard OAuth, getting the user data
 2. Team matchmaking
-3. Displaying overwatch account data
-4. Websocket teach chat system
-5. Create thorough documentation with gif for demo purpose
-6. Host on Heroku
+3. Display battle tag
+4. Create Production README
+5. Host multiple apps on Heroku for tunneling different port
 
 ## WIREFRAMES
 #### Splash
