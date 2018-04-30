@@ -113,7 +113,7 @@ select {
       margin-bottom: 10px;
       flex-direction: column;
       justify-content: space-between;
-      height: 400px;
+      height: 320px;
       width: 220px; }
       .team-div .team-members .player .role-div {
         background: #F9A03F;
@@ -191,8 +191,6 @@ select {
           pointer-events: none; }
 
 .player-stats.empty {
-  min-height: 50px;
-  max-width: 220px;
   padding: 3px;
   border: 1px dashed #FDFFFC;
   border-radius: 5px;
@@ -202,17 +200,21 @@ select {
   justify-content: center; }
 
 .player-stats {
-  height: 100%; }
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
   .player-stats .name {
     color: white;
     font-size: 28px;
     margin: 0px 5px; }
   .player-stats .player-stats-slot {
     display: flex;
+    height: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 3px;
     max-width: 220px;
+    padding: 3px;
     border: 1px solid #FDFFFC; }
     .player-stats .player-stats-slot .portrait {
       width: 50px; }
