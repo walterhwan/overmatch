@@ -130,20 +130,6 @@ select {
           width: 100%;
           position: relative; }
           .team-div .team-members .player .role-div .role-select .role-dropdown {
-            height: 35px;
-            width: 100%;
-            font-size: 20px;
-            text-align-last: center;
-            background: #DDE7F3;
-            border-radius: 0px;
-            border: none;
-            border-bottom: 1px solid grey; }
-          .team-div .team-members .player .role-div .role-select .role-icon {
-            display: none;
-            background: red;
-            border-radius: 5px;
-            height: 58px;
-            width: 68px; }
         .team-div .team-members .player .role-div .role-select:after {
           content: '>';
           color: black;

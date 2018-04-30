@@ -22,4 +22,5 @@ yarn-error.log*
 
 .tags
 
+/public/css/main.css
 main.css

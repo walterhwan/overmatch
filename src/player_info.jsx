@@ -57,6 +57,9 @@ class PlayerInfo extends React.Component {
 
   handleRoleSelect(e) {
     this.updateTeamDB([], e.target.value)
+    //swap role icon
+    // const image = document.getElementById("role-icon");
+    // image.src = `../images/${e.target.value.toLowerCase()}Icon.png`
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
