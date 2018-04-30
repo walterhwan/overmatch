@@ -130,6 +130,20 @@ select {
           width: 100%;
           position: relative; }
           .team-div .team-members .player .role-div .role-select .role-dropdown {
+            height: 35px;
+            width: 100%;
+            font-size: 20px;
+            text-align-last: center;
+            background: #DDE7F3;
+            border-radius: 0px;
+            border: none;
+            border-bottom: 1px solid grey; }
+          .team-div .team-members .player .role-div .role-select .role-icon {
+            display: none;
+            background: red;
+            border-radius: 5px;
+            height: 58px;
+            width: 68px; }
         .team-div .team-members .player .role-div .role-select:after {
           content: '>';
           color: black;
@@ -269,18 +283,18 @@ select {
     font-size: 35px; }
   .profiles-container .profile-pic {
     border-radius: 5px;
-    max-width: 300px;
-    max-height: 300px; }
+    max-width: 200px;
+    max-height: 200px; }
   .profiles-container .nav-logos {
     display: flex;
     justify-content: space-between;
     padding: 0px 20px; }
   .profiles-container .git-logo {
-    max-width: 100px;
-    max-height: 100px; }
+    max-width: 80px;
+    max-height: 80px; }
   .profiles-container .linkedin-logo {
-    max-width: 100px;
-    max-height: 100px; }
+    max-width: 80px;
+    max-height: 80px; }
   .profiles-container .profile-description {
     font-family: 'Roboto', sans-serif;
     padding: 3%;

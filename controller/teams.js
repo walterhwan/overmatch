@@ -20,7 +20,7 @@ exports.apiSingleUserGET = function(req, res) {
 
 exports.apiGET = function(req, res) {
   Team.find().sort('updatedAt')
-          .limit(10)
+          .limit(20)
           .exec(function(err, teams) {
     if (err) {
       res.send(err);
