@@ -20,6 +20,7 @@ class TeamMain extends React.Component {
     } else {
       this.team_id = "";
     }
+    // debugger
     this.fetchTeamInfo(this.team_id);
   }
 
@@ -29,6 +30,8 @@ class TeamMain extends React.Component {
         let battleTagIndex = res.data.positions.map((pos) => {
           return pos.battleTag
         });
+
+        // debugger
         this.setState({
           team: res.data,
           battleTagIndex: battleTagIndex,
@@ -38,24 +41,23 @@ class TeamMain extends React.Component {
 
   // fetchUserInfo(battleTagIndex) {
   //   battleTagIndex.forEach((battleTag, idx) => {
-      // console.log(battleTag);
-    //   axios.post(`${API_URL}/api/testing/`, {
-    //     battleTag: battleTag,
-    //   }).then(res => {
-    //     let userInfoIndex = this.state.userInfoIndex.slice();
-    //     userInfoIndex[idx] = res.data;
-    //     this.setState({
-    //       userInfoIndex: userInfoIndex,
-    //     })
-    //   }, (error) => {
-    //     console.log(error);
-    //   })
+  //     console.log(battleTag);
+  //   //   axios.post(`${API_URL}/api/testing/`, {
+  //   //     battleTag: battleTag,
+  //   //   }).then(res => {
+  //   //     let userInfoIndex = this.state.userInfoIndex.slice();
+  //   //     userInfoIndex[idx] = res.data;
+  //   //     this.setState({
+  //   //       userInfoIndex: userInfoIndex,
+  //   //     })
+  //   //   }, (error) => {
+  //   //     console.log(error);
+  //   //   })
   //   })
   // }
 
   render() {
     let { battleTagIndex } = this.state;
-
     return (
       <main className='team-main'>
         <div className='team-div'>
