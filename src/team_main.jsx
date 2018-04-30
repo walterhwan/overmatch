@@ -36,7 +36,6 @@ class TeamMain extends React.Component {
           team: res.data,
           battleTagIndex: battleTagIndex,
         });
-        // this.fetchUserInfo(battleTagIndex);
       })
   }
 
@@ -67,6 +66,7 @@ class TeamMain extends React.Component {
             {
               battleTagIndex.map((tag, idx) => <PlayerInfo
                 battleTag={tag}
+                team={this.state.team}
                 key={`battleTag-${idx}`} pos={idx}/>)
             }
           </ul>

@@ -117,7 +117,7 @@ class PlayerStats extends React.Component {
         <div className='player-stats tooltip' onClick={this.copyBattleTag}>
           <div className='player-stats-slot smooth-border'>
             <p
-              className='battleTag'
+              className='name'
               id='battleTag'
               scrolling="no">{this.state.battleTag}</p>
           </div>

@@ -6,6 +6,28 @@ class AboutUs extends React.Component {
       <div className="profiles-container">
         <div className="profile">
           <div className="profile-visuals">
+            <img alt='' className="profile-pic" src="../images/Danny_Peng.jpg" />
+            <p>Danny Peng</p>
+            <div className="nav-logos">
+              <a href="https://github.com/Eractus">
+                <img alt='' className="git-logo" src="../images/github.png" />
+              </a>
+              <a href="https://www.linkedin.com/in/danny-peng-29515651/">
+                <img alt='' className="linkedin-logo" src="../images/linkedin.png" />
+              </a>
+            </div>
+          </div>
+          <div className="profile-description">
+            <p>
+              When it comes to development, I'm one of those that is really indifferent to the part of the stack that needs work. Whether you want to debug a Rails server error on the backend or refactor a component or form on the React frontend, I will be up to the task. I am proficient in Ruby and Javascript, and especially savor the opportunities to flex my HTML and CSS chops.
+              <br/>
+              <br/>
+              In my free time, I enjoy non-competitive gaming and the unique challenges of replicating my childhood games on the web. When I'm not coding, you can find me playing tennis, hiking, or just doing some sort of outdoor activity to get some much needed sun and fresh air, both of which I tend to be lacking since my newfound passion in software development.
+            </p>
+          </div>
+        </div>
+        <div className="profile">
+          <div className="profile-visuals">
             <img alt= 'profile-pic'  className="profile-pic" src="../images/dave.jpeg" />
             <p>Dave Y. Chang</p>
             <div className="nav-logos">
@@ -18,9 +40,12 @@ class AboutUs extends React.Component {
             </div>
           </div>
           <p className="profile-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/>
+            A software developer who can learn and code quickly.
             <br/>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+            <br/>
+            I am a curious puzzle solver who loves to think and solve problems. I have experience building dynamic web applications in Ruby on Rails, JavaScript, React/Redux, and HTML/CSS within a short amount of time. And I like debugging!
+            <br/>
+            <br/>
           </p>
         </div>
         <div className="profile">
@@ -36,11 +61,17 @@ class AboutUs extends React.Component {
               </a>
             </div>
           </div>
-          <p className="profile-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/>
+          <div className="profile-description">
+            <p>
+            A rocket science engineer turned software developer
             <br/>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-          </p>
+            <br/>
+            I am a hard working software developer with a habit of writing DRY and easily understandable code. I have experience building dynamic web app in React with Redux, JavaScript, Ruby on Rails, And HTML/CSS.
+              <br/>
+              <br/>
+            I love learning new technologies especially when they can help us writing cleaner codes. So we can spend time problem-solving, inventing new features and improve user-experience.
+            </p>
+          </div>
         </div>
       </div>
     );

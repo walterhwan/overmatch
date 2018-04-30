@@ -87,9 +87,6 @@ select {
     background: #00aeff;
     cursor: pointer; }
 
-.smooth-border {
-  border-radius: 5px; }
-
 .team-div {
   display: flex;
   flex-direction: column;
@@ -111,6 +108,7 @@ select {
     .team-div .team-members .player {
       display: flex;
       background: #314CB6;
+      border-radius: 5px;
       margin-right: 10px;
       margin-bottom: 10px;
       flex-direction: column;
@@ -118,9 +116,12 @@ select {
       height: 400px;
       width: 220px; }
       .team-div .team-members .player .role-div {
+        background: #F9A03F;
         display: flex;
         flex-direction: column;
-        align-items: center; }
+        align-items: center;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px; }
         .team-div .team-members .player .role-div h1 {
           color: #FDFFFC;
           font-size: 28px; }
@@ -129,10 +130,20 @@ select {
           width: 100%;
           position: relative; }
           .team-div .team-members .player .role-div .role-select .role-dropdown {
-            height: 58px;
+            height: 35px;
             width: 100%;
             font-size: 20px;
-            text-align-last: center; }
+            text-align-last: center;
+            background: #DDE7F3;
+            border-radius: 0px;
+            border: none;
+            border-bottom: 1px solid grey; }
+          .team-div .team-members .player .role-div .role-select .role-icon {
+            display: none;
+            background: red;
+            border-radius: 5px;
+            height: 58px;
+            width: 68px; }
         .team-div .team-members .player .role-div .role-select:after {
           content: '>';
           color: black;
@@ -142,35 +153,40 @@ select {
           transform: rotate(90deg);
           position: absolute;
           right: 18px;
-          top: 15px;
+          top: 5px;
           font: 25px "Big Noodle Too";
           pointer-events: none; }
       .team-div .team-members .player .hero-div {
         display: flex;
         flex-direction: column;
         align-items: center;
-        position: relative; }
+        position: relative;
+        background: #F9A03F; }
         .team-div .team-members .player .hero-div h1 {
           color: #FDFFFC;
           font-size: 28px; }
         .team-div .team-members .player .hero-div .hero-select {
-          width: 100%; }
+          width: 100%;
+          position: relative; }
           .team-div .team-members .player .hero-div .hero-select .hero-dropdown {
             width: 100%;
-            height: 50px;
+            height: 35px;
             font-size: 20px;
             text-align-last: center;
-            background: #F9A03F; }
-        .team-div .team-members .player .hero-div .hero-select:after {
-          content: '>';
+            border-radius: 0px;
+            background: #DDE7F3;
+            border: none;
+            border-bottom: 1px solid grey; }
+        .team-div .team-members .player .hero-div .drop-down-arrow {
+          position: absolute;
+          z-index: 2;
           color: black;
           -webkit-transform: rotate(90deg);
           -moz-transform: rotate(90deg);
           -ms-transform: rotate(90deg);
           transform: rotate(90deg);
-          position: absolute;
           right: 18px;
-          top: 38px;
+          top: 5px;
           font: 25px "Big Noodle Too";
           pointer-events: none; }
 
@@ -184,34 +200,31 @@ select {
   flex-direction: row;
   align-items: center;
   justify-content: center; }
-  .player-stats.empty .battleTag {
+
+.player-stats {
+  height: 100%; }
+  .player-stats .name {
     color: white;
     font-size: 28px;
-    margin: 0px 5px;
-    overflow: hidden; }
-
-.player-stats .player-stats-slot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 3px;
-  max-width: 220px;
-  border: 1px solid #FDFFFC; }
-  .player-stats .player-stats-slot .portrait {
-    width: 50px; }
-  .player-stats .player-stats-slot .battleTag {
-    font-size: 28px;
-    margin: 0px 5px;
-    overflow: hidden; }
-  .player-stats .player-stats-slot .rank_div {
+    margin: 0px 5px; }
+  .player-stats .player-stats-slot {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 40px; }
-    .player-stats .player-stats-slot .rank_div .rank_img {
+    justify-content: space-between;
+    padding: 3px;
+    max-width: 220px;
+    border: 1px solid #FDFFFC; }
+    .player-stats .player-stats-slot .portrait {
+      width: 50px; }
+    .player-stats .player-stats-slot .rank_div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 40px; }
-    .player-stats .player-stats-slot .rank_div .rank {
-      font-size: 20px; }
+      .player-stats .player-stats-slot .rank_div .rank_img {
+        width: 40px; }
+      .player-stats .player-stats-slot .rank_div .rank {
+        font-size: 20px; }
 
 .background {
   height: 100%;
@@ -270,18 +283,18 @@ select {
     font-size: 35px; }
   .profiles-container .profile-pic {
     border-radius: 5px;
-    max-width: 300px;
-    max-height: 300px; }
+    max-width: 200px;
+    max-height: 200px; }
   .profiles-container .nav-logos {
     display: flex;
     justify-content: space-between;
     padding: 0px 20px; }
   .profiles-container .git-logo {
-    max-width: 100px;
-    max-height: 100px; }
+    max-width: 80px;
+    max-height: 80px; }
   .profiles-container .linkedin-logo {
-    max-width: 100px;
-    max-height: 100px; }
+    max-width: 80px;
+    max-height: 80px; }
   .profiles-container .profile-description {
     font-family: 'Roboto', sans-serif;
     padding: 3%;
@@ -316,6 +329,8 @@ select {
       min-height: 25px;
       padding: 10px 10px 10px 10px;
       border-bottom: 1px solid grey; }
+      .team-index .team-ul .team-li .team-name {
+        width: 250px; }
       .team-index .team-ul .team-li .team-player-num {
         padding-left: 10px;
         width: 50px; }
