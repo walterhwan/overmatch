@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-// import { AuthRoute, ProtectedRoute } from './util/route_util';
-// import { ProtectedRoute } from './util/route_util';
 const API_URL = "https://overmatch-api.herokuapp.com";
 
 class TeamIndex extends React.Component {
