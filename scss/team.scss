@@ -1,16 +1,9 @@
 $blue: #3E85C5;
 $dark-blue: #314CB6;
+$light-blue: #DDE7F3;
 $orange: #F9A03F;
 $black: #060808;
 $white: #FDFFFC;
-
-// main, div, ul, li {
-  // display: flex;
-// }
-
-.smooth-border {
-  border-radius: 5px;
-}
 
 .team-div {
   display: flex;
@@ -37,6 +30,7 @@ $white: #FDFFFC;
     .player {
       display: flex;
       background: $dark-blue;
+      border-radius: 5px;
       // border: 1px solid $white;
       margin-right: 10px;
       margin-bottom: 10px;
@@ -48,9 +42,12 @@ $white: #FDFFFC;
       // player-stats
 
       .role-div {
+        background: $orange;
         display: flex;
         flex-direction: column;
         align-items: center;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
 
         h1 {
           color: $white;
@@ -61,12 +58,17 @@ $white: #FDFFFC;
           display: flex;
           width: 100%;
           .role-dropdown {
-            height: 58px;
-            width: calc(100% - 68px);
+            height: 35px;
+            width: 100%;
             font-size: 20px;
             text-align-last: center;
+            background: $light-blue;
+            border-radius: 0px;
+            border: none;
+            border-bottom: 1px solid grey;
           }
           .role-icon {
+            display: none;
             background: red;
             border-radius: 5px;
             height: 58px;
@@ -85,7 +87,7 @@ $white: #FDFFFC;
           transform: rotate(90deg);
           position: absolute;
           right: 18px;
-          top: 15px;
+          top: 5px;
           font: 25px "Big Noodle Too";
           pointer-events: none;
         }
@@ -97,6 +99,7 @@ $white: #FDFFFC;
         flex-direction: column;
         align-items: center;
         position: relative;
+        background: $orange;
 
         h1 {
           color: $white;
@@ -105,26 +108,31 @@ $white: #FDFFFC;
 
         .hero-select {
           width: 100%;
+          position: relative;
 
           .hero-dropdown {
             width: 100%;
-            height: 50px;
+            height: 35px;
             font-size: 20px;
             text-align-last: center;
-            background: $orange;
+            border-radius: 0px;
+            background: $light-blue;
+            border: none;
+            border-bottom: 1px solid grey;
           }
         }
 
-        .hero-select:after {
-          content: '>';
+        .drop-down-arrow {
+          position: absolute;
+          z-index: 2;
+          // content: '>';
           color: black;
           -webkit-transform: rotate(90deg);
           -moz-transform: rotate(90deg);
           -ms-transform: rotate(90deg);
           transform: rotate(90deg);
-          position: absolute;
           right: 18px;
-          top: 38px;
+          top: 5px;
           font: 25px "Big Noodle Too";
           pointer-events: none;
         }

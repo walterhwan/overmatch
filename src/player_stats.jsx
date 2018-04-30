@@ -62,7 +62,7 @@ class PlayerStats extends React.Component {
           <div className='player-stats-slot smooth-border'>
             <img className='portrait smooth-border' alt='portrait' src={userInfo.portrait}></img>
             <p
-              className='battleTag'
+              className='name'
               id='battleTag'
               scrolling="no">{this.props.battleTag}</p>
               {this.render_rank(this.state.userInfo)}

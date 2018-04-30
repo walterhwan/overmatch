@@ -53,30 +53,59 @@ class PlayerInfo extends React.Component {
   }
 
   render() {
+    let heroList = ['Doomfist', 'Genji', 'McCree', 'Pharah', 'Reaper', 'Soldier 76', 'Sombra', 'Tracer', 'Bastion', 'Hanzo', 'Junkrat', 'Mei', 'Torbjörn', 'Widowmaker', 'D.Va', 'Orisa', 'Reinhardt', 'Roadhog', 'Winston', 'Zarya', 'Ana', 'Brigitte', 'Lúcio', 'Mercy', 'Moira', 'Symmetra', 'Zenyatta'];
+
     return (
-      <li className='player smooth-border' id='player-1'>
-        <div className='hero-div'>
-          <h1>Hero</h1>
-          <div className='hero-select'>
-            <select className="hero-dropdown" onChange={this.handleHeroSelect}>
-              <option value='Doomfist'>Doomfist</option>
-              <option value='Genji'>Genji</option>
-              <option value='McCree'>McCree</option>
-              <option value='Pharah'>Pharah</option>
-              <option value='Reaper'>Reaper</option>
-            </select>
+      <li className='player' id='player-1'>
+        <div className='filter'>
+          <div className='role-div'>
+            <h1>Role</h1>
+            <div className='role-select'>
+              <img className="role-icon" alt='icon' src="../images/supportIcon.png"></img>
+              <select className="role-dropdown" onChange={this.handleRoleSelect}>
+                <option default hidden>Select Role</option>
+                <option value='Tank'>Tank</option>
+                <option value='Support'>Support</option>
+                <option value='Offense'>Offense</option>
+                <option value='Defense'>Defense</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div className='role-div'>
-          <h1>Role</h1>
-          <div className='role-select'>
-            <img className="role-icon" alt='icon' src="../images/supportIcon.png"></img>
-            <select className="role-dropdown" onChange={this.handleRoleSelect}>
-              <option value='Tank'>Tank</option>
-              <option value='Support'>Support</option>
-              <option value='Offense'>Offense</option>
-              <option value='Defense'>Defense</option>
-            </select>
+          <div className='hero-div'>
+            <h1>Hero</h1>
+            <div className='hero-select'>
+              <select
+                className="hero-dropdown"
+                onChange={this.handleHeroSelect}>
+                <option default hidden>Select Hero</option>
+                {heroList.map((hero, key) => {
+                    return <option key={key} value={hero}>{hero}</option>;
+                })}
+              </select>
+              <p className='drop-down-arrow'>></p>
+            </div>
+            <div className='hero-select'>
+              <select
+                className="hero-dropdown"
+                onChange={this.handleHeroSelect}>
+                <option default hidden>Select Hero</option>
+                {heroList.map((hero, key) => {
+                    return <option key={key} value={hero}>{hero}</option>;
+                })}
+              </select>
+              <p className='drop-down-arrow'>></p>
+            </div>
+            <div className='hero-select'>
+              <select
+                className="hero-dropdown"
+                onChange={this.handleHeroSelect}>
+                <option default hidden>Select Hero</option>
+                {heroList.map((hero, key) => {
+                    return <option key={key} value={hero}>{hero}</option>;
+                })}
+              </select>
+              <p className='drop-down-arrow'>></p>
+            </div>
           </div>
         </div>
         <PlayerStats
