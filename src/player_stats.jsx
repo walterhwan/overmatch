@@ -99,10 +99,6 @@ class PlayerStats extends React.Component {
 
   joinTeam(e) {
     let battleTag = cookies.get('battleTag');
-    // check if this battleTag exists in the team
-    // save the database
-    // this.updateTeam(battleTag)
-    // this.setState({battleTag: battleTag})
     this.searchBattleTagInTeam(battleTag, this.state.pos)
 
   }
