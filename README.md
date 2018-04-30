@@ -15,17 +15,58 @@ In Overwatch, there are many characters with different roles in following catego
 #### Battle.net OAuth 2.0 API
 https://dev.battle.net/docs/read/oauth
 
-By using OAuth, Blizzard handles the authentication process and the app receives a unique authorization code representing the user's consent to share specific info with our app. This code is then used to exchange for an access token from Blizzard to gain access to allowed resources, like their in-game BattleTag used in Overwatch.
+![Live Demo](https://github.com/walterhwan/overmatch/blob/master/public/gif/login_blizzard.gif)
+
+By using OAuth, Blizzard handles the authentication process and the app receives a unique authorization code representing the user's consent to share specific info with our app. This code is then used to exchange for an access token from Blizzard to gain access to allowed resources, like their in-game BattleTag that is used in Overwatch.
+
+```js
+// The following is for oauth
+app.post('/api/oauth', function(req, res) {
+  let authCode = req.body.authCode;
+  var request = require("request");
+  var options = { method: 'POST',
+    url: 'https://us.battle.net/oauth/token',
+    headers:
+     { 'cache-control': 'no-cache',
+       authorization: AUTH_LOGIN,
+       'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' },
+    formData:
+     { grant_type: 'authorization_code',
+       code: authCode,
+       redirect_uri: CALLBACK_URL } };
+
+  let accessToken;
+  let battleTag;
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+    accessToken = JSON.parse(body).access_token;
+
+    var request2 = require("request");
+    var options = { method: 'GET',
+      url: 'https://us.api.battle.net/account/user',
+      qs: { access_token: accessToken },
+      headers:
+       { 'Cache-Control': 'no-cache' } };
+
+    request2(options, function (error, response, body) {
+      if (error) throw new Error(error);
+
+      battleTag = JSON.parse(body).battletag
+      res.json({battleTag: battleTag})
+    });
+  });
+});
+```
 
 #### Overwatch account data API
 
-Currently, Blizzard's Overwatch team does provide an API to pull hero-related data(like most frequently used and competitive rank), but they are undocumented. However, there are unofficial Overwatch API like [OW API](https://github.com/Fuyukai/OWAPI) that will provide the needed data.
+Using the extracted BattleTag ID from Blizzard's OAuth, the related data points are retrieved by the server and are all stored as a collection in our MongoDB database.
 
-Here is an example of such API request
+Here is an example of the API request:
 ```
 get http://ow-api.herokuapp.com/profile/pc/us/Tars-11569
 ```
-And its response
+And its response:
 ```JSON
 {
   "username": "Tars",
@@ -55,66 +96,26 @@ And its response
 }
 ```
 
-#### Match making
+#### Team Creation/Joining and Match Making
 
 The match making algorithm of this app will work differently from that as the in-game's system. Instead of solely matching players based on their competitive rank, users of this website can customize their team and pick other players that can play specific heros or roles.
 
-## MVP
-1. Blizzard OAuth, getting the user data
-2. Team matchmaking
-3. Display battle tag
-4. Create Production README
-5. Host multiple apps on Heroku for tunneling different port
+![alt text](https://github.com/walterhwan/overmatch/blob/master/public/images/join_team.png)
 
-## WIREFRAMES
-#### Splash
-![Login Page ](https://github.com/walterhwan/overmatch/blob/master/wireframes/splash.png)
+## Project Design
 
-#### Home page
-![Home page](https://github.com/walterhwan/overmatch/blob/master/wireframes/OM-Homepage.png)
+OverMatch was built on a timeframe of just under 10 days. With an ambitious end product in mind while being on said timeline, priority was placed on the OAuth functionality as the resulting BattleTag would be necessary for the rest of the app to fall into place functionally.
 
-#### Team page
-![Home page](https://github.com/walterhwan/overmatch/blob/master/wireframes/overmatch_team_form.png)
+## Technologies
 
-<!-- TODO: Add a Privacy Policy Page as described in https://dev.battle.net/policy -->
+Part of the charge of developing this app was to build it on the MERN stack, utilizing this popular stack's many built-in functionalities to help do the leg work behind our functions and logics.  
 
-## Will Accomplish over the Weekend
-+ Learn MERN stack (everyone)
-+ Research Websocket (TBD)
-+ Research Blizzard OAuth API (TBD)
-+ Complete MongoDB tutorial and create schema (TBD)
+On the backend, the use of MongoDB's NoSQL structure allows us to dynamically store objects into collections while Express.js's versatility enabled api server routes to be easily implemented.
 
-## Group Members &  Work Breakdown
-**Hsuanchen Wan**, **Danny Peng**, **Yu-Jen Chang**
+On the frontend, React.js's ability to maintain components and their slices of state makes it an ideal choice. Its inherent structure makes for better future development as many component codes can be recycled.
 
-#### Day 1
-+ Parse documentation and tutorials for MERN stack
-  + MongoDB (Danny)
-  + Express (Danny)
-  + Node (Yu-Jen)
-+ Begin setting up respective parts of the stack (Hsuanchen)
-+ Design overall layout (Yu-Jen)
+For production deployment, Heroku was chosen for its out of the box features and support.
 
-#### Day 2
-+ Begin implementation of Blizzard Auth (Danny)
-+ Start building container/forms/component of the home page (Hsuanchen)
-+ Make sure backend routing and api requesting works (Yu-Jen)
-
-#### Day 3
-+ Rendering font end pages including team matching form (Yu-Jen)
-+ Start working on websocket for live messaging system (Danny)
-+ Implementing matchmaking algorithm (Hsuanchen)
-
-#### Day 4
-+ Seed data (Yu-Jen)
-+ Implement Overwatch account data api (Danny)
-+ Fully testing out the functionality of team matching (Hsuanchen)
-
-#### Day 5
-+ Continue testing (Yu-Jen)
-+ Finish CSS styling layout (Danny, Hsuanchen)
-
-#### Day 6
-+ Push to Heroku (Hsuanchen)
-+ Create README (Yu-Jen)
-+ Improve styling if needed (last minute todos...) (Yu-Jen)
+## Future features planned
++ websocket technology to add chat
++ further optimization of team match making algorithm
