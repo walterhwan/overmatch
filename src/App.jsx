@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './home.jsx';
 import TeamMain from './team_main';
 // import { AuthRoute, ProtectedRoute } from './util/route_util';
-import { ProtectedRoute } from './util/route_util';
+// import { ProtectedRoute } from './util/route_util';
 import SplashPage from './splash';
 import AboutUs from './about_us';
 
@@ -18,8 +18,8 @@ class App extends React.Component {
             <button className="logout"><a href="/api/logout">Logout</a></button>
           </nav>
             <Switch>
-              <ProtectedRoute path='/team/:teamId' component={TeamMain} />
-              <ProtectedRoute path='/home' component={Home} />
+              <Route path='/team/:teamId' component={TeamMain} />
+              <Route path='/home' component={Home} />
               <Route exact path='/aboutus' component={AboutUs} />
               <Route path='/' component={SplashPage} />
             </Switch>

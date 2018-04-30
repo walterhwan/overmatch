@@ -88,6 +88,39 @@ select {
     background: #00aeff;
     cursor: pointer; }
 
+.modal {
+  display: none;
+  position: absolute; }
+
+.join-game-modal {
+  display: block; }
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100; }
+
+.modal-ui {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 15px;
+  z-index: 101;
+  background: #3E85C5;
+  border: 3px solid #314CB6;
+  border-radius: 5px; }
+
+.modal-close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 18px;
+  cursor: pointer; }
+
 .smooth-border {
   border-radius: 5px; }
 
@@ -96,8 +129,7 @@ select {
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: scroll;
   font-family: Big Noodle Too, impact, sans-serif; }
   .team-div .team-name {
     font-size: 30px;

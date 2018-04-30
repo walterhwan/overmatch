@@ -1,7 +1,7 @@
 import React from 'react';
 import PlayerInfo from './player_info';
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
+// import Cookies from 'universal-cookie';
+// const cookies = new Cookies();
 // import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
 
 // const TeamMain = () => (
@@ -9,7 +9,7 @@ class TeamMain extends React.Component {
   constructor(props) {
     super(props);
 
-    let currentUserBattleTag = cookies.get('battleTag');
+    let currentUserBattleTag = 'Test-123abc';
     this.state = {
       battleTagIndex: [currentUserBattleTag, "", "", "", "", ""]
     }

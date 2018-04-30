@@ -2,9 +2,9 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
+// import Cookies from 'universal-cookie';
 
-const cookies = new Cookies();
+// const cookies = new Cookies();
 const api_url = "http://localhost:8080";
 
 class Home extends React.Component {
@@ -12,7 +12,9 @@ class Home extends React.Component {
     super(props);
 
     this.state = {
-      battleTag: ''
+      battleTag: '',
+      role: '',
+      heros: []
     }
 
     this.info = {};
@@ -24,6 +26,8 @@ class Home extends React.Component {
     this.toTeamPage = this.toTeamPage.bind(this);
     this.saveInitialTeamInfoWithCreator = this.saveInitialTeamInfoWithCreator.bind(this);
     this.getUserInfo = this.getUserInfo.bind(this);
+    this.selectHeros = this.selectHeros.bind(this);
+    this.updateRole = this.updateRole.bind(this);
 
     this.authoCode ="";
     if (this.props.location.search.match(/code=(.*)/)) {
@@ -46,7 +50,7 @@ class Home extends React.Component {
       this.setState({
         battleTag: res.data.battleTag
       })
-      cookies.set("battleTag", res.data.battleTag);
+      // cookies.set("battleTag", res.data.battleTag);
       this.setWelcomeMessage(res.data.battleTag);
     } else {
       this.getBattleTagFromBnet();
@@ -73,7 +77,7 @@ class Home extends React.Component {
         this.setState({
           battleTag: battleTag
         })
-        cookies.set("battleTag", battleTag);
+        // cookies.set("battleTag", battleTag);
         this.setWelcomeMessage(res.data.battleTag);
       });
   }
@@ -111,17 +115,75 @@ class Home extends React.Component {
         console.log(res.data._id);
 
         // update user team_id
-        let battleTag = cookies.get("battleTag").replace('#', '-');
+        let battleTag = 'Test-123abc';
         console.log(battleTag);
         axios.defaults.port = 8080;
         axios.put(`${api_url}/api/users/battleTag/${battleTag}`, {
-          battleTag: cookies.get('battleTag'),
+          battleTag: battleTag,
           team_id: res.data._id,
         });
 
         // redirect to team page
         this.props.history.push(`/team/${res.data._id}`);
       });
+  }
+
+  heroSelector() {
+    // const heros = ["Doomfist", "Genji", "McCree", "Pharah", "Reaper"];
+    return (
+      <div>
+        <select id="heroSelect" onChange={this.selectHeros}>
+          <option selected disabled>Choose your hero</option>
+          <option value='Doomfist'>Doomfist</option>
+          <option value='Genji'>Genji</option>
+          <option value='McCree'>McCree</option>
+          <option value='Pharah'>Pharah</option>
+          <option value='Reaper'>Reaper</option>
+        </select>
+      </div>
+    )
+    let ops = document.getElementById("heroSelect").getElementsByTagName("option");
+    for (let i = 0; i < ops.length; i++) {
+      (this.state.heros.includes(ops[i].value))
+      ? ops[i].disabled = true
+      : ops[i].disabled = false ;
+    }
+    // for (let i=0; i<heros.length; i++) {
+    //   let x = document.getElementById("heroSelect");
+    //   let option = document.createElement("option");
+    //   option.text = heros[i];
+    //   x.add(option);
+    // }
+  }
+
+  updateRole(e) {
+    this.setState({ role: e.target.value })
+  }
+
+  selectHeros() {
+    return (e) => this.setState({ heros: this.state.heros.push(e.target.value) })
+    debugger;
+  }
+
+  // updateHero() {
+  //   (e) => {
+  //     if (!this.state.heros.includes(e.target.value)) {
+  //       return (e) => this.setState({ heros: this.state.heros.push(e.target.value) })
+  //     }
+  //   }
+  // }
+
+  openModal() {
+    document.getElementById('modal').classList.add("join-game-modal");
+  }
+
+  closeModal() {
+    document.getElementById('modal').classList.remove("join-game-modal");
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
   }
 
   render() {
@@ -134,13 +196,40 @@ class Home extends React.Component {
       })
     }
     return (
-        <div className="home-page">
-          <div className="home-area">
-            <button className="create-button" onClick={this.toTeamPage}>Create Your Team</button>
-            <button className="join-button">Join A Team</button>
+      <div className="home-page">
+        <div className="home-area">
+          <button className="create-button" onClick={this.toTeamPage}>Create Your Team</button>
+          <button className="join-button" onClick={this.openModal}>Join A Team</button>
+          <div id="modal" className="modal">
+            <div className="modal-ui">
+              <form className="join-game-form" onSubmit={this.handleSubmit}>
+                <span className="modal-close" onClick={this.closeModal}>&times;</span>
+                <h2>Please Choose your Preferences</h2>
+                <div className="join-game-role">
+                  <h3>Role:</h3>
+                  <select onChange={this.updateRole}>
+                    <option value='Tank'>Tank</option>
+                    <option value='Support'>Support</option>
+                    <option value='Offense'>Offense</option>
+                    <option value='Defense'>Defense</option>
+                  </select>
+                </div>
+                <div className="join-game-heros">
+                  <h3>Heros:</h3>
+                    <p>Hero 1</p>
+                    {this.heroSelector()}
+                    <p>Hero 2</p>
+                    {this.heroSelector()}
+                    <p>Hero 3</p>
+                    {this.heroSelector()}
+                </div>
+                <input type="submit" value="Continue" className="join-game-submit" />
+              </form>
+            </div>
+            <div className="modal-screen" onClick={this.closeModal}></div>
           </div>
         </div>
-
+      </div>
     )
   }
 }
