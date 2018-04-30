@@ -31,7 +31,7 @@ class TeamIndex extends React.Component {
     let teanName = team.team_name;
     return (
       <li className='team-li' onClick={this.handleOnClick(team)} key={team._id}>
-        <p className='team-id'>{teanName}</p>
+        <p className='team-name'>{teanName}</p>
         <p className='team-comp'>2 Tanks 2 Offense 2 Support</p>
         <p className='team-player-num'>{team.number_of_players || 0} / 6</p>
       </li>

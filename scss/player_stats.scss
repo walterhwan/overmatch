@@ -8,16 +8,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-  .battleTag {
-    color: white;
-    font-size: 28px;
-    margin: 0px 5px;
-    overflow: hidden;
-  }
 }
 
 .player-stats {
+  height: 100%;
+
+  .name {
+    color: white;
+    font-size: 28px;
+    margin: 0px 5px;
+  }
 
   .player-stats-slot {
     display: flex;
@@ -29,12 +29,6 @@
 
     .portrait {
       width: 50px;
-    }
-
-    .battleTag {
-      font-size: 28px;
-      margin: 0px 5px;
-      overflow: hidden;
     }
 
     .rank_div {

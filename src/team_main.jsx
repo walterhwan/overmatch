@@ -33,13 +33,12 @@ class TeamMain extends React.Component {
           team: res.data,
           battleTagIndex: battleTagIndex,
         });
-        this.fetchUserInfo(battleTagIndex);
       })
   }
 
-  fetchUserInfo(battleTagIndex) {
-    battleTagIndex.forEach((battleTag, idx) => {
-      console.log(battleTag);
+  // fetchUserInfo(battleTagIndex) {
+  //   battleTagIndex.forEach((battleTag, idx) => {
+      // console.log(battleTag);
     //   axios.post(`${API_URL}/api/testing/`, {
     //     battleTag: battleTag,
     //   }).then(res => {
@@ -51,8 +50,8 @@ class TeamMain extends React.Component {
     //   }, (error) => {
     //     console.log(error);
     //   })
-    })
-  }
+  //   })
+  // }
 
   render() {
     let { battleTagIndex } = this.state;
@@ -65,6 +64,7 @@ class TeamMain extends React.Component {
             {
               battleTagIndex.map((tag, idx) => <PlayerInfo
                 battleTag={tag}
+                team={this.state.team}
                 key={`battleTag-${idx}`} pos={idx}/>)
             }
           </ul>
