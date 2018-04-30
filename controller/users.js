@@ -14,6 +14,11 @@ exports.apiBattleTagPUT = function(req, res) {
     user.authCode = req.body.authCode || user.authCode;
     user.battleTag = user.battleTag;
     user.team_id = req.body.team_id;
+    if(req.body.heros) {
+      // clear the old heros history
+      user.heros = [];
+      user.heros = user.heros.concat(req.body.heros);
+    }
     // console.log(req.body.team_id);
     // console.log(user);
     //save user
@@ -70,6 +75,7 @@ exports.apiPOST = function(req, res) {
   }
   user.authCode = authCode;
   user.team_id = req.body.team_id;
+  user.heros = user.heros.concat(req.body.heros);
   // User.find({battleTag: battleTag}, function(err, user2) {
   //   if (user2) {
   //     user2.authCode = authCode;

@@ -62,16 +62,17 @@ $white: #FDFFFC;
           width: 100%;
           .role-dropdown {
             height: 58px;
-            width: calc(100% - 68px);
+            // width: calc(100% - 68px);
+            width: 100%;
             font-size: 20px;
             text-align-last: center;
           }
-          .role-icon {
-            background: red;
-            border-radius: 5px;
-            height: 58px;
-            width: 68px;
-          }
+          // .role-icon {
+          //   background: grey;
+          //   border-radius: 5px;
+          //   height: 58px;
+          //   width: 68px;
+          // }
 
           position: relative;
         }
