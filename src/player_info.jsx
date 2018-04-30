@@ -2,16 +2,28 @@ import React from 'react';
 import PlayerStats from './player_stats';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
-// const API_URL = "http://localhost:8080";
+const cookies = new Cookies();
+
 const API_URL = "https://overmatch-api.herokuapp.com";
-// const API_URL = process.env.API_URL;
+
+
+const disableDropDownIfNotOwner = (team) => {
+  let currentBattleTag = cookies.get('battleTag');
+  // let team = this.state.team;
+  if (team && team.positions && currentBattleTag !== team.positions[0].battleTag) {
+    let els = document.querySelectorAll(".role-dropdown, .hero-dropdown")
+    els.forEach((el) => el.disabled=true);
+  }
+}
 
 class PlayerInfo extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      team: this.props.team,
       userInfo: this.props.userInfo,
       battleTag: this.props.battleTag,
     }
@@ -27,6 +39,7 @@ class PlayerInfo extends React.Component {
       this.team_id = "";
     }
 
+    disableDropDownIfNotOwner(this.props.team);
   }
 
   updateTeamDB (hero, role) {
@@ -47,7 +60,9 @@ class PlayerInfo extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
+    disableDropDownIfNotOwner(nextProps.team);
     return {
+      team: nextProps.team,
       battleTag: nextProps.battleTag,
     }
   }
