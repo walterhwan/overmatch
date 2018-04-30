@@ -12,30 +12,29 @@ class PlayerInfo extends React.Component {
     super(props);
 
     this.state = {
-      battleTag: this.props.battleTag
+      userInfo: this.props.userInfo,
+      battleTag: this.props.battleTag,
     }
     this.handleHeroSelect = this.handleHeroSelect.bind(this);
     this.handleRoleSelect = this.handleRoleSelect.bind(this);
     this.updateTeamDB = this.updateTeamDB.bind(this);
 
     // get team id from url:
-    // debugger
     this.team_id ="";
     if (this.props.location.pathname.match(/team\/(.*)/)) {
       this.team_id = this.props.location.pathname.match(/team\/(.*)/)[1];
     } else {
       this.team_id = "";
     }
+
   }
 
   updateTeamDB (hero, role) {
-    console.log(this.team_id);
-    // axios.defaults.port = 8080;
     axios.put(`${API_URL}/api/teams/${this.team_id}`, {
       heros: hero,
       role: role,
       battleTag: this.props.battleTag,
-      pos_index: this.props.pos
+      pos_index: this.props.pos,
     });
   }
 
@@ -45,6 +44,12 @@ class PlayerInfo extends React.Component {
 
   handleRoleSelect(e) {
     this.updateTeamDB([], e.target.value)
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      battleTag: nextProps.battleTag,
+    }
   }
 
   render() {
@@ -74,7 +79,9 @@ class PlayerInfo extends React.Component {
             </select>
           </div>
         </div>
-        <PlayerStats battleTag={this.state.battleTag || ""}/>
+        <PlayerStats
+          battleTag={this.state.battleTag || ""}
+          userInfo={this.state.userInfo}/>
       </li>
     );
   }

@@ -1,22 +1,16 @@
 import React from 'react';
 import PlayerInfo from './player_info';
 import axios  from 'axios';
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
-// import { HashRouter, Route, withRouter, Link, NavLink, Switch } from 'react-router-dom';
 const API_URL = "https://overmatch-api.herokuapp.com";
-// const API_URL = "http://localhost:8080";
-// const API_URL = process.env.API_URL;
 
 class TeamMain extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.fetchTeamInfo = this.fetchTeamInfo.bind(this);
-
-    let currentUserBattleTag = cookies.get('battleTag');
     this.state = {
-      battleTagIndex: [currentUserBattleTag, "", "", "", "", ""],
+      battleTagIndex: ["", "", "", "", "", ""],
+      userInfoIndex: [{}, {}, {}, {}, {}, {}],
       team: {},
     }
 
@@ -30,21 +24,46 @@ class TeamMain extends React.Component {
   }
 
   fetchTeamInfo(team_id) {
-    // axios.defaults.port = 8080;
     axios.get(`${API_URL}/api/teams/${team_id}`)
       .then(res => {
-        this.setState({ team: res.data });
+        let battleTagIndex = res.data.positions.map((pos) => {
+          return pos.battleTag
+        });
+        this.setState({
+          team: res.data,
+          battleTagIndex: battleTagIndex,
+        });
+        this.fetchUserInfo(battleTagIndex);
       })
   }
 
+  fetchUserInfo(battleTagIndex) {
+    battleTagIndex.forEach((battleTag, idx) => {
+      console.log(battleTag);
+    //   axios.post(`${API_URL}/api/testing/`, {
+    //     battleTag: battleTag,
+    //   }).then(res => {
+    //     let userInfoIndex = this.state.userInfoIndex.slice();
+    //     userInfoIndex[idx] = res.data;
+    //     this.setState({
+    //       userInfoIndex: userInfoIndex,
+    //     })
+    //   }, (error) => {
+    //     console.log(error);
+    //   })
+    })
+  }
+
   render() {
+    let { battleTagIndex } = this.state;
+
     return (
       <main className='team-main'>
         <div className='team-div'>
           <h1 className='team-name'>{this.state.team.team_name}</h1>
           <ul className='team-members'>
             {
-              this.state.battleTagIndex.map((tag, idx) => <PlayerInfo
+              battleTagIndex.map((tag, idx) => <PlayerInfo
                 battleTag={tag}
                 key={`battleTag-${idx}`} pos={idx}/>)
             }

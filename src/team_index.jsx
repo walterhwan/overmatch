@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-// import { AuthRoute, ProtectedRoute } from './util/route_util';
-// import { ProtectedRoute } from './util/route_util';
+const API_URL = "https://overmatch-api.herokuapp.com";
 
 class TeamIndex extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ class TeamIndex extends React.Component {
       teams: [],
     }
 
-    axios.get(`http://localhost:8080/api/teams`)
+    axios.get(`${API_URL}/api/teams`)
       .then((res) => {
         this.setState({
           teams: res.data,
