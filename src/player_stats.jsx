@@ -1,39 +1,42 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
 import axios from 'axios';
-// import Cookies from 'universal-cookie';
-// const cookies = new Cookies();
-// const API_URL = "http://localhost:8080";
+
 const API_URL = "https://overmatch-api.herokuapp.com";
+const cookies = new Cookies();
 
 class PlayerStats extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userInfo: {}
+      userInfo: this.props.userInfo,
+      battleTag: this.props.battleTag,
+      team_id: this.props.team_id,
+      pos: this.props.pos
     }
 
-    this.getUserInfoByBattleTag = this.getUserInfoByBattleTag.bind(this);
     this.copyBattleTag = this.copyBattleTag.bind(this);
+    this.joinTeam = this.joinTeam.bind(this);
+    this.updateTeam = this.updateTeam.bind(this);
+    this.searchBattleTagInTeam = this.searchBattleTagInTeam.bind(this);
     // this.getUserInfoByBattleTag(cookies.get('battleTag'));
-    if (this.props.battleTag) {
-      this.getUserInfoByBattleTag(this.props.battleTag);
-    }
+    // if (this.props.battleTag) {
+    //   this.getUserInfoByBattleTag(this.props.battleTag);
+    // }
   }
-
-  getUserInfoByBattleTag(battleTag) {
-    // axios.defaults.port = 8080;
-    axios.post(`${API_URL}/api/testing/`, {
-      battleTag: battleTag
-    }).then(res => {
-      // console.log(res);
-        this.setState({
-          userInfo: res.data
-        })
-      }, (error) => {
-        console.log(error);
-      })
-  }
+  //
+  // getUserInfoByBattleTag(battleTag) {
+  //   axios.post(`${API_URL}/api/testing/`, {
+  //     battleTag: battleTag,
+  //   }).then(res => {
+  //       this.setState({
+  //         userInfo: res.data,
+  //       })
+  //     }, (error) => {
+  //       console.log(error);
+  //     })
+  // }
 
   render_rank(userInfo) {
     if(userInfo.competitive === undefined || userInfo.competitive.rank === null) {
@@ -51,8 +54,6 @@ class PlayerStats extends React.Component {
   }
 
   copyBattleTag() {
-    let { userInfo } = this.state;
-
     var range = document.createRange();
     var selection = window.getSelection();
     range.selectNodeContents(document.getElementById('battleTag'));
@@ -64,18 +65,61 @@ class PlayerStats extends React.Component {
     selection.removeAllRanges();
   }
 
+  checkBattleTag(res, battleTag) {
+    for(let i = 0; i < res.data.positions.length; i++) {
+      if(res.data.positions[i].battleTag === battleTag) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  searchBattleTagInTeam(battleTag, pos) {
+    axios.get(`${API_URL}/api/teams/${this.state.team_id}`)
+      .then(res => {
+        // debugger
+        if(this.checkBattleTag(res, battleTag)) {
+          if(res.data.positions[pos].battleTag === "") {
+            this.updateTeam(battleTag)
+            this.setState({battleTag: battleTag})
+          }
+        }
+      })
+  }
+
+  updateTeam(battleTag) {
+    // need to get team id
+    // debugger
+    axios.put(`${API_URL}/api/teams/${this.state.team_id}`, {
+      battleTag: battleTag,
+      pos_index: this.state.pos
+    });
+  }
+
+  joinTeam(e) {
+    let battleTag = cookies.get('battleTag');
+    this.searchBattleTagInTeam(battleTag, this.state.pos)
+
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      battleTag: nextProps.battleTag,
+    };
+  }
+
   render() {
-    let { userInfo } = this.state;
-    if (this.props.battleTag) {
+    // debugger
+    // let { userInfo } = this.state;
+    if (this.state.battleTag) {
       return (
         <div className='player-stats tooltip' onClick={this.copyBattleTag}>
           <div className='player-stats-slot smooth-border'>
-            <img className='portrait smooth-border' alt='portrait' src={userInfo.portrait}></img>
             <p
-              className='battleTag'
+              className='name'
               id='battleTag'
-              scrolling="no">{this.props.battleTag}</p>
-              {this.render_rank(this.state.userInfo)}
+              scrolling="no">{this.state.battleTag}</p>
           </div>
           <ul className='favorite-heros'>
             <li></li>
@@ -84,7 +128,7 @@ class PlayerStats extends React.Component {
       );
     } else {
       return (
-        <div className='player-stats empty'>
+        <div className='player-stats empty' onClick={this.joinTeam}>
           <p className='name' scrolling="no">OPEN</p>
         </div>
       );
@@ -93,3 +137,19 @@ class PlayerStats extends React.Component {
 }
 
 export default PlayerStats;
+
+// return (
+//   <div className='player-stats tooltip' onClick={this.copyBattleTag}>
+//     <div className='player-stats-slot smooth-border'>
+//       <img className='portrait smooth-border' alt='portrait' src={userInfo.portrait}></img>
+//       <p
+//         className='battleTag'
+//         id='battleTag'
+//         scrolling="no">{this.props.battleTag}</p>
+//         {this.render_rank(this.state.userInfo)}
+//     </div>
+//     <ul className='favorite-heros'>
+//       <li></li>
+//     </ul>
+//   </div>
+// );

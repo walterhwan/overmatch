@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-// import { AuthRoute, ProtectedRoute } from './util/route_util';
-// import { ProtectedRoute } from './util/route_util';
+const API_URL = "https://overmatch-api.herokuapp.com";
 
 class TeamIndex extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ class TeamIndex extends React.Component {
       teams: [],
     }
 
-    axios.get(`http://localhost:8080/api/teams`)
+    axios.get(`${API_URL}/api/teams`)
       .then((res) => {
         this.setState({
           teams: res.data,
@@ -30,10 +29,13 @@ class TeamIndex extends React.Component {
 
   renderTeam(team) {
     let teanName = team.team_name;
+    let numOfTank = team.positions.filter(pos => pos.role === 'Tank').length;
+    let numOfDPS = team.positions.filter(pos => pos.role === 'Offense' || pos.role === 'Defense').length;
+    let numOfSupport = team.positions.filter(pos => pos.role === 'Support').length;
     return (
       <li className='team-li' onClick={this.handleOnClick(team)} key={team._id}>
-        <p className='team-id'>{teanName}</p>
-        <p className='team-comp'>2 Tanks 2 Offense 2 Support</p>
+        <p className='team-name'>{teanName}</p>
+        <p className='team-comp'>{`${numOfTank} Tanks ${numOfDPS} Offense ${numOfSupport} Support`}</p>
         <p className='team-player-num'>{team.number_of_players || 0} / 6</p>
       </li>
     );

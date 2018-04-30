@@ -4,7 +4,7 @@ let Pos = teamModel.pos;
 let assert = require('assert')
 var bodyParser = require('body-parser');
 
-exports.apiSingleUserGET = function(req, res) {
+exports.apiSingleTeamGET = function(req, res) {
   // console.log(req.params.team_id);
   const team_id = req.params.team_id;
   Team.findOne({_id: team_id}).sort('updatedAt')
@@ -20,7 +20,7 @@ exports.apiSingleUserGET = function(req, res) {
 
 exports.apiGET = function(req, res) {
   Team.find().sort('updatedAt')
-          .limit(10)
+          .limit(20)
           .exec(function(err, teams) {
     if (err) {
       res.send(err);
@@ -72,11 +72,13 @@ exports.apiPUT = function(req, res) {
     team.positions[pos_index].role = req.body.role || team.positions[pos_index].role;
     team.positions[pos_index].battleTag = req.body.battleTag || team.positions[pos_index].battleTag;
 
-    if (!team.positions[pos_index].heros.includes(req.body.heros)) {
-      if (team.positions[pos_index].heros.length >= 3) {
-        team.positions[pos_index].heros.shift();
+    if(req.body.heros) {
+      if (!team.positions[pos_index].heros.includes(req.body.heros)) {
+        if (team.positions[pos_index].heros.length >= 3) {
+          team.positions[pos_index].heros.shift();
+        }
+        team.positions[pos_index].heros = team.positions[pos_index].heros.concat(req.body.heros);
       }
-      team.positions[pos_index].heros = team.positions[pos_index].heros.concat(req.body.heros);
     }
 
     team.number_of_players = req.body.number_of_players || team.number_of_players;
