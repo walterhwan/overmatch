@@ -45,7 +45,12 @@ class PlayerInfo extends React.Component {
 
   handleRoleSelect(e) {
     this.updateTeamDB([], e.target.value)
+    //swap role icon
+    const image = document.getElementById("role-icon");
+    image.src = `../images/${e.target.value.toLowerCase()}Icon.png`
   }
+
+
 
   render() {
     return (
@@ -65,7 +70,7 @@ class PlayerInfo extends React.Component {
         <div className='role-div'>
           <h1>Role</h1>
           <div className='role-select'>
-            <img className="role-icon" alt='icon' src="../images/supportIcon.png"></img>
+            <img className="role-icon" id="role-icon" alt='icon' src="../images/tankIcon.png" ></img>
             <select className="role-dropdown" onChange={this.handleRoleSelect}>
               <option value='Tank'>Tank</option>
               <option value='Support'>Support</option>
