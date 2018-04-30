@@ -1,6 +1,4 @@
 .player-stats.empty {
-  min-height: 50px;
-  max-width: 220px;
   padding: 3px;
   border: 1px dashed $white;
   border-radius: 5px;
@@ -12,6 +10,8 @@
 
 .player-stats {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .name {
     color: white;
@@ -21,10 +21,12 @@
 
   .player-stats-slot {
     display: flex;
+    height: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 3px;
     max-width: 220px;
+    padding: 3px;
     border: 1px solid $white;
 
     .portrait {

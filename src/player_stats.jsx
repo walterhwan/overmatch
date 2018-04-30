@@ -115,7 +115,7 @@ class PlayerStats extends React.Component {
     if (this.state.battleTag) {
       return (
         <div className='player-stats tooltip' onClick={this.copyBattleTag}>
-          <div className='player-stats-slot smooth-border'>
+          <div className='player-stats-slot'>
             <p
               className='name'
               id='battleTag'
