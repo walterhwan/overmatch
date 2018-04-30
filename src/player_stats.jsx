@@ -1,39 +1,31 @@
 import React from 'react';
-import axios from 'axios';
-// import Cookies from 'universal-cookie';
-// const cookies = new Cookies();
-// const API_URL = "http://localhost:8080";
-const API_URL = "https://overmatch-api.herokuapp.com";
 
 class PlayerStats extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userInfo: {}
+      userInfo: this.props.userInfo,
     }
 
-    this.getUserInfoByBattleTag = this.getUserInfoByBattleTag.bind(this);
     this.copyBattleTag = this.copyBattleTag.bind(this);
     // this.getUserInfoByBattleTag(cookies.get('battleTag'));
-    if (this.props.battleTag) {
-      this.getUserInfoByBattleTag(this.props.battleTag);
-    }
+    // if (this.props.battleTag) {
+    //   this.getUserInfoByBattleTag(this.props.battleTag);
+    // }
   }
-
-  getUserInfoByBattleTag(battleTag) {
-    // axios.defaults.port = 8080;
-    axios.post(`${API_URL}/api/testing/`, {
-      battleTag: battleTag
-    }).then(res => {
-      // console.log(res);
-        this.setState({
-          userInfo: res.data
-        })
-      }, (error) => {
-        console.log(error);
-      })
-  }
+  //
+  // getUserInfoByBattleTag(battleTag) {
+  //   axios.post(`${API_URL}/api/testing/`, {
+  //     battleTag: battleTag,
+  //   }).then(res => {
+  //       this.setState({
+  //         userInfo: res.data,
+  //       })
+  //     }, (error) => {
+  //       console.log(error);
+  //     })
+  // }
 
   render_rank(userInfo) {
     if(userInfo.competitive === undefined || userInfo.competitive.rank === null) {
@@ -51,8 +43,6 @@ class PlayerStats extends React.Component {
   }
 
   copyBattleTag() {
-    let { userInfo } = this.state;
-
     var range = document.createRange();
     var selection = window.getSelection();
     range.selectNodeContents(document.getElementById('battleTag'));
@@ -66,7 +56,7 @@ class PlayerStats extends React.Component {
 
   render() {
     let { userInfo } = this.state;
-    if (this.props.battleTag) {
+    if (this.props.battleTag && this.props.userInfo) {
       return (
         <div className='player-stats tooltip' onClick={this.copyBattleTag}>
           <div className='player-stats-slot smooth-border'>
