@@ -81,6 +81,7 @@ class PlayerStats extends React.Component {
         counter++;
       }
     }
+    // debugger
     return counter;
   }
 
@@ -91,8 +92,8 @@ class PlayerStats extends React.Component {
         if(this.checkBattleTag(res, battleTag)) {
           if(res.data.positions[pos].battleTag === "") {
             let cnt = this.countPlayer(res);
-            this.updateTeam(battleTag, cnt)
-            this.setState({battleTag: battleTag})
+            this.updateTeam(battleTag, cnt+1);
+            this.setState({battleTag: battleTag});
           }
         }
       })
