@@ -10,11 +10,14 @@ const API_URL = "https://overmatch-api.herokuapp.com";
 class PlayerInfo extends React.Component {
   constructor(props) {
     super(props);
-
+    // debugger
     this.state = {
       userInfo: this.props.userInfo,
       battleTag: this.props.battleTag,
+      pos: this.props.pos
     }
+
+    // debugger
     this.handleHeroSelect = this.handleHeroSelect.bind(this);
     this.handleRoleSelect = this.handleRoleSelect.bind(this);
     this.updateTeamDB = this.updateTeamDB.bind(this);
@@ -56,6 +59,7 @@ class PlayerInfo extends React.Component {
   }
 
   render() {
+    // debugger
     return (
       <li className='player smooth-border' id='player-1'>
         <div className='hero-div'>
@@ -82,6 +86,8 @@ class PlayerInfo extends React.Component {
           </div>
         </div>
         <PlayerStats
+          team_id={this.team_id}
+          pos={this.state.pos}
           battleTag={this.state.battleTag || ""}
           userInfo={this.state.userInfo}/>
       </li>
