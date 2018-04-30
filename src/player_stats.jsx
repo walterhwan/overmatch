@@ -19,6 +19,7 @@ class PlayerStats extends React.Component {
     this.copyBattleTag = this.copyBattleTag.bind(this);
     this.joinTeam = this.joinTeam.bind(this);
     this.updateTeam = this.updateTeam.bind(this);
+    this.searchBattleTagInTeam = this.searchBattleTagInTeam.bind(this);
     // this.getUserInfoByBattleTag(cookies.get('battleTag'));
     // if (this.props.battleTag) {
     //   this.getUserInfoByBattleTag(this.props.battleTag);
@@ -64,9 +65,32 @@ class PlayerStats extends React.Component {
     selection.removeAllRanges();
   }
 
+  checkBattleTag(res, battleTag) {
+    for(let i = 0; i < res.data.positions.length; i++) {
+      if(res.data.positions[i].battleTag === battleTag) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  searchBattleTagInTeam(battleTag, pos) {
+    axios.get(`${API_URL}/api/teams/${this.state.team_id}`)
+      .then(res => {
+        // debugger
+        if(this.checkBattleTag(res, battleTag)) {
+          if(res.data.positions[pos].battleTag === "") {
+            this.updateTeam(battleTag)
+            this.setState({battleTag: battleTag})
+          }
+        }
+      })
+  }
+
   updateTeam(battleTag) {
     // need to get team id
-    debugger
+    // debugger
     axios.put(`${API_URL}/api/teams/${this.state.team_id}`, {
       battleTag: battleTag,
       pos_index: this.state.pos
@@ -77,9 +101,10 @@ class PlayerStats extends React.Component {
     let battleTag = cookies.get('battleTag');
     // check if this battleTag exists in the team
     // save the database
-    this.updateTeam(battleTag)
+    // this.updateTeam(battleTag)
+    // this.setState({battleTag: battleTag})
+    this.searchBattleTagInTeam(battleTag, this.state.pos)
 
-    this.setState({battleTag: battleTag})
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
